@@ -14,4 +14,4 @@ cd gene-page
 npm ci
 npm start
 ```
-Access to localhost:3000.
+Access to localhost:8100.
