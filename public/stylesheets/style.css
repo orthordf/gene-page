@@ -1,0 +1,27 @@
+hmtl {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  line-height: 1.5;
+  color: #212529;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
+
+.rounded-button {
+  /* width: 8em; */
+  cursor: pointer;
+  border: solid 1px gray;
+  border-radius: 0.8em;
+  opacity: 0.75;
+}
+
+.rounded-button:hover {
+  /* transform: translateY(0.05rem); */
+  opacity: 1;
+}

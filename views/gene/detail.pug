@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+  table(border=1)
+    thead(align='left')
+      each header in Object.keys(summaryTable)
+        th=header
+    tbody
+      each header in Object.keys(summaryTable)
+        td
+          each content in summaryTable[header].split('|')
+            =content
+            br
