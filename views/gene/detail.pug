@@ -1,6 +1,7 @@
 extends ../layout
 
 block content
+  h2=`${symbol}: ${description}`
   table(border=1)
     thead(align='left')
       each header in Object.keys(summaryTable)
@@ -11,3 +12,20 @@ block content
           each content in summaryTable[header].split('|')
             =content
             br
+  span Go to <a href=https://www.ncbi.nlm.nih.gov/gene/#{id}>NCBI</a>, go to <a href=https://en.wikipedia.org/wiki/#{symbol}>Wikipedia</a>
+
+  h3 RefSeq
+  table(border=1)
+    thead(align='left')
+      tr
+        th='Status'
+        th='RefSeq protein ID'
+        th='RefSeq RNA ID'
+    tbody
+      each status in Object.keys(refseqStatusTable).sort()
+        each rnaVersion in Object.keys(refseqStatusTable[status]).sort()
+          each proteinVersion in Array.from(refseqStatusTable[status][rnaVersion])
+            tr
+              td=status
+              td=proteinVersion
+              td=rnaVersion
