@@ -1,5 +1,6 @@
 const fs = require('fs');
 const Papa = require('papaparse')
+const { Gene2RefSeqTax9606 } = require('../models')
 
 const headers = [
   "GeneID",
@@ -37,7 +38,7 @@ function getGeneInfo(geneId) {
 }
 
 
-function getRefseqInfo(geneId, seed) {
+function getRefSeqInfoLegacy(geneId, seed) {
   let fileContent = fs.readFileSync("gene_data/gene2refseq_tax9606").toString();
   let gene2RefSeqInfo = Papa.parse(fileContent, {
     header: true
@@ -59,12 +60,33 @@ function getRefseqInfo(geneId, seed) {
   return refseqStatusTable;
 }
 
+async function getRefseqInfo(geneId, seed) {
+  let refseqStatusTable = {};
+  let records = await Gene2RefSeqTax9606.findAll({ where: { gene_id: geneId } });
+  for(let row of records) {
+    row = row.dataValues;
+    console.log({row});
+    let RNAVersion = row['rna_nucleotide_accession_version'];
+    let ProteinVersion = row['protein_accession_version'];
+    let status = row['status'];
+    if(RNAVersion !== '-' || ProteinVersion !== '-') {
+      refseqStatusTable[status] ||= {};
+      refseqStatusTable[status][RNAVersion] ||= new Set();
+      refseqStatusTable[status][RNAVersion].add(ProteinVersion);
+      seed[ProteinVersion] = 1; // TODO: What does '1' mean?
+    }
+  }
+  console.log({refseqStatusTable});
+  return refseqStatusTable;
+}
+
+
 const geneController = {
   async detail(req, res, next) {
     const id = req.params.id;
     const [symbol, description, summaryTable] = getGeneInfo(id);
     const seed = {};
-    const refseqStatusTable = getRefseqInfo(id, seed);
+    const refseqStatusTable = await getRefseqInfo(id, seed);
     res.render('gene/detail', {
       title: 'Gene info',
       id,
