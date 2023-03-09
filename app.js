@@ -3,6 +3,7 @@ let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
+let config = require('./config/config.json');
 
 let indexRouter = require('./routes/index');
 let genesRouter = require('./routes/genes');
@@ -17,10 +18,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(config.baseUrl, express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/genes', genesRouter);
+app.locals.staticFilePath = (filePath) => path.join(config.baseUrl, filePath);
+
+app.use(config.baseUrl, indexRouter);
+app.use(path.join(config.baseUrl, 'genes'), genesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
