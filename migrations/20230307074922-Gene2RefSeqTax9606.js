@@ -26,15 +26,19 @@ module.exports = {
       mature_peptide_accession_version: { type: Sequelize.STRING },
       mature_peptide_gi: { type: Sequelize.STRING },
       symbol: { type: Sequelize.STRING },
-    }).then(() => queryInterface.addIndex('gene2refseq_tax9606', ['tax_id', 'gene_id']));
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      }
+    }).then(() => queryInterface.addIndex('gene2refseq_tax9606', ['tax_id']))
+      .then(() => queryInterface.addIndex('gene2refseq_tax9606', ['gene_id']));
   },
 
   async down (queryInterface, Sequelize) {
-    /**
-     * Add reverting commands here.
-     *
-     * Example:
-     * await queryInterface.dropTable('users');
-     */
+    await queryInterface.dropTable('gene2refseq_tax9606');
   }
 };

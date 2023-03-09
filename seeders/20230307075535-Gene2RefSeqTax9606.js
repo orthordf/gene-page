@@ -13,7 +13,6 @@ module.exports = {
 
     let records = gene2RefSeqInfo.data.map(record => {
       let {
-
         "#tax_id": tax_id,
         GeneID: gene_id,
         status,
@@ -49,6 +48,8 @@ module.exports = {
         mature_peptide_accession_version,
         mature_peptide_gi,
         symbol,
+        createdAt: Date.now(),
+        updatedAt: Date.now()
       }
     });
 
