@@ -10,10 +10,12 @@ module.exports = {
       header: true
     });
 
-    let records = geneInfos.data.map(record => {
+    let geneMap = {};
+
+    let records = geneInfos.data.forEach(record => {
       let {
         "#tax_id": tax_id,
-        GeneID: gene_id,
+        GeneID: id,
         Symbol: symbol,
         LocusTag: locus_tag,
         Synonyms: synonyms,
@@ -30,9 +32,9 @@ module.exports = {
         Feature_type: feature_type
       } = record;
 
-      return {
+      geneMap[id] = {
+        id,
         tax_id,
-        gene_id,
         symbol,
         locus_tag,
         synonyms,
@@ -49,10 +51,37 @@ module.exports = {
         feature_type,
         createdAt: Date.now(),
         updatedAt: Date.now()
+      };
+    });
+
+    let homologeneFileContent = fs.readFileSync("gene_data/homologene.data").toString();
+    let homologeneInfos = Papa.parse(homologeneFileContent);
+    let groupMap = {};
+    homologeneInfos.data.forEach(h => {
+      let groupId = h[0];
+      let geneId = h[2];
+      if(geneId in geneMap) {
+        geneMap[geneId].group_id = groupId;
+        geneMap[geneId].protein_id = h[5];
+      } else {
+        geneMap[geneId] = {
+          id: geneId,
+          tax_id: h[1],
+          group_id: groupId,
+          symbol: h[3],
+          protein_id: h[5],
+          createdAt: Date.now(),
+          updatedAt: Date.now()
+        };
       }
     });
 
-    return queryInterface.bulkInsert('gene_infos', records);
+    await queryInterface.bulkDelete("gene_infos", null, {
+      truncate: true,
+      cascade: true,
+    });
+
+    return queryInterface.bulkInsert('gene_infos', Object.values(geneMap));
   },
 
   async down (queryInterface, Sequelize) {

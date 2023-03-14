@@ -5,14 +5,16 @@ module.exports = {
     await queryInterface.createTable('gene_infos', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
       tax_id: {
         type: Sequelize.STRING
       },
-      gene_id: {
+      group_id: {
+        type: Sequelize.STRING
+      },
+      protein_id: {
         type: Sequelize.STRING
       },
       symbol: {
@@ -66,8 +68,8 @@ module.exports = {
         type: Sequelize.DATE
       }
     }).then(() => queryInterface.addIndex('gene_infos', ['tax_id']))
-      .then(() => queryInterface.addIndex('gene_infos', ['gene_id']));
-},
+      .then(() => queryInterface.addIndex('gene_infos', ['group_id']));
+  },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('gene_infos');
   }

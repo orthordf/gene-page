@@ -5,12 +5,12 @@ const createError = require("http-errors");
 
 
 async function getGeneInfo(geneId) {
-  let geneInfo = await GeneInfo.findOne({ where: { gene_id: geneId } });
-  let summaryTable = geneInfo.dataValues, symbol = '', description = '';
-  delete summaryTable.id;
+  let geneInfo = await GeneInfo.findOne({ where: { id: geneId } });
+  geneInfo = geneInfo.dataValues
+  let symbol = '', description = '';
   symbol = geneInfo['symbol'];
   description = geneInfo['description'];
-  return [symbol, description, summaryTable];
+  return [symbol, description, geneInfo];
 }
 
 async function getRefseqInfo(geneId, seed) {
@@ -32,19 +32,28 @@ async function getRefseqInfo(geneId, seed) {
 }
 
 
+async function getHomologenes(groupId) {
+  let records = await GeneInfo.findAll({ where: { group_id: groupId } });
+  return records.map(r => r.dataValues);
+}
+
+
 const geneController = {
   async detail(req, res, next) {
     const id = req.params.id;
-    const [symbol, description, summaryTable] = await getGeneInfo(id);
+    const [symbol, description, geneInfo] = await getGeneInfo(id);
     const seed = {};
     const refseqStatusTable = await getRefseqInfo(id, seed);
+    const homologenes = await getHomologenes(geneInfo.group_id);
+
     res.render('gene/detail', {
       title: 'Gene info',
       id,
       symbol,
       description,
-      summaryTable,
-      refseqStatusTable
+      geneInfo,
+      refseqStatusTable,
+      homologenes
     });
   }
 };

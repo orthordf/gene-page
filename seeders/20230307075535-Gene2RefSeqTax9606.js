@@ -53,6 +53,12 @@ module.exports = {
       }
     });
 
+    await queryInterface.bulkDelete("gene2refseq_tax9606", null, {
+      truncate: true,
+      cascade: true,
+    });
+
+
     return queryInterface.bulkInsert('gene2refseq_tax9606', records);
   },
 

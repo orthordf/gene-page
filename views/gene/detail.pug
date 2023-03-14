@@ -4,12 +4,12 @@ block content
   h2=`${symbol}: ${description}`
   table(border=1)
     thead(align='left')
-      each header in Object.keys(summaryTable)
+      each header in Object.keys(geneInfo)
         th=header
     tbody
-      each header in Object.keys(summaryTable)
+      each header in Object.keys(geneInfo)
         td
-          each content in summaryTable[header].split('|')
+          each content in geneInfo[header].toString().split('|')
             =content
             br
   span Go to <a href=https://www.ncbi.nlm.nih.gov/gene/#{id}>NCBI</a>, go to <a href=https://en.wikipedia.org/wiki/#{symbol}>Wikipedia</a>
@@ -29,3 +29,18 @@ block content
               td=status
               td=proteinVersion
               td=rnaVersion
+
+  h3=`HomoloGene: ${geneInfo.group_id}`
+  table(border=1)
+    thead(align='left')
+      tr
+        th='Gene ID'
+        th='Gene symbol'
+        //th='RefSeq'
+        th='TaxID'
+    tbody
+      each homologene in homologenes
+        tr
+          td=homologene.id
+          td=homologene.symbol
+          td=homologene.tax_id

@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   GeneInfo.init({
     tax_id: DataTypes.STRING,
-    gene_id: DataTypes.STRING,
+    group_id: DataTypes.STRING,
     symbol: DataTypes.STRING,
     locus_tag: DataTypes.STRING,
     synonyms: DataTypes.STRING,
