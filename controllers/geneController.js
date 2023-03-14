@@ -8,7 +8,7 @@ async function getGeneInfo(geneId) {
   let geneInfo = await GeneInfo.findOne({ where: { gene_id: geneId } });
   let summaryTable = geneInfo.dataValues, symbol = '', description = '';
   delete summaryTable.id;
-  symbol = geneInfo['Symbol'];
+  symbol = geneInfo['symbol'];
   description = geneInfo['description'];
   return [symbol, description, summaryTable];
 }
