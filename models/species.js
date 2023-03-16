@@ -25,7 +25,9 @@ module.exports = (sequelize, DataTypes) => {
     annotation_date: DataTypes.STRING,
     input_genes: DataTypes.STRING,
     grouped_genes: DataTypes.STRING,
-    groups: DataTypes.STRING
+    groups: DataTypes.STRING,
+    wikidata_url: DataTypes.STRING,
+    wikidata_thumbnail_url: DataTypes.STRING
   }, {
     sequelize,
     tableName: 'species',

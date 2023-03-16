@@ -25,3 +25,7 @@ table {
   /* transform: translateY(0.05rem); */
   opacity: 1;
 }
+
+.species-thumbnail {
+  height: 25px;
+}

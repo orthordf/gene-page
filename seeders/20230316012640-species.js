@@ -10,6 +10,20 @@ module.exports = {
       header: true
     });
 
+
+    fileContent = fs.readFileSync("gene_data/wikidata_images.tsv").toString();
+    let wikidataRecords = Papa.parse(fileContent, {
+      header: true
+    });
+
+    let wikidataMap = {};
+    wikidataRecords.data.filter(r => r.taxid).forEach(record => {
+      wikidataMap[record.taxid] = {
+        url: record.url,
+        thumbnail_url: record.thumb
+      };
+    });
+
     let records = speciesRecords.data.filter(r => r.No).map(record => {
       let {
         "No": sp_order,
@@ -28,6 +42,8 @@ module.exports = {
         "Groups": groups
       } = record;
 
+      let wikidataEntry = wikidataMap[id]
+
       return {
         id,
         sp_order,
@@ -43,6 +59,8 @@ module.exports = {
         input_genes,
         grouped_genes,
         groups,
+        wikidata_url: wikidataEntry?.url,
+        wikidata_thumbnail_url: wikidataEntry?.thumbnail_url,
         createdAt: (new Date()).toISOString(),
         updatedAt: (new Date()).toISOString()
       }

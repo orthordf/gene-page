@@ -48,6 +48,12 @@ module.exports = {
       groups: {
         type: Sequelize.STRING
       },
+      wikidata_url: {
+        type: Sequelize.STRING
+      },
+      wikidata_thumbnail_url: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

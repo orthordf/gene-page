@@ -41,6 +41,7 @@ block content
         th='Scientific name'
         th='Common name'
         th='Comment'
+        th='Wikidata'
     tbody
       each homologene in homologenes
         tr
@@ -52,3 +53,9 @@ block content
           td=homologene.Species.scientific_name
           td=homologene.Species.common_name
           td=homologene.Species.comment
+          td
+            a(href=homologene.Species.wikidata_url, target='_blank' rel='noopener noreferrer')
+              if homologene.Species.wikidata_thumbnail_url
+                img.species-thumbnail(src=`${homologene.Species.wikidata_thumbnail_url}?height=25`)
+              else
+                ="Wikidata"
