@@ -36,11 +36,19 @@ block content
       tr
         th='Gene ID'
         th='Gene symbol'
-        //th='RefSeq'
+        th='RefSeq'
         th='TaxID'
+        th='Scientific name'
+        th='Common name'
+        th='Comment'
     tbody
       each homologene in homologenes
         tr
           td=homologene.id
           td=homologene.symbol
-          td=homologene.tax_id
+          td=homologene.protein_id
+          td
+            a(href=`https://orth.dbcls.jp/taxid/${homologene.tax_id}`)=homologene.tax_id
+          td=homologene.Species.scientific_name
+          td=homologene.Species.common_name
+          td=homologene.Species.comment

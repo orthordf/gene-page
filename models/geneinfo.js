@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class GeneInfo extends Model {
     /**
@@ -10,12 +11,15 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      this.belongsTo(models.Species, {
+        foreignKey: 'tax_id'
+      });
     }
   }
   GeneInfo.init({
     tax_id: DataTypes.STRING,
     group_id: DataTypes.STRING,
+    protein_id: DataTypes.STRING,
     symbol: DataTypes.STRING,
     locus_tag: DataTypes.STRING,
     synonyms: DataTypes.STRING,
@@ -36,5 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'gene_infos',
     timestamps: false,
   });
+
+  // GeneInfo.belongsTo(Species);
   return GeneInfo;
 };

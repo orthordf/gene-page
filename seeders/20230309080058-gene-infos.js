@@ -49,14 +49,13 @@ module.exports = {
         other_designations,
         modification_date,
         feature_type,
-        createdAt: Date.now(),
-        updatedAt: Date.now()
+        createdAt: (new Date()).toISOString(),
+        updatedAt: (new Date()).toISOString()
       };
     });
 
     let homologeneFileContent = fs.readFileSync("gene_data/homologene.data").toString();
     let homologeneInfos = Papa.parse(homologeneFileContent);
-    let groupMap = {};
     homologeneInfos.data.forEach(h => {
       let groupId = h[0];
       let geneId = h[2];

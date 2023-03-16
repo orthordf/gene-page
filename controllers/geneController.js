@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Papa = require('papaparse')
-const { Gene2RefSeqTax9606, GeneInfo } = require('../models')
+const { Gene2RefSeqTax9606, GeneInfo, Species } = require('../models')
 const createError = require("http-errors");
 
 
@@ -33,7 +33,7 @@ async function getRefseqInfo(geneId, seed) {
 
 
 async function getHomologenes(groupId) {
-  let records = await GeneInfo.findAll({ where: { group_id: groupId } });
+  let records = await GeneInfo.findAll({ where: { group_id: groupId }, include: Species });
   return records.map(r => r.dataValues);
 }
 
