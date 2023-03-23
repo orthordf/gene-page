@@ -1,5 +1,8 @@
 extends ../layout
 
+block head
+  script(src="https://cdn.plot.ly/plotly-2.18.2.min.js")
+
 block content
   h2=`${symbol}: ${description}`
   table(border=1)
@@ -59,3 +62,45 @@ block content
                 img.species-thumbnail(src=`${homologene.Species.wikidata_thumbnail_url}?height=25`)
               else
                 ="Wikidata"
+
+
+
+  if blastScores !== null
+    h3=`BLAST`
+      div.blast-plot
+
+block script
+  if blastScores !== null
+    script.
+      let blastPlot = document.querySelector('.blast-plot');
+      let blastScores = !{JSON.stringify(blastScores)}
+
+      const blastSpecies = [
+        'human', 'chimp', 'monkey', 'mouse', 'rat', 'dog', 'cow', 'chicken', 'Xenopus', 'zebrafish', 'Drosophila', 'mosquito', 'nematode',
+        'yeast', '', '', '', '', '', 'plant', ''
+      ];
+
+      Plotly.newPlot( blastPlot, [
+          {
+            x: blastScores.map(s => s.speciesIndex - 1),
+            y: blastScores.map(s => s.score),
+            mode: 'markers',
+            type: 'scatter',
+            marker: {
+              color: blastScores.map(s => (s.isBBH ? 'red' : 'black'))
+            }
+          }
+        ],
+        {
+          xaxis: {
+            tickvals: [...Array(blastSpecies.length).keys()],
+            ticktext: blastSpecies,
+            tickangle: -90,
+            zeroline: false,
+            range: [-1, blastSpecies.length - 1]
+          },
+          yaxis: {
+            title: "BLAST score"
+          }
+        },
+      );

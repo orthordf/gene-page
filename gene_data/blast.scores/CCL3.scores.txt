@@ -1,0 +1,353 @@
+1	NP_002974.1	NP_002974.1	188	188		1			
+2	NP_002974.1	NP_001029254.1	182 182	182	C-C motif chemokine 3 precursor [Pan troglodytes]	1	182	1.000	NP_002974.1
+1	NP_002974.1	NP_001001437.2	176 176	176	C-C motif chemokine 3-like 1 precursor [Homo sapiens]	0			
+1	NP_002974.1	NP_066286.1	176 176	176	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+3	NP_002974.1	NP_001029372.1	173 173	173	C-C motif chemokine 3 precursor [Macaca mulatta]	1	173	1.000	NP_002974.1
+3	NP_002974.1	XP_002800705.2	169 169	169	C-C motif chemokine 3-like 1 [Macaca mulatta]	0	176	0.960	NP_001001437.2 NP_066286.1
+3	NP_002974.1	XP_002800712.1	169 169	169	C-C motif chemokine 3-like [Macaca mulatta]	1	169	1.000	NP_002974.1
+3	NP_002974.1	XP_028692014.1	166 166	166	C-C motif chemokine 3-like 1 [Macaca mulatta]	0	172	0.965	NP_001001437.2 NP_066286.1
+2	NP_002974.1	XP_001152451.2	165 165	165	C-C motif chemokine 3-like [Pan troglodytes]	1	165	1.000	NP_001001437.2 NP_002974.1 NP_066286.1
+5	NP_002974.1	NP_037157.2	145 145	145	C-C motif chemokine 3 precursor [Rattus norvegicus]	0	150	0.967	NP_001001437.2 NP_066286.1
+4	NP_002974.1	NP_035467.1	144 144	144	C-C motif chemokine 3 precursor [Mus musculus]	0	148	0.973	NP_001001437.2 NP_066286.1
+2	NP_002974.1	XP_016803189.1	139 139	139	C-C motif chemokine 3-like [Pan troglodytes]	0	142	0.979	NP_001001437.2 NP_066286.1
+6	NP_002974.1	NP_001005251.2	137 137	137	C-C motif chemokine 3 precursor [Canis lupus familiaris]	0	145	0.945	NP_001001437.2 NP_066286.1
+7	NP_002974.1	NP_776936.1	143 118	130.5	C-C motif chemokine 3 precursor [Bos taurus]	0	150	0.870	NP_001001437.2 NP_066286.1
+7	NP_002974.1	XP_002695671.1	122 136	129	C-C motif chemokine 3 [Bos taurus]	0	138	0.935	NP_001001437.2 NP_066286.1
+7	NP_002974.1	XP_024836406.1	122 136	129	C-C motif chemokine 3 [Bos taurus]	0	138	0.935	NP_001001437.2 NP_066286.1
+7	NP_002974.1	XP_024836407.1	122 136	129	C-C motif chemokine 3 [Bos taurus]	0	138	0.935	NP_001001437.2 NP_066286.1
+6	NP_002974.1	NP_001240664.1	137 120	128.5	c-C motif chemokine 3-like precursor [Canis lupus familiaris]	0	141	0.911	NP_001001437.2 NP_066286.1
+2	NP_002974.1	XP_523615.1	119 119	119	C-C motif chemokine 18 [Pan troglodytes]	0	178	0.669	NP_002979.1
+1	NP_002974.1	NP_002975.1	118 118	118	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+5	NP_002974.1	NP_446310.1	117 117	117	C-C motif chemokine 4 precursor [Rattus norvegicus]	0	154	0.760	NP_002975.1
+2	NP_002974.1	XP_016787457.1	116 116	116	C-C motif chemokine 4 [Pan troglodytes]	0	185	0.627	NP_002975.1
+1	NP_002974.1	NP_002979.1	115 115	115	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+1	NP_002974.1	NP_996890.1	113 117	115	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+2	NP_002974.1	XP_511774.1	115 115	115	C-C motif chemokine 4 isoform X1 [Pan troglodytes]	0	184	0.625	NP_002975.1
+7	NP_002974.1	NP_001068615.1	115 115	115	C-C motif chemokine 4 precursor [Bos taurus]	0	167	0.689	NP_002975.1
+4	NP_002974.1	NP_038680.1	119 110	114.5	C-C motif chemokine 4 precursor [Mus musculus]	0	153	0.748	NP_002975.1
+6	NP_002974.1	NP_001005250.1	112 117	114.5	C-C motif chemokine 4 precursor [Canis lupus familiaris]	0	169	0.678	NP_002975.1
+7	NP_002974.1	XP_003587428.1	112 112	112	C-C motif chemokine 3 [Bos taurus]	1	112	1.000	NP_001001437.2 NP_002974.1 NP_066286.1
+8	NP_002974.1	NP_001025531.3	112 112	112	C-C motif chemokine 4 homolog precursor [Gallus gallus]	0	117	0.957	NP_001001437.2 NP_066286.1
+3	NP_002974.1	NP_001028045.2	108 114	111	C-C motif chemokine 4 precursor [Macaca mulatta]	0	176	0.631	NP_002975.1
+3	NP_002974.1	XP_002800427.1	114 108	111	C-C motif chemokine 4 [Macaca mulatta]	0	176	0.631	NP_002975.1
+3	NP_002974.1	XP_002800713.1	114 108	111	C-C motif chemokine 4 [Macaca mulatta]	0	176	0.631	NP_002975.1
+3	NP_002974.1	NP_001028025.1	109 109	109	C-C motif chemokine 18 precursor [Macaca mulatta]	0	159	0.686	NP_002979.1
+3	NP_002974.1	XP_014974508.1	104 104	104	C-C motif chemokine 5 isoform X1 [Macaca mulatta]	0	164	0.634	NP_002976.2
+3	NP_002974.1	NP_001028022.1	102 102	102	C-C motif chemokine 5 precursor [Macaca mulatta]	0	164	0.622	NP_002976.2
+1	NP_002974.1	NP_001278397.1	103 99.0	101	C-C motif chemokine 4-like isoform 1 precursor [Homo sapiens]	0			
+2	NP_002974.1	XP_001173954.2	99.8 99.8	99.8	C-C motif chemokine 14 [Pan troglodytes]	0	190	0.525	NP_116739.1
+1	NP_002974.1	NP_116739.1	98.6 98.6	98.6	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+1	NP_002974.1	NP_002976.2	102 89.7	95.85	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+2	NP_002974.1	XP_016787460.1	89.7 102	95.85	C-C motif chemokine 5 isoform X2 [Pan troglodytes]	0	186	0.515	NP_002976.2
+7	NP_002974.1	XP_002695692.1	95.5 95.5	95.5	C-C motif chemokine 14 [Bos taurus]	0	98.2	0.973	NP_116739.1
+4	NP_002974.1	NP_038681.2	94.4 94.4	94.4	C-C motif chemokine 5 precursor [Mus musculus]	0	141	0.670	NP_002976.2
+6	NP_002974.1	XP_038533232.1	94.4 94.4	94.4	C-C motif chemokine 14 [Canis lupus familiaris]	0	144	0.656	NP_116739.1
+7	NP_002974.1	NP_787021.1	89.4 99.0	94.2	C-C motif chemokine 5 precursor [Bos taurus]	0	147	0.641	NP_002976.2
+5	NP_002974.1	NP_112378.2	92.4 92.4	92.4	C-C motif chemokine 5 precursor [Rattus norvegicus]	0	137	0.674	NP_002976.2
+6	NP_002974.1	NP_001003010.1	92.4 92.4	92.4	C-C motif chemokine 5 precursor [Canis lupus familiaris]	0	135	0.684	NP_002976.2
+1	NP_002974.1	NP_116738.1	91.7 91.7	91.7	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+7	NP_002974.1	NP_001040050.1	91.3 91.3	91.3	C-C motif chemokine 14 precursor [Bos taurus]	0	141	0.648	NP_116739.1
+8	NP_002974.1	NP_001039297.1	88.2 88.2	88.2	C-C motif chemokine 5 precursor [Gallus gallus]	0	107	0.824	NP_002976.2
+8	NP_002974.1	XP_046758269.1	84.7 84.7	84.7	C-C motif chemokine 5 isoform X1 [Gallus gallus]	0	97.4	0.870	NP_002976.2
+8	NP_002974.1	NP_990051.3	84.3 84.3	84.3	chemokine C-C motif ligand 4 precursor [Gallus gallus]	0	95.5	0.883	NP_002975.1
+3	NP_002974.1	XP_028692042.1	80.5 80.5	80.5	C-C motif chemokine 14 [Macaca mulatta]	0	189	0.426	NP_116738.1
+5	NP_002974.1	NP_113718.1	80.5 80.5	80.5	C-C motif chemokine 2 precursor [Rattus norvegicus]	0	103	0.782	NP_005399.1
+8	NP_002974.1	NP_001025883.2	73.6 84.7	79.15	uncharacterized protein LOC417536 precursor [Gallus gallus]	1	84.7	0.934	NP_002974.1
+3	NP_002974.1	XP_002800426.1	79.0 79.0	79	C-C motif chemokine 15 [Macaca mulatta]	0	190	0.416	NP_116741.2
+1	NP_002974.1	NP_665905.2	78.2 78.2	78.2	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+2	NP_002974.1	XP_001173936.1	77.8 77.8	77.8	C-C motif chemokine 23 isoform X1 [Pan troglodytes]	0	280	0.278	NP_005055.3
+2	NP_002974.1	XP_001173941.1	77.8 77.8	77.8	C-C motif chemokine 23 isoform X2 [Pan troglodytes]	0	246	0.316	NP_665905.2
+8	NP_002974.1	XP_415780.3	72.0 82.4	77.2	C-C motif chemokine 3-like 1 [Gallus gallus]	0	86.3	0.895	NP_001001437.2 NP_066286.1
+7	NP_002974.1	NP_001231128.1	77.0 76.6	76.8	C-C motif chemokine 23 precursor [Bos taurus]	0	90.9	0.845	NP_665905.2
+8	NP_002974.1	XP_015151508.2	70.9 82.4	76.65	C-C motif chemokine 3 [Gallus gallus]	1	82.4	0.930	NP_002974.1
+2	NP_002974.1	XP_003315559.1	76.3 76.3	76.3	C-C motif chemokine 15 isoform X1 [Pan troglodytes]	0	227	0.336	NP_116741.2
+2	NP_002974.1	XP_009430647.1	76.3 76.3	76.3	C-C motif chemokine 15 isoform X1 [Pan troglodytes]	0	227	0.336	NP_116741.2
+2	NP_002974.1	XP_009430648.1	76.3 76.3	76.3	C-C motif chemokine 15 isoform X1 [Pan troglodytes]	0	227	0.336	NP_116741.2
+1	NP_002974.1	NP_116741.2	75.9 75.9	75.9	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+9	NP_002974.1	XP_017947366.2	81.3 70.1	75.7	uncharacterized protein LOC101730633 [Xenopus tropicalis]	0	84.3	0.898	NP_001001437.2 NP_066286.1
+1	NP_002974.1	NP_005055.3	75.1 75.1	75.1	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+9	NP_002974.1	XP_004911784.1	75.1 75.1	75.1	C-C motif chemokine 5 isoform X3 [Xenopus tropicalis]	0	92.0	0.816	NP_002976.2
+1	NP_002974.1	NP_001278401.1	72.4 76.3	74.35	C-C motif chemokine 4-like isoform 4 precursor [Homo sapiens]	0			
+4	NP_002974.1	NP_035463.1	73.6 73.9	73.75	C-C motif chemokine 2 precursor [Mus musculus]	0	111	0.664	NP_005399.1
+8	NP_002974.1	XP_040506307.1	79.0 67.8	73.4	C-C motif chemokine 3 [Gallus gallus]	1	79.0	0.929	NP_002974.1
+2	NP_002974.1	XP_511806.2	77.4 69.3	73.35	C-C motif chemokine 16 isoform X2 [Pan troglodytes]	0	239	0.307	NP_004581.1
+3	NP_002974.1	XP_001112513.2	70.5 75.9	73.2	C-C motif chemokine 16 [Macaca mulatta]	0	191	0.383	NP_004581.1
+6	NP_002974.1	XP_038531149.1	68.2 78.2	73.2	regakine-1-like [Canis lupus familiaris]	1	78.2	0.936	NP_002974.1
+1	NP_002974.1	NP_005399.1	72.8 72.8	72.8	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+2	NP_002974.1	XP_016787458.1	72.8 72.8	72.8	C-C motif chemokine 15 isoform X2 [Pan troglodytes]	0	184	0.396	NP_116741.2
+2	NP_002974.1	XP_016787495.1	72.8 72.8	72.8	C-C motif chemokine 13 [Pan troglodytes]	0	202	0.360	NP_005399.1
+2	NP_002974.1	XP_009430606.1	72.4 72.4	72.4	C-C motif chemokine 4 isoform X2 [Pan troglodytes]	0	201	0.360	NP_001278400.1
+7	NP_002974.1	XP_024836408.1	71.6 71.6	71.6	C-C motif chemokine 16 [Bos taurus]	0	136	0.526	NP_004581.1
+1	NP_002974.1	NP_001278400.1	69.7 73.2	71.45	C-C motif chemokine 4-like isoform 3 precursor [Homo sapiens]	0			
+2	NP_002974.1	XP_016787459.1	68.6 74.3	71.45	C-C motif chemokine 16 isoform X1 [Pan troglodytes]	0	231	0.309	NP_004581.1
+3	NP_002974.1	XP_028701500.1	71.2 71.2	71.2	C-C motif chemokine 26 [Macaca mulatta]	0	136	0.524	NP_001358867.1 NP_001358865.1 NP_006063.1
+3	NP_002974.1	XP_028701501.1	71.2 71.2	71.2	C-C motif chemokine 26 [Macaca mulatta]	0	136	0.524	NP_001358867.1 NP_001358865.1 NP_006063.1
+1	NP_002974.1	NP_001358865.1	68.2 73.9	71.05	C-C motif chemokine 26 precursor [Homo sapiens]	0			
+1	NP_002974.1	NP_001358867.1	68.2 73.9	71.05	C-C motif chemokine 26 precursor [Homo sapiens]	0			
+1	NP_002974.1	NP_006063.1	68.2 73.9	71.05	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+2	NP_002974.1	XP_527791.1	68.2 73.6	70.9	C-C motif chemokine 26 [Pan troglodytes]	0	185	0.383	NP_001358867.1 NP_001358865.1 NP_006063.1
+5	NP_002974.1	NP_001013063.1	70.5 70.5	70.5	C-C motif chemokine 24 precursor [Rattus norvegicus]	0	133	0.530	NP_002982.2 NP_001358122.1 XP_011514762.1
+9	NP_002974.1	XP_031752631.1	70.5 70.5	70.5	C-C motif chemokine 5 isoform X1 [Xenopus tropicalis]	0	87.4	0.807	NP_002976.2
+9	NP_002974.1	XP_031752632.1	70.5 70.5	70.5	C-C motif chemokine 5 isoform X2 [Xenopus tropicalis]	0	87.4	0.807	NP_002976.2
+10	NP_002974.1	NP_001123366.1	70.5 70.5	70.5	chemokine (C-C motif) ligand 35, duplicate 2 precursor [Danio rerio]	0	72.4	0.974	NP_001001437.2 NP_066286.1
+2	NP_002974.1	XP_009430607.1	70.1 70.1	70.1	C-C motif chemokine 4 isoform X3 [Pan troglodytes]	0	181	0.387	NP_001278404.1
+10	NP_002974.1	NP_001108528.1	70.1 70.1	70.1	chemokine CCL-C25y precursor [Danio rerio]	0	72.0	0.974	NP_001001437.2 NP_002979.1 NP_066286.1
+1	NP_002974.1	NP_004581.1	66.2 73.6	69.9	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+1	NP_002974.1	NP_001278398.1	67.8 71.6	69.7	C-C motif chemokine 4-like isoform 2 precursor [Homo sapiens]	0			
+1	NP_002974.1	NP_001278399.1	67.8 71.6	69.7	C-C motif chemokine 4-like isoform 2 precursor [Homo sapiens]	0			
+1	NP_002974.1	NP_001278402.1	67.8 71.6	69.7	C-C motif chemokine 4-like isoform 5 precursor [Homo sapiens]	0			
+2	NP_002974.1	XP_009430649.1	73.2 66.2	69.7	C-C motif chemokine 16 isoform X3 [Pan troglodytes]	0	233	0.299	NP_004581.1
+1	NP_002974.1	NP_001278404.1	67.4 71.2	69.3	C-C motif chemokine 4-like isoform 7 precursor [Homo sapiens]	0			
+1	NP_002974.1	NP_001358122.1	68.6 68.6	68.6	C-C motif chemokine 24 precursor [Homo sapiens]	0			
+1	NP_002974.1	NP_002982.2	68.6 68.6	68.6	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+1	NP_002974.1	XP_011514762.1	68.6 68.6	68.6	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+2	NP_002974.1	XP_001155246.1	68.6 68.6	68.6	C-C motif chemokine 24 [Pan troglodytes]	0	243	0.282	NP_002982.2 NP_001358122.1 XP_011514762.1
+6	NP_002974.1	NP_001005253.1	68.6 68.6	68.6	C-C motif chemokine 26 precursor [Canis lupus familiaris]	0	113	0.607	NP_001358867.1 NP_001358865.1 NP_006063.1
+7	NP_002974.1	NP_001029392.1	74.3 62.4	68.35	regakine-1 precursor [Bos taurus]	0	76.6	0.892	NP_001001437.2 NP_066286.1
+7	NP_002974.1	XP_024835498.1	62.4 74.3	68.35	regakine-1 isoform X1 [Bos taurus]	0	76.6	0.892	NP_001001437.2 NP_066286.1
+3	NP_002974.1	XP_001113462.1	68.2 68.2	68.2	C-C motif chemokine 13 [Macaca mulatta]	0	190	0.359	NP_005399.1
+6	NP_002974.1	NP_001005255.1	66.2 70.1	68.15	C-C motif chemokine 8 precursor [Canis lupus familiaris]	0	129	0.528	NP_005614.2
+7	NP_002974.1	NP_001192564.1	67.8 67.8	67.8	C-C motif chemokine 26 precursor [Bos taurus]	0	108	0.628	NP_001358867.1 NP_001358865.1 NP_006063.1
+6	NP_002974.1	NP_001003966.1	63.9 70.1	67	C-C motif chemokine 13 precursor [Canis lupus familiaris]	0	133	0.504	NP_005399.1
+4	NP_002974.1	NP_033165.1	66.2 66.2	66.2	C-C motif chemokine 6 precursor [Mus musculus]	0	89.7	0.738	NP_665905.2
+4	NP_002974.1	NP_035460.1	66.2 66.2	66.2	eotaxin precursor [Mus musculus]	0	110	0.602	NP_002977.1
+3	NP_002974.1	NP_001181388.1	65.9 65.9	65.9	C-C motif chemokine 24 precursor [Macaca mulatta]	0	224	0.294	NP_002982.2 NP_001358122.1 XP_011514762.1
+4	NP_002974.1	NP_001343559.1	65.5 65.5	65.5	C-C motif chemokine 24 precursor [Mus musculus]	0	133	0.492	NP_002982.2 NP_001358122.1 XP_011514762.1
+4	NP_002974.1	NP_062523.1	65.5 65.5	65.5	C-C motif chemokine 24 precursor [Mus musculus]	0	133	0.492	NP_002982.2 NP_001358122.1 XP_011514762.1
+4	NP_002974.1	XP_006504507.1	65.5 65.5	65.5	C-C motif chemokine 24 isoform X1 [Mus musculus]	0	133	0.492	NP_002982.2 NP_001358122.1 XP_011514762.1
+5	NP_002974.1	NP_001004202.1	65.1 65.1	65.1	C-C motif chemokine 6 precursor [Rattus norvegicus]	0	96.7	0.673	NP_665905.2
+5	NP_002974.1	NP_062078.1	59.7 69.7	64.7	eotaxin precursor [Rattus norvegicus]	0	114	0.568	NP_002977.1
+1	NP_002974.1	NP_006264.2	60.5 66.6	63.55	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+2	NP_002974.1	XP_511407.3	60.1 66.6	63.35	C-C motif chemokine 7 [Pan troglodytes]	0	205	0.309	NP_006264.2
+3	NP_002974.1	NP_001028118.1	63.2 63.2	63.2	C-C motif chemokine 23 precursor [Macaca mulatta]	0	186	0.340	NP_665905.2
+10	NP_002974.1	NP_001025344.1	63.2 63.2	63.2	uncharacterized protein LOC563208 precursor [Danio rerio]	0	64.3	0.983	NP_116739.1
+6	NP_002974.1	NP_001003967.1	62.4 62.4	62.4	C-C motif chemokine 24 precursor [Canis lupus familiaris]	0	161	0.388	NP_002982.2 NP_001358122.1 XP_011514762.1
+6	NP_002974.1	XP_038523499.1	62.4 62.4	62.4	C-C motif chemokine 24 isoform X2 [Canis lupus familiaris]	0	160	0.390	NP_002982.2 NP_001358122.1 XP_011514762.1
+6	NP_002974.1	XP_038523500.1	62.4 62.4	62.4	C-C motif chemokine 24 isoform X3 [Canis lupus familiaris]	0	151	0.413	NP_002982.2 NP_001358122.1 XP_011514762.1
+6	NP_002974.1	NP_001010960.1	66.6 57.8	62.2	C-C motif chemokine 7 precursor [Canis lupus familiaris]	0	134	0.464	NP_006264.2
+1	NP_002974.1	NP_005614.2	64.7 59.3	62	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+4	NP_002974.1	NP_035468.1	62.0 62.0	62	C-C motif chemokine 9 precursor [Mus musculus]	0	98.2	0.631	NP_665905.2
+6	NP_002974.1	XP_038523498.1	62.0 62.0	62	C-C motif chemokine 24 isoform X1 [Canis lupus familiaris]	0	151	0.411	NP_002982.2 NP_001358122.1 XP_011514762.1
+3	NP_002974.1	XP_028691290.1	61.6 61.6	61.6	C-C motif chemokine 23 isoform X1 [Macaca mulatta]	0	182	0.338	NP_665905.2
+10	NP_002974.1	XP_017208204.1	61.6 61.6	61.6	uncharacterized protein LOC100034523 [Danio rerio]	0	68.6	0.898	NP_116739.1
+4	NP_002974.1	NP_033163.1	60.5 62.0	61.25	C-C motif chemokine 22 precursor [Mus musculus]	0	107	0.572	XP_047290405.1 NP_002981.2 XP_047290406.1
+7	NP_002974.1	NP_001092632.1	60.1 62.4	61.25	C-C motif chemokine 22 precursor [Bos taurus]	0	124	0.494	XP_047290405.1
+7	NP_002974.1	NP_776432.1	61.2 61.2	61.2	C-C motif chemokine 8 precursor [Bos taurus]	0	122	0.502	NP_005614.2
+5	NP_002974.1	NP_476551.1	59.7 62.0	60.85	C-C motif chemokine 22 precursor [Rattus norvegicus]	0	108	0.563	XP_047290405.1 NP_002981.2 XP_047290406.1
+6	NP_002974.1	XP_038533224.1	60.8 60.8	60.8	C-C motif chemokine 15 isoform X2 [Canis lupus familiaris]	0	97.1	0.626	NP_665905.2
+1	NP_002974.1	NP_002977.1	65.1 56.2	60.65	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+2	NP_002974.1	XP_523599.2	65.1 56.2	60.65	eotaxin [Pan troglodytes]	0	197	0.308	NP_002977.1
+8	NP_002974.1	NP_001070700.1	60.8 60.5	60.65	fractalkine precursor [Gallus gallus]	0	62.0	0.978	NP_001001437.2 NP_066286.1
+6	NP_002974.1	XP_038533223.1	60.5 60.5	60.5	C-C motif chemokine 23 isoform X1 [Canis lupus familiaris]	0	95.5	0.634	NP_665905.2
+10	NP_002974.1	NP_001076365.2	60.5 60.5	60.5	uncharacterized protein LOC794050 precursor [Danio rerio]	0	65.9	0.918	NP_116739.1
+10	NP_002974.1	NP_001096095.2	60.5 60.5	60.5	chemokine CCL-C20d precursor [Danio rerio]	0	62.8	0.963	NP_005399.1
+10	NP_002974.1	XP_002663056.1	63.2 57.8	60.5	monocyte chemotactic protein 1B-like [Danio rerio]	1	63.2	0.957	NP_002974.1
+10	NP_002974.1	XP_021326968.1	57.8 63.2	60.5	monocyte chemotactic protein 1B-like [Danio rerio]	1	63.2	0.957	NP_002974.1
+3	NP_002974.1	XP_001113381.2	58.2 62.4	60.3	C-C motif chemokine 7 [Macaca mulatta]	0	166	0.363	NP_006264.2
+7	NP_002974.1	NP_001040061.1	60.1 60.1	60.1	C-C motif chemokine 24 precursor [Bos taurus]	0	148	0.406	NP_002982.2 NP_001358122.1 XP_011514762.1
+8	NP_002974.1	NP_001308421.1	60.1 60.1	60.1	uncharacterized protein LOC417533 precursor [Gallus gallus]	0	68.2	0.881	NP_005399.1
+10	NP_002974.1	XP_003199028.1	60.1 60.1	60.1	C-C motif chemokine 3-like [Danio rerio]	1	60.1	1.000	NP_002974.1
+1	NP_002974.1	NP_002973.1	62.8 57.0	59.9	C-C motif chemokine 2 precursor [Homo sapiens]	0			
+2	NP_002974.1	XP_001174551.1	57.0 62.8	59.9	C-C motif chemokine 2 [Pan troglodytes]	0	204	0.294	NP_002973.1
+2	NP_002974.1	XP_523600.2	57.4 62.4	59.9	C-C motif chemokine 8 [Pan troglodytes]	0	204	0.294	NP_005614.2
+1	NP_002974.1	NP_001265665.1	66.2 53.5	59.85	C-C motif chemokine 5 isoform 2 precursor [Homo sapiens]	0			
+2	NP_002974.1	XP_009430655.2	53.5 66.2	59.85	C-C motif chemokine 5 isoform X1 [Pan troglodytes]	0	318	0.188	NP_001265665.1
+6	NP_002974.1	XP_038533231.1	58.5 61.2	59.85	C-C motif chemokine 16 [Canis lupus familiaris]	0	131	0.457	NP_004581.1
+3	NP_002974.1	NP_001027993.1	62.4 57.0	59.7	C-C motif chemokine 2 precursor [Macaca mulatta]	0	197	0.303	NP_002973.1
+3	NP_002974.1	NP_001028023.1	62.0 57.0	59.5	C-C motif chemokine 8 precursor [Macaca mulatta]	0	199	0.299	NP_005614.2
+6	NP_002974.1	XP_038513875.1	58.9 60.1	59.5	C-C motif chemokine 22 [Canis lupus familiaris]	0	124	0.480	XP_047290405.1
+8	NP_002974.1	NP_001039296.2	52.8 66.2	59.5	chemokine-like ligand 4 precursor [Gallus gallus]	0	73.9	0.805	NP_001001437.2 NP_066286.1
+7	NP_002974.1	NP_776431.1	59.3 59.3	59.3	C-C motif chemokine 2 precursor [Bos taurus]	0	134	0.443	NP_002973.1
+10	NP_002974.1	XP_017208203.1	58.9 58.9	58.9	C-C motif chemokine 8-like isoform X1 [Danio rerio]	0	60.8	0.969	NP_116738.1
+6	NP_002974.1	NP_001003297.1	54.3 63.2	58.75	C-C motif chemokine 2 precursor [Canis lupus familiaris]	0	139	0.423	NP_002973.1
+7	NP_002974.1	NP_991342.1	55.5 62.0	58.75	eotaxin precursor [Bos taurus]	0	119	0.494	NP_005399.1
+5	NP_002974.1	NP_001102958.1	58.5 58.5	58.5	C-C motif chemokine 26 precursor [Rattus norvegicus]	0	79.3	0.738	NP_001358867.1 NP_001358865.1 NP_006063.1
+4	NP_002974.1	NP_035461.2	58.2 58.2	58.2	C-C motif chemokine 12 precursor [Mus musculus]	0	121	0.481	NP_002973.1
+5	NP_002974.1	XP_006249250.1	58.2 58.2	58.2	C-C motif chemokine 26 isoform X1 [Rattus norvegicus]	0	79.0	0.737	NP_001358867.1 NP_001358865.1 NP_006063.1
+10	NP_002974.1	XP_003200783.2	57.8 57.8	57.8	C-C motif chemokine 2-like isoform X2 [Danio rerio]	0	60.5	0.955	NP_116738.1
+3	NP_002974.1	XP_014981731.2	57.0 57.0	57	C-C motif chemokine 22 [Macaca mulatta]	0	150	0.380	XP_047290405.1 NP_002981.2 XP_047290406.1
+5	NP_002974.1	NP_001012357.1	57.0 57.0	57	C-C motif chemokine 9 precursor [Rattus norvegicus]	0	81.6	0.699	NP_116741.2
+1	NP_002974.1	NP_002981.2	55.1 57.8	56.45	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+1	NP_002974.1	XP_047290405.1	57.8 55.1	56.45	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+1	NP_002974.1	XP_047290406.1	55.1 57.8	56.45	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+5	NP_002974.1	XP_008766290.1	56.2 56.2	56.2	C-C motif chemokine 9 isoform X1 [Rattus norvegicus]	0	74.3	0.756	NP_116741.2
+2	NP_002974.1	XP_001136513.1	56.6 55.1	55.85	C-C motif chemokine 22 [Pan troglodytes]	0	188	0.297	XP_047290405.1 NP_002981.2 XP_047290406.1
+9	NP_002974.1	XP_002935843.1	50.1 61.2	55.65	C-C motif chemokine 4 homolog [Xenopus tropicalis]	0	65.1	0.855	NP_001001437.2 NP_066286.1
+3	NP_002974.1	NP_001028046.1	51.2 56.6	53.9	eotaxin precursor [Macaca mulatta]	0	156	0.346	NP_002977.1
+10	NP_002974.1	NP_001107111.1	53.5 54.3	53.9	uncharacterized protein LOC798811 precursor [Danio rerio]	0	61.6	0.875	NP_005399.1
+1	NP_002974.1	NP_002972.1	53.5 53.5	53.5	C-C motif chemokine 1 precursor [Homo sapiens]	0			
+4	NP_002974.1	NP_001013430.2	53.5 53.5	53.5	C-C motif chemokine 26 precursor [Mus musculus]	0	84.3	0.635	NP_001358867.1 NP_001358865.1 NP_006063.1
+6	NP_002974.1	NP_001271385.1	53.5 53.5	53.5	fractalkine precursor [Canis lupus familiaris]	0	469	0.114	NP_002987.1
+3	NP_002974.1	NP_001028024.1	53.1 53.1	53.1	C-C motif chemokine 17 precursor [Macaca mulatta]	0	183	0.290	NP_002978.1 XP_011521558.1 XP_016879019.1 XP_047290404.1
+3	NP_002974.1	XP_028705967.1	53.1 53.1	53.1	lymphotactin isoform X2 [Macaca mulatta]	0	213	0.249	NP_002986.1
+3	NP_002974.1	XP_028705969.1	53.1 53.1	53.1	lymphotactin isoform X2 [Macaca mulatta]	0	213	0.249	NP_002986.1
+3	NP_002974.1	XP_028705970.1	53.1 53.1	53.1	lymphotactin isoform X2 [Macaca mulatta]	0	213	0.249	NP_002986.1
+6	NP_002974.1	NP_001005256.1	53.9 52.0	52.95	C-C motif chemokine 19 precursor [Canis lupus familiaris]	0	147	0.360	NP_006265.1
+1	NP_002974.1	NP_002978.1	52.8 52.8	52.8	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+1	NP_002974.1	XP_047290404.1	52.8 52.8	52.8	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+2	NP_002974.1	XP_009429140.1	52.8 52.8	52.8	C-C motif chemokine 17 [Pan troglodytes]	0	197	0.268	NP_002978.1 XP_047290404.1
+5	NP_002974.1	NP_001007613.1	52.8 52.8	52.8	C-C motif chemokine 7 precursor [Rattus norvegicus]	0	88.6	0.596	NP_006264.2 NP_005399.1
+5	NP_002974.1	NP_476492.1	53.9 51.2	52.55	C-C motif chemokine 17 precursor [Rattus norvegicus]	0	131	0.401	NP_002978.1 XP_047290404.1
+1	NP_002974.1	XP_011521558.1	52.4 52.4	52.4	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+3	NP_002974.1	NP_001028021.1	52.4 52.4	52.4	C-C motif chemokine 1 precursor [Macaca mulatta]	0	160	0.328	NP_002972.1
+3	NP_002974.1	XP_014981638.1	52.4 52.4	52.4	C-C motif chemokine 17 isoform X1 [Macaca mulatta]	0	177	0.296	NP_002978.1 XP_011521558.1 XP_016879019.1 XP_047290404.1
+6	NP_002974.1	XP_038530913.1	52.4 52.4	52.4	C-C motif chemokine 1 isoform X1 [Canis lupus familiaris]	0	105	0.499	NP_002972.1
+5	NP_002974.1	NP_001099292.1	50.4 53.9	52.15	chemokine (C-C motif) ligand 12 precursor [Rattus norvegicus]	0	117	0.446	NP_002973.1
+1	NP_002974.1	XP_016879019.1	52.0 52.0	52	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+3	NP_002974.1	XP_028705962.1	52.0 52.0	52	lymphotactin isoform X1 [Macaca mulatta]	0	214	0.243	NP_002986.1
+3	NP_002974.1	XP_028705963.1	52.0 52.0	52	lymphotactin isoform X1 [Macaca mulatta]	0	214	0.243	NP_002986.1
+3	NP_002974.1	XP_028705964.1	52.0 52.0	52	lymphotactin isoform X1 [Macaca mulatta]	0	214	0.243	NP_002986.1
+3	NP_002974.1	XP_028705965.1	52.0 52.0	52	lymphotactin isoform X1 [Macaca mulatta]	0	214	0.243	NP_002986.1
+3	NP_002974.1	XP_028705966.1	52.0 52.0	52	lymphotactin isoform X1 [Macaca mulatta]	0	214	0.243	NP_002986.1
+1	NP_002974.1	NP_002980.1	50.1 52.8	51.45	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+2	NP_002974.1	XP_001164162.1	50.1 52.8	51.45	C-C motif chemokine 21 isoform X2 [Pan troglodytes]	0	268	0.192	NP_002980.1
+2	NP_002974.1	XP_009454813.1	52.8 50.1	51.45	C-C motif chemokine 21 isoform X1 [Pan troglodytes]	0	259	0.199	NP_002980.1
+3	NP_002974.1	NP_001028027.1	52.8 50.1	51.45	C-C motif chemokine 21 precursor [Macaca mulatta]	0	199	0.259	NP_002980.1
+3	NP_002974.1	NP_001028119.1	51.2 51.2	51.2	lymphotactin precursor [Macaca mulatta]	0	216	0.237	NP_002986.1
+4	NP_002974.1	NP_035462.2	50.4 52.0	51.2	C-C motif chemokine 17 precursor [Mus musculus]	0	135	0.379	XP_011521558.1 XP_016879019.1
+4	NP_002974.1	XP_006530845.1	50.4 52.0	51.2	C-C motif chemokine 17 isoform X1 [Mus musculus]	0	135	0.379	XP_011521558.1 XP_016879019.1
+4	NP_002974.1	NP_036018.1	50.8 50.8	50.8	C-C motif chemokine 19 precursor [Mus musculus]	0	142	0.358	NP_006265.1
+7	NP_002974.1	XP_002694838.1	48.5 52.4	50.45	C-C motif chemokine 17 [Bos taurus]	0	121	0.417	NP_002978.1 XP_016879019.1 XP_047290404.1
+2	NP_002974.1	XP_003315573.2	50.4 50.4	50.4	C-C motif chemokine 1 [Pan troglodytes]	0	196	0.257	NP_002972.1
+6	NP_002974.1	NP_001005254.1	50.4 50.4	50.4	C-C motif chemokine 20 precursor [Canis lupus familiaris]	0	138	0.365	NP_004582.1
+10	NP_002974.1	NP_001129720.2	50.4 50.4	50.4	C-C motif chemokine 19-like precursor [Danio rerio]	0	56.6	0.890	NP_006265.1
+4	NP_002974.1	NP_067418.1	50.1 50.1	50.1	C-C motif chemokine 8 precursor [Mus musculus]	0	94.4	0.531	NP_005614.2
+1	NP_002974.1	NP_006265.1	49.3 50.8	50.05	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+2	NP_002974.1	XP_001164037.2	49.3 50.8	50.05	C-C motif chemokine 19 [Pan troglodytes]	0	200	0.250	NP_006265.1
+3	NP_002974.1	NP_001028131.1	49.3 50.4	49.85	C-C motif chemokine 19 precursor [Macaca mulatta]	0	194	0.257	NP_006265.1
+7	NP_002974.1	NP_001033165.2	48.1 51.6	49.85	C-C motif chemokine 21 precursor [Bos taurus]	0	148	0.337	NP_002980.1
+8	NP_002974.1	NP_001280238.1	48.1 50.8	49.45	chemokine (C-C motif) ligand 17 precursor [Gallus gallus]	0	72.8	0.679	NP_002978.1 XP_047290404.1
+6	NP_002974.1	XP_038290470.1	49.3 49.3	49.3	C-C motif chemokine 20 isoform X1 [Canis lupus familiaris]	0	137	0.360	NP_001123518.1
+8	NP_002974.1	NP_990107.2	49.3 49.3	49.3	C-C motif chemokine ligand 1 precursor [Gallus gallus]	0	58.9	0.837	NP_002972.1
+6	NP_002974.1	NP_001003051.1	47.8 50.4	49.1	C-C motif chemokine 17 precursor [Canis lupus familiaris]	0	149	0.330	NP_002978.1 XP_016879019.1 XP_047290404.1
+6	NP_002974.1	XP_038513642.1	50.4 47.8	49.1	C-C motif chemokine 17 isoform X1 [Canis lupus familiaris]	0	149	0.330	NP_002978.1 XP_016879019.1 XP_047290404.1
+9	NP_002974.1	XP_012813759.1	50.4 47.8	49.1	C-C motif chemokine 4 homolog [Xenopus tropicalis]	0	62.8	0.782	NP_002976.2
+10	NP_002974.1	XP_009296138.1	49.7 48.5	49.1	C-C motif chemokine 5-like [Danio rerio]	0	50.1	0.980	NP_001001437.2 NP_116739.1 NP_066286.1
+10	NP_002974.1	XP_021329504.1	48.5 49.7	49.1	C-C motif chemokine 5-like [Danio rerio]	0	50.1	0.980	NP_001001437.2 NP_116739.1 NP_066286.1
+10	NP_002974.1	XP_021326439.1	48.9 48.9	48.9	C-C motif chemokine 22-like [Danio rerio]	0	55.8	0.876	NP_005399.1
+5	NP_002974.1	NP_001008513.1	50.4 46.6	48.5	C-C motif chemokine 21 precursor [Rattus norvegicus]	0	137	0.354	NP_002980.1
+10	NP_002974.1	XP_021329507.1	48.5 48.5	48.5	C-C motif chemokine 3-like isoform X2 [Danio rerio]	1	48.5	1.000	NP_002974.1
+6	NP_002974.1	NP_001005252.1	48.1 48.1	48.1	C-C motif chemokine 1 precursor [Canis lupus familiaris]	0	101	0.476	NP_002972.1
+7	NP_002974.1	XP_002694056.1	48.1 48.1	48.1	lymphotactin [Bos taurus]	0	158	0.304	NP_002986.1
+2	NP_002974.1	XP_016787485.1	47.8 47.8	47.8	lymphotactin isoform X3 [Pan troglodytes]	0	227	0.211	NP_002986.1
+2	NP_002974.1	XP_016787473.1	47.4 47.4	47.4	lymphotactin isoform X2 [Pan troglodytes]	0	228	0.208	NP_002986.1
+4	NP_002974.1	NP_058656.1	47.4 47.4	47.4	C-C motif chemokine 20 isoform 1 precursor [Mus musculus]	0	124	0.382	NP_004582.1
+4	NP_002974.1	XP_006538475.4	47.4 47.4	47.4	C-C motif chemokine 19-like, partial [Mus musculus]	0	139	0.341	NP_006265.1
+7	NP_002974.1	NP_001029517.1	47.4 47.4	47.4	C-C motif chemokine 19 precursor [Bos taurus]	0	125	0.379	NP_006265.1
+7	NP_002974.1	XP_005210371.1	47.0 47.0	47	C-C motif chemokine 19 isoform X1 [Bos taurus]	0	125	0.376	NP_006265.1
+9	NP_002974.1	XP_031750815.1	47.0 47.0	47	C-C motif chemokine 21-like [Xenopus tropicalis]	0	57.4	0.819	NP_002980.1
+10	NP_002974.1	NP_001108575.1	45.8 47.8	46.8	chemokine (C-C motif) ligand 39, duplicate 3 precursor [Danio rerio]	0	57.0	0.821	NP_005399.1
+5	NP_002974.1	NP_001102131.1	47.0 46.2	46.6	C-C motif chemokine 19 precursor [Rattus norvegicus]	0	137	0.340	NP_006265.1
+9	NP_002974.1	XP_017949963.1	46.6 46.6	46.6	C-C motif chemokine 20 [Xenopus tropicalis]	0	63.9	0.729	NP_001123518.1
+10	NP_002974.1	XP_005171405.2	46.6 46.6	46.6	C-C motif chemokine 20-like [Danio rerio]	0	52.4	0.889	NP_004582.1
+1	NP_002974.1	NP_002986.1	46.2 46.2	46.2	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+1	NP_002974.1	NP_003166.1	46.2 46.2	46.2	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+4	NP_002974.1	NP_001153210.1	46.2 46.2	46.2	C-C motif chemokine 20 isoform 2 precursor [Mus musculus]	0	122	0.379	NP_001123518.1
+6	NP_002974.1	XP_038527367.1	46.2 46.2	46.2	lymphotactin isoform X1 [Canis lupus familiaris]	0	162	0.285	NP_003166.1
+8	NP_002974.1	NP_989769.1	45.4 47.0	46.2	C-C motif chemokine 20 precursor [Gallus gallus]	0	102	0.453	NP_004582.1
+4	NP_002974.1	NP_001180595.1	44.3 47.8	46.05	predicted gene 13304 precursor [Mus musculus]	0	148	0.311	NP_002980.1
+4	NP_002974.1	NP_001180597.1	44.3 47.8	46.05	predicted gene 10591 precursor [Mus musculus]	0	148	0.311	NP_002980.1
+4	NP_002974.1	NP_001257289.1	44.3 47.8	46.05	c-C motif chemokine 21c-like precursor [Mus musculus]	0	148	0.311	NP_002980.1
+4	NP_002974.1	NP_035465.2	47.8 44.3	46.05	C-C motif chemokine 21b isoform 1 precursor [Mus musculus]	0	148	0.311	NP_002980.1
+4	NP_002974.1	NP_038682.1	49.7 42.4	46.05	C-C motif chemokine 7 precursor [Mus musculus]	0	92.0	0.501	NP_005399.1
+4	NP_002974.1	XP_036019421.1	47.8 44.3	46.05	C-C motif chemokine 21b isoform X1 [Mus musculus]	0	148	0.311	NP_002980.1
+1	NP_002974.1	NP_004582.1	45.8 45.8	45.8	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+10	NP_002974.1	NP_001129726.1	45.8 45.8	45.8	chemokine (C-C motif) ligand 20-like precursor [Danio rerio]	0	55.5	0.825	NP_001123518.1
+7	NP_002974.1	XP_002694931.1	45.4 45.8	45.6	fractalkine isoform X1 [Bos taurus]	0	211	0.216	NP_002987.1
+2	NP_002974.1	XP_024205742.1	45.4 45.4	45.4	lymphotactin-like [Pan troglodytes]	0	222	0.205	NP_002986.1
+2	NP_002974.1	XP_516133.2	45.4 45.4	45.4	C-C motif chemokine 20 isoform X1 [Pan troglodytes]	0	196	0.232	NP_004582.1
+6	NP_002974.1	XP_038527363.1	45.4 45.4	45.4	lymphotactin isoform X2 [Canis lupus familiaris]	0	160	0.284	NP_003166.1 NP_002986.1
+6	NP_002974.1	XP_038527365.1	45.4 45.4	45.4	lymphotactin isoform X4 [Canis lupus familiaris]	0	159	0.286	NP_003166.1 NP_002986.1
+6	NP_002974.1	XP_038527366.1	45.4 45.4	45.4	lymphotactin isoform X5 [Canis lupus familiaris]	0	160	0.284	NP_003166.1
+7	NP_002974.1	NP_783647.1	45.4 45.4	45.4	lymphotactin precursor [Bos taurus]	0	139	0.327	NP_002986.1
+9	NP_002974.1	XP_031750816.1	45.4 45.4	45.4	C-C motif chemokine 19 [Xenopus tropicalis]	0	62.8	0.723	NP_002980.1
+1	NP_002974.1	NP_001123518.1	45.1 45.1	45.1	C-C motif chemokine 20 isoform 2 precursor [Homo sapiens]	0			
+3	NP_002974.1	NP_001028026.1	45.1 45.1	45.1	C-C motif chemokine 20 precursor [Macaca mulatta]	0	173	0.261	NP_004582.1
+6	NP_002974.1	XP_038527364.1	45.1 45.1	45.1	lymphotactin isoform X3 [Canis lupus familiaris]	0	160	0.282	NP_003166.1
+10	NP_002974.1	NP_001166147.1	45.1 45.1	45.1	chemokine CCL-C25a precursor [Danio rerio]	0	47.4	0.951	NP_002982.2 NP_001358122.1 XP_011514762.1
+2	NP_002974.1	XP_009442757.1	44.7 44.7	44.7	C-C motif chemokine 20 isoform X2 [Pan troglodytes]	0	194	0.230	NP_001123518.1
+2	NP_002974.1	XP_024205734.1	44.7 44.7	44.7	lymphotactin isoform X1 [Pan troglodytes]	0	191	0.234	NP_002986.1
+2	NP_002974.1	XP_024205740.1	44.7 44.7	44.7	lymphotactin isoform X1 [Pan troglodytes]	0	191	0.234	NP_002986.1
+8	NP_002974.1	XP_046754258.1	44.7 44.7	44.7	C-C motif chemokine 20 isoform X1 [Gallus gallus]	0	80.1	0.558	NP_004582.1
+10	NP_002974.1	XP_001338140.2	44.7 44.7	44.7	monocyte chemotactic protein 1B-like [Danio rerio]	0	52.8	0.847	NP_005399.1
+10	NP_002974.1	XP_009296139.1	44.3 45.1	44.7	LOW QUALITY PROTEIN: C-C motif chemokine 2-like [Danio rerio]	0	54.7	0.817	XP_047290405.1 NP_005399.1 NP_002973.1
+10	NP_002974.1	XP_021329505.1	45.1 44.3	44.7	C-C motif chemokine 2-like [Danio rerio]	0	55.1	0.811	XP_047290405.1
+3	NP_002974.1	XP_014966443.1	43.9 43.9	43.9	C-C motif chemokine 20 isoform X1 [Macaca mulatta]	0	170	0.258	NP_001123518.1
+4	NP_002974.1	XP_036019422.1	43.9 43.9	43.9	C-C motif chemokine 21b isoform X2 [Mus musculus]	0	140	0.314	NP_002980.1
+4	NP_002974.1	XP_036019450.1	43.9 43.9	43.9	c-C motif chemokine 21c-like isoform X1 [Mus musculus]	0	140	0.314	NP_002980.1
+6	NP_002974.1	NP_001005258.1	43.9 43.9	43.9	C-C motif chemokine 21 precursor [Canis lupus familiaris]	0	161	0.273	NP_002980.1
+4	NP_002974.1	NP_001365534.1	43.9 43.5	43.7	C-C motif chemokine 21b isoform 2 [Mus musculus]	0	140	0.312	NP_002980.1
+10	NP_002974.1	NP_001076375.2	43.5 43.5	43.5	chemokine (C-C motif) ligand 19a, tandem duplicate 1 precursor [Danio rerio]	0	53.1	0.819	NP_006265.1 NP_005614.2
+4	NP_002974.1	NP_035254.1	41.2 45.1	43.15	C-C motif chemokine 21a precursor [Mus musculus]	0	145	0.298	NP_002980.1
+7	NP_002974.1	XP_005202944.1	43.1 43.1	43.1	C-C motif chemokine 20 isoform X1 [Bos taurus]	0	152	0.284	NP_004582.1
+4	NP_002974.1	NP_035459.1	42.7 42.7	42.7	C-C motif chemokine 1 precursor [Mus musculus]	0	82.0	0.521	NP_002972.1
+8	NP_002974.1	NP_001289097.1	42.7 42.7	42.7	C-C motif chemokine 19 precursor [Gallus gallus]	0	79.0	0.541	NP_006265.1
+7	NP_002974.1	NP_776688.1	42.4 42.4	42.4	C-C motif chemokine 20 precursor [Bos taurus]	0	151	0.281	NP_001123518.1
+10	NP_002974.1	NP_001121750.1	42.4 42.4	42.4	uncharacterized protein LOC100000741 [Danio rerio]	0	47.4	0.895	NP_002977.1
+10	NP_002974.1	XP_005165111.1	42.4 42.4	42.4	chemokine (C-C motif) ligand 19a, tandem duplicate 1 isoform X1 [Danio rerio]	0	53.9	0.787	NP_006265.1
+5	NP_002974.1	NP_604450.2	42.4 42.0	42.2	fractalkine precursor [Rattus norvegicus]	0	464	0.091	NP_002987.1
+5	NP_002974.1	XP_008770551.1	42.4 42.0	42.2	fractalkine isoform X1 [Rattus norvegicus]	0	464	0.091	NP_002987.1
+10	NP_002974.1	NP_001135739.1	42.0 42.0	42	chemokine CCL-CUj precursor [Danio rerio]	0	44.3	0.948	NP_116739.1
+10	NP_002974.1	XP_003201459.1	42.0 42.0	42	eotaxin-like isoform X1 [Danio rerio]	0	47.8	0.879	NP_002982.2 NP_001358122.1 XP_011514762.1
+2	NP_002974.1	XP_510989.2	41.6 41.6	41.6	fractalkine isoform X1 [Pan troglodytes]	0	792	0.053	NP_002987.1
+1	NP_002974.1	NP_002987.1	41.2 41.6	41.4	C-C motif chemokine 3 precursor [Homo sapiens]	0			
+5	NP_002974.1	NP_062106.1	41.2 41.2	41.2	C-C motif chemokine 20 precursor [Rattus norvegicus]	0	113	0.365	NP_004582.1
+5	NP_002974.1	NP_599188.1	41.2 41.2	41.2	lymphotactin precursor [Rattus norvegicus]	0	146	0.282	NP_003166.1
+10	NP_002974.1	XP_005162867.1	41.2 41.2	41.2	monocyte chemotactic protein 1B-like [Danio rerio]	0	55.8	0.738	NP_002977.1
+4	NP_002974.1	NP_033168.2	40.8 41.2	41	fractalkine precursor [Mus musculus]	0	451	0.091	NP_002987.1
+3	NP_002974.1	NP_001028137.1	40.8	40.8	interleukin-8 precursor [Macaca mulatta]	0	172	0.237	NP_000575.1
+3	NP_002974.1	NP_001028053.1	40.8 40.4	40.6	fractalkine precursor [Macaca mulatta]	0	704	0.058	NP_002987.1
+5	NP_002974.1	XP_006245226.1	40.4 40.4	40.4	C-C motif chemokine 20 isoform X1 [Rattus norvegicus]	0	111	0.364	NP_001123518.1
+9	NP_002974.1	XP_002939967.1	40.4 40.4	40.4	C-C motif chemokine 20 [Xenopus tropicalis]	0	60.1	0.672	NP_001123518.1 NP_004582.1
+10	NP_002974.1	NP_001289630.1	40.4 40.4	40.4	chemokine (C-C motif) ligand 19b precursor [Danio rerio]	0	58.9	0.686	NP_006265.1
+10	NP_002974.1	XP_003201462.1	40.0 40.8	40.4	C-C motif chemokine 2-like [Danio rerio]	0	57.4	0.704	NP_005399.1
+9	NP_002974.1	XP_002935080.1	40.0 40.0	40	C-C motif chemokine 20 [Xenopus tropicalis]	0	57.8	0.692	NP_001123518.1 NP_004582.1
+10	NP_002974.1	NP_001186964.1	38.1 40.0	39.05	chemokine CCL-C11a precursor [Danio rerio]	0	63.2	0.618	NP_001381563.1 NP_001381566.1 NP_001381564.1 XP_047295160.1 NP_005615.2 NP_001381565.1
+10	NP_002974.1	NP_001107067.1	38.9 38.9	38.9	chemokine (C-C motif) ligand 20b precursor [Danio rerio]	0	64.3	0.605	NP_004582.1
+10	NP_002974.1	XP_002661011.2	38.5 38.5	38.5	C-C motif chemokine 21-like [Danio rerio]	0	63.2	0.609	NP_002980.1
+1	NP_002974.1	NP_000575.1	41.6 35.0	38.3	interleukin-8 isoform 1 precursor [Homo sapiens]	0			
+1	NP_002974.1	NP_001341769.1	35.0 41.6	38.3	interleukin-8 isoform 2 precursor [Homo sapiens]	0			
+2	NP_002974.1	XP_001156432.1	35.0 41.6	38.3	interleukin-8 [Pan troglodytes]	0	202	0.190	NP_000575.1
+5	NP_002974.1	NP_001178021.1	38.1 38.1	38.1	C-C motif chemokine 1 precursor [Rattus norvegicus]	0	83.2	0.458	NP_002972.1
+4	NP_002974.1	NP_032536.1	37.7 37.7	37.7	lymphotactin precursor [Mus musculus]	0	158	0.239	NP_002986.1
+7	NP_002974.1	NP_776350.1	37.7	37.7	interleukin-8 precursor [Bos taurus]	0	143	0.264	NP_000575.1
+9	NP_002974.1	NP_001015764.1	37.4 37.4	37.4	stromal cell-derived factor 1 precursor [Xenopus tropicalis]	0	132	0.283	NP_000600.1
+10	NP_002974.1	XP_021329506.1	37.4	37.4	C-C motif chemokine 2-like [Danio rerio]	0	55.8	0.670	XP_047290405.1
+8	NP_002974.1	NP_990829.1	37.0	37.0	interleukin-8 precursor [Gallus gallus]	0	100	0.370	NP_000575.1
+6	NP_002974.1	XP_038282316.1	36.6	36.6	C-C motif chemokine 25 isoform X1 [Canis lupus familiaris]	0	123	0.298	XP_047295159.1
+8	NP_002974.1	NP_990349.2	36.6 36.6	36.6	interleukin-8 precursor [Gallus gallus]	0	98.2	0.373	NP_000575.1
+10	NP_002974.1	XP_021326098.1	36.6 36.6	36.6	uncharacterized protein LOC100000741 isoform X1 [Danio rerio]	0	39.3	0.931	NP_002977.1
+6	NP_002974.1	NP_001005259.1	36.6 35.8	36.2	C-C motif chemokine 25 precursor [Canis lupus familiaris]	0	112	0.323	NP_001381563.1 NP_005615.2 NP_001381567.1 NP_001381566.1 NP_001381564.1 XP_047295160.1 NP_001381565.1 NP_001188288.1
+6	NP_002974.1	XP_038282317.1	36.6 35.8	36.2	C-C motif chemokine 25 isoform X2 [Canis lupus familiaris]	0	112	0.323	NP_001381563.1 NP_005615.2 NP_001381567.1 NP_001381566.1 NP_001381564.1 XP_047295160.1 NP_001381565.1 NP_001188288.1
+6	NP_002974.1	XP_038282318.1	35.8 36.6	36.2	C-C motif chemokine 25 isoform X2 [Canis lupus familiaris]	0	112	0.323	NP_001381563.1 NP_005615.2 NP_001381567.1 NP_001381566.1 NP_001381564.1 XP_047295160.1 NP_001381565.1 NP_001188288.1
+6	NP_002974.1	XP_038282319.1	36.6 35.8	36.2	C-C motif chemokine 25 isoform X2 [Canis lupus familiaris]	0	112	0.323	NP_001381563.1 NP_005615.2 NP_001381567.1 NP_001381566.1 NP_001381564.1 XP_047295160.1 NP_001381565.1 NP_001188288.1
+6	NP_002974.1	XP_038282320.1	36.6 35.8	36.2	C-C motif chemokine 25 isoform X2 [Canis lupus familiaris]	0	112	0.323	NP_001381563.1 NP_005615.2 NP_001381567.1 NP_001381566.1 NP_001381564.1 XP_047295160.1 NP_001381565.1 NP_001188288.1
+6	NP_002974.1	XP_038282321.1	35.8 36.6	36.2	C-C motif chemokine 25 isoform X2 [Canis lupus familiaris]	0	112	0.323	NP_001381563.1 NP_005615.2 NP_001381567.1 NP_001381566.1 NP_001381564.1 XP_047295160.1 NP_001381565.1 NP_001188288.1
+6	NP_002974.1	XP_038282322.1	35.8 36.6	36.2	C-C motif chemokine 25 isoform X2 [Canis lupus familiaris]	0	112	0.323	NP_001381563.1 NP_005615.2 NP_001381567.1 NP_001381566.1 NP_001381564.1 XP_047295160.1 NP_001381565.1 NP_001188288.1
+6	NP_002974.1	XP_038282323.1	36.6 35.8	36.2	C-C motif chemokine 25 isoform X2 [Canis lupus familiaris]	0	112	0.323	NP_001381563.1 NP_005615.2 NP_001381567.1 NP_001381566.1 NP_001381564.1 XP_047295160.1 NP_001381565.1 NP_001188288.1
+6	NP_002974.1	XP_038282324.1	35.8 36.6	36.2	C-C motif chemokine 25 isoform X2 [Canis lupus familiaris]	0	112	0.323	NP_001381563.1 NP_005615.2 NP_001381567.1 NP_001381566.1 NP_001381564.1 XP_047295160.1 NP_001381565.1 NP_001188288.1
+6	NP_002974.1	XP_038282325.1	36.6 35.8	36.2	C-C motif chemokine 25 isoform X2 [Canis lupus familiaris]	0	112	0.323	NP_001381563.1 NP_005615.2 NP_001381567.1 NP_001381566.1 NP_001381564.1 XP_047295160.1 NP_001381565.1 NP_001188288.1
+8	NP_002974.1	NP_001335585.1	36.2	36.2	C-X-C motif chemokine ligand 13-like 2 precursor [Gallus gallus]	0	53.9	0.672	NP_001358487.1 NP_006410.1
+8	NP_002974.1	XP_003643029.1	35.0 37.4	36.2	C-C motif chemokine 26 [Gallus gallus]	0	57.4	0.631	NP_002980.1
+8	NP_002974.1	XP_046796787.1	36.2	36.2	growth-regulated alpha protein isoform X1 [Gallus gallus]	0	68.6	0.528	NP_000575.1 NP_001341769.1
+8	NP_002974.1	XP_420608.2	36.2	36.2	growth-regulated alpha protein isoform X2 [Gallus gallus]	0	68.2	0.531	NP_000575.1
+10	NP_002974.1	NP_001314914.1	36.6 35.4	36	chemokine (C-X-C motif) ligand 8b, duplicate 1 precursor [Danio rerio]	0	64.7	0.556	NP_000575.1
+3	NP_002974.1	XP_028709059.1	35.4	35.4	stromal cell-derived factor 1 isoform X3 [Macaca mulatta]	0	178	0.199	NP_001029058.1
+6	NP_002974.1	NP_001003200.1	35.4 35.4	35.4	interleukin-8 precursor [Canis lupus familiaris]	0	140	0.253	NP_000575.1
+6	NP_002974.1	NP_001121569.1	35.4 35.4	35.4	stromal cell-derived factor 1 isoform 1 precursor [Canis lupus familiaris]	0	167	0.212	NP_000600.1
+6	NP_002974.1	NP_001295390.1	35.4 35.4	35.4	stromal cell-derived factor 1 isoform 2 precursor [Canis lupus familiaris]	0	159	0.223	NP_001029058.1 NP_000600.1 NP_954637.1
+6	NP_002974.1	XP_038295556.1	35.4	35.4	stromal cell-derived factor 1 isoform X1 [Canis lupus familiaris]	0	171	0.207	NP_001029058.1
+3	NP_002974.1	NP_001028106.1	35.0	35.0	stromal cell-derived factor 1 precursor [Macaca mulatta]	0	180	0.194	NP_001029058.1
+3	NP_002974.1	XP_015002379.1	35.0	35.0	stromal cell-derived factor 1 isoform X2 [Macaca mulatta]	0	186	0.188	NP_000600.1
+7	NP_002974.1	NP_001040034.2	34.7	34.7	C-C motif chemokine 25 precursor [Bos taurus]	0	140	0.248	XP_047295159.1 NP_001188288.1 NP_001381567.1
+7	NP_002974.1	XP_010805135.1	34.7	34.7	C-C motif chemokine 25 isoform X1 [Bos taurus]	0	140	0.248	XP_047295159.1 NP_001188288.1 NP_001381567.1
+7	NP_002974.1	XP_010805136.1	34.7	34.7	C-C motif chemokine 25 isoform X2 [Bos taurus]	0	142	0.244	XP_047295159.1 NP_001188288.1 NP_001381567.1
+7	NP_002974.1	XP_024850375.1	34.7	34.7	C-C motif chemokine 25 isoform X1 [Bos taurus]	0	140	0.248	XP_047295159.1 NP_001188288.1 NP_001381567.1
+7	NP_002974.1	XP_024850376.1	34.7	34.7	C-C motif chemokine 25 isoform X1 [Bos taurus]	0	140	0.248	XP_047295159.1 NP_001188288.1 NP_001381567.1
+7	NP_002974.1	XP_024850377.1	34.7	34.7	C-C motif chemokine 25 isoform X2 [Bos taurus]	0	142	0.244	XP_047295159.1 NP_001188288.1 NP_001381567.1
+7	NP_002974.1	NP_001106645.1	34.3	34.3	stromal cell-derived factor 1 precursor [Bos taurus]	0	156	0.220	NP_000600.1 NP_954637.1 NP_001171605.1
+7	NP_002974.1	XP_005226672.1	34.3	34.3	stromal cell-derived factor 1 isoform X1 [Bos taurus]	0	166	0.207	NP_001029058.1
+7	NP_002974.1	XP_005226673.1	34.3	34.3	stromal cell-derived factor 1 isoform X2 [Bos taurus]	0	158	0.217	NP_000600.1 NP_954637.1
+7	NP_002974.1	XP_005226674.1	34.3	34.3	stromal cell-derived factor 1 isoform X3 [Bos taurus]	0	165	0.208	NP_000600.1
+7	NP_002974.1	XP_005226675.1	34.3	34.3	stromal cell-derived factor 1 isoform X4 [Bos taurus]	0	158	0.217	NP_000600.1
+10	NP_002974.1	XP_001342606.2	33.9	33.9	permeability factor 2 isoform X1 [Danio rerio]	0	66.2	0.512	NP_002080.1

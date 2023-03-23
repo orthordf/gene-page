@@ -29,3 +29,7 @@ table {
 .species-thumbnail {
   height: 25px;
 }
+
+.blast-plot {
+  width: 50%;
+}
