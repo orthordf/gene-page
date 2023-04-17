@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Papa = require('papaparse')
-const { Gene2RefSeqTax9606, GeneInfo, Species } = require('../models')
+const { Gene2RefSeqTax9606, GeneInfo, Species, Gene2RefSeq } = require('../models')
 const createError = require("http-errors");
 
 
@@ -45,12 +45,27 @@ async function getBlastScores(symbol) {
   fileContent = fs.readFileSync(filePath).toString();
   let blastRecords = Papa.parse(fileContent);
 
+  let targetMap = {};
+
   blastScores = blastRecords.data.map(record => {
-    return {
+    let scoreDict = {
       speciesIndex: record[0],
+      query: record[1],
+      target: record[2],
       score: record[4],
+      description: record[5],
       isBBH: record[6] == 1,
+      ratio: record[8],
+      reverseBest: record[9],
     }
+    targetMap[record[2]] = scoreDict;
+    return scoreDict;
+  });
+
+  targetSymbols = await Gene2RefSeq.findAll({where: {protein_id: blastScores.map(r => r.target)}});
+
+  targetSymbols.forEach((r) => {
+    targetMap[r.dataValues.protein_id].targetSymbol = r.dataValues.symbol;
   });
 
   return blastScores;
@@ -65,6 +80,10 @@ const geneController = {
     const refseqStatusTable = await getRefseqInfo(id, seed);
     const homologenes = await getHomologenes(geneInfo.group_id);
     const blastScores = await(getBlastScores(geneInfo.symbol));
+    const blastSpecies = [
+      'human', 'chimp', 'monkey', 'mouse', 'rat', 'dog', 'cow', 'chicken', 'Xenopus', 'zebrafish', 'Drosophila', 'mosquito', 'nematode',
+      'yeast', '', '', '', '', '', 'plant', ''
+    ];
 
     res.render('gene/detail', {
       title: 'Gene info',
@@ -75,6 +94,7 @@ const geneController = {
       refseqStatusTable,
       homologenes,
       blastScores,
+      blastSpecies,
     });
   }
 };

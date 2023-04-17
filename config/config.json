@@ -16,10 +16,11 @@
     "dialect": "sqlite"
   },
   "production": {
-    "username": "root",
+    "username": null,
     "password": null,
     "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "host": "localhost",
+    "dialect": "sqlite",
+    "storage": "prod-data.sqlite3"
   }
 }

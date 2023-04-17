@@ -68,6 +68,30 @@ block content
   if blastScores !== null
     h3=`BLAST`
       div.blast-plot
+    table(border=1)
+      thead
+        tr
+          th='Score'
+          th='Query'
+          th='Target'
+          th='Target organism'
+          th='Target symbol'
+          th='Target gene'
+          th='Homologene'
+          th='Score /Best_score(Tarrget->human)'
+          th='Human seq for Best_score(Target->human)'
+      tbody
+        each blastScore in blastScores
+          tr
+            td=blastScore.score
+            td=blastScore.query
+            td=blastScore.target
+            td=blastSpecies[blastScore.speciesIndex - 1]
+            td=blastScore.targetSymbol
+            td=''
+            td=''
+            td=''
+            td=''
 
 block script
   if blastScores !== null
@@ -75,10 +99,7 @@ block script
       let blastPlot = document.querySelector('.blast-plot');
       let blastScores = !{JSON.stringify(blastScores)}
 
-      const blastSpecies = [
-        'human', 'chimp', 'monkey', 'mouse', 'rat', 'dog', 'cow', 'chicken', 'Xenopus', 'zebrafish', 'Drosophila', 'mosquito', 'nematode',
-        'yeast', '', '', '', '', '', 'plant', ''
-      ];
+      const blastSpecies = !{JSON.stringify(blastSpecies)}
 
       Plotly.newPlot( blastPlot, [
           {
