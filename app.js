@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(config.baseUrl, express.static(path.join(__dirname, 'public')));
 
-app.locals.staticFilePath = (filePath) => path.join(config.baseUrl, filePath);
+app.locals.pathFromRoot = (filePath) => path.join(config.baseUrl, filePath);
 
 app.use(config.baseUrl, indexRouter);
 app.use(path.join(config.baseUrl, 'genes'), genesRouter);

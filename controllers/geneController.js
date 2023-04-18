@@ -65,7 +65,9 @@ async function getBlastScores(symbol) {
   targetSymbols = await Gene2RefSeq.findAll({where: {protein_id: blastScores.map(r => r.target)}});
 
   targetSymbols.forEach((r) => {
-    targetMap[r.dataValues.protein_id].targetSymbol = r.dataValues.symbol;
+    let scoreRecord = targetMap[r.dataValues.protein_id];
+    scoreRecord.targetSymbol = r.dataValues.symbol;
+    scoreRecord.targetGeneID = r.dataValues.gene_id;
   });
 
   return blastScores;

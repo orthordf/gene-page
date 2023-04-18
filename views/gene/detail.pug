@@ -87,7 +87,13 @@ block content
             td=blastScore.query
             td=blastScore.target
             td=blastSpecies[blastScore.speciesIndex - 1]
-            td=blastScore.targetSymbol
+            if blastScore.speciesIndex == 1
+              // human
+              td
+                a(href=pathFromRoot(`genes/${blastScore.targetGeneID}`))
+                  =blastScore.targetSymbol
+            else
+              td=blastScore.targetSymbol
             td=''
             td=''
             td=''
