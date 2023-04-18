@@ -94,10 +94,23 @@ block content
                   =blastScore.targetSymbol
             else
               td=blastScore.targetSymbol
-            td=''
-            td=''
-            td=''
-            td=''
+            td
+              if blastScore.targetGeneID !== null
+                a(href=`https://www.ncbi.nlm.nih.gov/gene/${blastScore.targetGeneID}`)
+                  =blastScore.targetGeneID
+            td
+              if blastScore.targetGroupID
+                a(href=`https://www.ncbi.nlm.nih.gov/gene/${blastScore.targetGroupID}`)
+                  =blastScore.targetGroupID
+            td=blastScore.ratio
+            td
+              if blastScore.reverseBests
+                each reverseBest in blastScore.reverseBests
+                  a(href=`https://www.ncbi.nlm.nih.gov/protein/${reverseBest}`)
+                    =reverseBest
+                  if reverseBestsDict[reverseBest]
+                    =`(${reverseBestsDict[reverseBest]})`
+                  =' '
 
 block script
   if blastScores !== null

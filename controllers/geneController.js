@@ -46,6 +46,7 @@ async function getBlastScores(symbol) {
   let blastRecords = Papa.parse(fileContent);
 
   let targetMap = {};
+  let reverseBestsProteins = [];
 
   blastScores = blastRecords.data.map(record => {
     let scoreDict = {
@@ -56,21 +57,30 @@ async function getBlastScores(symbol) {
       description: record[5],
       isBBH: record[6] == 1,
       ratio: record[8],
-      reverseBest: record[9],
+      reverseBests: record[9]?.split(' '),
     }
+    reverseBestsProteins = reverseBestsProteins.concat(scoreDict.reverseBests);
     targetMap[record[2]] = scoreDict;
     return scoreDict;
   });
 
-  targetSymbols = await Gene2RefSeq.findAll({where: {protein_id: blastScores.map(r => r.target)}});
+  targetSymbols = await Gene2RefSeq.findAll({where: {protein_id: blastScores.map(r => r.target)}, include: GeneInfo});
 
   targetSymbols.forEach((r) => {
     let scoreRecord = targetMap[r.dataValues.protein_id];
     scoreRecord.targetSymbol = r.dataValues.symbol;
     scoreRecord.targetGeneID = r.dataValues.gene_id;
+    scoreRecord.targetGroupID = r.GeneInfo?.group_id;
   });
 
-  return blastScores;
+  let reverseBestsRecords = await Gene2RefSeq.findAll({where: {protein_id: reverseBestsProteins}, include: GeneInfo});
+
+  let reverseBestsDict = {};
+  reverseBestsRecords.forEach((r) => {
+    reverseBestsDict[r.dataValues.protein_id] = r.dataValues.symbol;
+  });
+
+  return [blastScores, reverseBestsDict];
 }
 
 
@@ -81,7 +91,7 @@ const geneController = {
     const seed = {};
     const refseqStatusTable = await getRefseqInfo(id, seed);
     const homologenes = await getHomologenes(geneInfo.group_id);
-    const blastScores = await(getBlastScores(geneInfo.symbol));
+    const [blastScores, reverseBestsDict] = await(getBlastScores(geneInfo.symbol));
     const blastSpecies = [
       'human', 'chimp', 'monkey', 'mouse', 'rat', 'dog', 'cow', 'chicken', 'Xenopus', 'zebrafish', 'Drosophila', 'mosquito', 'nematode',
       'yeast', '', '', '', '', '', 'plant', ''
@@ -96,6 +106,7 @@ const geneController = {
       refseqStatusTable,
       homologenes,
       blastScores,
+      reverseBestsDict,
       blastSpecies,
     });
   }
