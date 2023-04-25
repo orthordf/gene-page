@@ -66,9 +66,12 @@ block content
 
 
   if blastScores !== null
+    // Add search box on the top of the table
     h3=`BLAST`
       div.blast-plot
-    table(border=1)
+    input(type='text', id='blast-search-box', placeholder='Search for species...', style="width: 300px; margin-bottom: 10px;")
+    br
+    table(border=1, id='blast-table')
       thead
         tr
           th='Score'
@@ -144,3 +147,27 @@ block script
           }
         },
       );
+
+      // Filter table by query in the search box
+      let blastSearchBox = document.querySelector('#blast-search-box');
+      blastSearchBox.addEventListener('keyup', function() {
+        let query = blastSearchBox.value.toLowerCase();
+        let blastTable = document.querySelector('#blast-table');
+        let blastTableRows = blastTable.querySelectorAll('tbody tr');
+        blastTableRows.forEach(function(row) {
+          let matched = false;
+          let cells = row.querySelectorAll('td');
+          cells.forEach(function(cell) {
+            if (cell.textContent.toLowerCase().indexOf(query) > -1) {
+              matched = true;
+            }
+          });
+
+
+          if (matched) {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+      });
