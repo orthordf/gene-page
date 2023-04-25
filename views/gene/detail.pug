@@ -67,7 +67,7 @@ block content
 
   if blastScores !== null
     // Add search box on the top of the table
-    h3=`BLAST`
+    h3#blast-title=`BLAST`
       div.blast-plot
     input(type='text', id='blast-search-box', placeholder='Filter', style="width: 300px; margin-bottom: 10px;")
     br
@@ -186,6 +186,6 @@ block script
           e.preventDefault();
           let targetURL = link.getAttribute('href');
           let currentFilter = blastSearchBox.value;
-          window.location.href = targetURL + '?filter=' + currentFilter;
+          window.location.href = targetURL + '?filter=' + currentFilter + '#blast-title';
         });
       });
