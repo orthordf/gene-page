@@ -12,7 +12,7 @@ block content
     tbody
       each header in Object.keys(geneInfo)
         td
-          each content in geneInfo[header].toString().split('|')
+          each content in geneInfo[header] ? geneInfo[header].toString().split('|') : []
             =content
             br
   span Go to <a href=https://www.ncbi.nlm.nih.gov/gene/#{id}>NCBI</a>, go to <a href=https://en.wikipedia.org/wiki/#{symbol}>Wikipedia</a>
