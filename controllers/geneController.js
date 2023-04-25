@@ -41,7 +41,7 @@ async function getHomologenes(groupId) {
 async function getBlastScores(symbol) {
   let filePath = `gene_data/blast.scores/${symbol}.scores.txt`;
   if(!fs.existsSync(filePath))
-     return null;
+     return [null, null];
   fileContent = fs.readFileSync(filePath).toString();
   let blastRecords = Papa.parse(fileContent);
 
