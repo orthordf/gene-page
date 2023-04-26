@@ -179,11 +179,10 @@ block script
         filterBlastTable();
       }
 
-      let query = blastSearchBox.value.toLowerCase();
-      let blastTable = document.querySelector('#blast-table');
-      let blastTableRows = blastTable.querySelectorAll('tbody tr');
-
       function filterBlastTable() {
+        let query = blastSearchBox.value.toLowerCase();
+        let blastTable = document.querySelector('#blast-table');
+        let blastTableRows = blastTable.querySelectorAll('tbody tr');
         blastTableRows.forEach(function(row) {
           let matched = false;
           let cells = row.querySelectorAll('td');
@@ -223,8 +222,9 @@ block script
         blastTableRows[data.points[0].pointNumber].style.backgroundColor = '#f2f2f2';
       });
 
+      let query = blastSearchBox.value.toLowerCase();
       // Highlight plot in plotly when table row is hovered
-      blastTableRows.forEach(function(row) {
+      document.querySelector('#blast-table').querySelectorAll('tbody tr').forEach(function(row) {
         row.addEventListener('mouseover', function(e) {
           let blastPlot = document.querySelector('.blast-plot');
           let blastPlotData = blastPlot.data[0];
