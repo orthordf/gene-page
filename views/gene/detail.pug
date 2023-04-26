@@ -75,7 +75,7 @@ block content
     table(border=1, id='blast-table').sortable
       thead
         tr
-          th
+          th.num
             button='Score'
             span(aria-hidden='true')
           th
@@ -96,7 +96,7 @@ block content
           th
             button='Homologene'
             span(aria-hidden='true')
-          th
+          th.num
             button='Score / Best_score(Target->human)'
             span(aria-hidden='true')
           th
@@ -137,6 +137,11 @@ block content
 block script
   if blastScores !== null
     script.
+      // Initialize sortable table buttons
+      let sortableTables = document.querySelectorAll('table.sortable');
+      for(let i = 0; i < sortableTables.length; i++) {
+        new SortableTable(sortableTables[i]);
+      }
       let blastPlot = document.querySelector('.blast-plot');
       let blastScores = !{JSON.stringify(blastScores)}
 

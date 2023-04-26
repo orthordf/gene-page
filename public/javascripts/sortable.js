@@ -157,12 +157,3 @@ class SortableTable {
     }
   }
 }
-
-// Initialize sortable table buttons
-window.addEventListener('load', function () {
-  let sortableTables = document.querySelectorAll('table.sortable');
-  for (let i = 0; i < sortableTables.length; i++) {
-    console.log({i});
-    new SortableTable(sortableTables[i]);
-  }
-});
