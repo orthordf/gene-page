@@ -2,6 +2,7 @@ extends ../layout
 
 block head
   script(src="https://cdn.plot.ly/plotly-2.18.2.min.js")
+  script(src=pathFromRoot("/javascripts/sortable.js"))
 
 block content
   h2=`${symbol}: ${description}`
@@ -71,18 +72,36 @@ block content
       div.blast-plot
     input(type='text', id='blast-search-box', placeholder='Filter', style="width: 300px; margin-bottom: 10px;")
     br
-    table(border=1, id='blast-table')
+    table(border=1, id='blast-table').sortable
       thead
         tr
-          th='Score'
-          th='Query'
-          th='Target'
-          th='Target organism'
-          th='Target symbol'
-          th='Target gene'
-          th='Homologene'
-          th='Score / Best_score(Target->human)'
-          th='Human seq for Best_score(Target->human)'
+          th
+            button='Score'
+            span(aria-hidden='true')
+          th
+            button='Query'
+            span(aria-hidden='true')
+          th
+            button='Target'
+            span(aria-hidden='true')
+          th
+            button='Target organism'
+            span(aria-hidden='true')
+          th
+            button='Target symbol'
+            span(aria-hidden='true')
+          th
+            button='Target gene'
+            span(aria-hidden='true')
+          th
+            button='Homologene'
+            span(aria-hidden='true')
+          th
+            button='Score / Best_score(Target->human)'
+            span(aria-hidden='true')
+          th
+            button='Human seq for Best_score(Target->human)'
+            span(aria-hidden='true')
       tbody
         each blastScore in blastScores
           tr
