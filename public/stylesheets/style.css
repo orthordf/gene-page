@@ -73,6 +73,7 @@ table.sortable th button {
   top: 0;
   bottom: 0;
   width: 100%;
+  height: 100%;
   outline: none;
   cursor: pointer;
 }
@@ -121,7 +122,6 @@ table.sortable td.num {
 
 table.sortable th button:focus,
 table.sortable th button:hover {
-  border: 2px solid currentcolor;
   background-color: #e5f4ff;
 }
 

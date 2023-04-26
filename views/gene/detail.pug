@@ -103,8 +103,8 @@ block content
             button='Human seq for Best_score(Target->human)'
             span(aria-hidden='true')
       tbody
-        each blastScore in blastScores
-          tr
+        each blastScore, index in blastScores
+          tr(data-index=index)
             td=blastScore.score
             td=blastScore.query
             td=blastScore.target
@@ -142,6 +142,8 @@ block script
 
       const blastSpecies = !{JSON.stringify(blastSpecies)}
 
+      const defaultPlotSize = 8;
+
       Plotly.newPlot( blastPlot, [
           {
             x: blastScores.map(s => s.speciesIndex - 1),
@@ -149,7 +151,8 @@ block script
             mode: 'markers',
             type: 'scatter',
             marker: {
-              color: blastScores.map(s => (s.isBBH ? 'red' : 'black'))
+              color: blastScores.map(s => (s.isBBH ? 'red' : 'black')),
+              size: blastScores.map(_ => defaultPlotSize),
             }
           }
         ],
@@ -176,10 +179,11 @@ block script
         filterBlastTable();
       }
 
+      let query = blastSearchBox.value.toLowerCase();
+      let blastTable = document.querySelector('#blast-table');
+      let blastTableRows = blastTable.querySelectorAll('tbody tr');
+
       function filterBlastTable() {
-        let query = blastSearchBox.value.toLowerCase();
-        let blastTable = document.querySelector('#blast-table');
-        let blastTableRows = blastTable.querySelectorAll('tbody tr');
         blastTableRows.forEach(function(row) {
           let matched = false;
           let cells = row.querySelectorAll('td');
@@ -208,3 +212,58 @@ block script
           window.location.href = targetURL + '?filter=' + currentFilter + '#blast-title';
         });
       });
+
+      // Highlight row in table when plot in plotly is hovered
+      blastPlot.on('plotly_hover', function(data){
+        let blastTable = document.querySelector('#blast-table');
+        let blastTableRows = blastTable.querySelectorAll('tbody tr');
+        blastTableRows.forEach(function(row) {
+          row.style.backgroundColor = '';
+        });
+        blastTableRows[data.points[0].pointNumber].style.backgroundColor = '#f2f2f2';
+      });
+
+      // Highlight plot in plotly when table row is hovered
+      blastTableRows.forEach(function(row) {
+        row.addEventListener('mouseover', function(e) {
+          let blastPlot = document.querySelector('.blast-plot');
+          let blastPlotData = blastPlot.data[0];
+          let rowIndex = row.dataset.index;
+          blastPlotData.marker.color = blastPlotData.marker.color.map(function(color, index) {
+            if(index == rowIndex) {
+              return 'blue';
+            } else if(blastScores[index].isBBH) {
+              return 'red';
+            } else {
+              return 'black';
+            }
+          });
+
+          // Change size of highlighted marker in plotly
+          blastPlotData.marker.size = blastPlotData.x.map(function(x, index) {
+            if(index == rowIndex) {
+              return defaultPlotSize * 2;
+            } else {
+              return defaultPlotSize;
+            }
+          });
+          row.style.backgroundColor = '#f2f2f2';
+
+          Plotly.redraw(blastPlot);
+        });
+        row.addEventListener('mouseout', function(e) {
+          let blastPlot = document.querySelector('.blast-plot');
+          let blastPlotData = blastPlot.data[0];
+          blastPlotData.marker.color = blastPlotData.marker.color.map(function(color, index) {
+            if(blastScores[index].isBBH) {
+              return 'red';
+            } else {
+              return 'black';
+            }
+          });
+          blastPlotData.marker.size = blastScores.map(_ => defaultPlotSize);
+          Plotly.redraw(blastPlot);
+          row.style.backgroundColor = '';
+        });
+      });
+
