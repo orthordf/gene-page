@@ -43,7 +43,7 @@ async function getBlastScores(symbol) {
   if(!fs.existsSync(filePath))
      return [null, null];
   fileContent = fs.readFileSync(filePath).toString();
-  let blastRecords = Papa.parse(fileContent);
+  let blastRecords = Papa.parse(fileContent, { skipEmptyLines: true });
 
   let targetMap = {};
   let reverseBestsProteins = [];
