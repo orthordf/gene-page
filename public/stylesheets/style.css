@@ -10,6 +10,7 @@ body {
 
 table {
   border-collapse: collapse;
+  border: 1px solid black;
   font-size: 0.9em;
 }
 
@@ -30,14 +31,11 @@ table {
   height: 25px;
 }
 
-.blast-plot {
-  width: 50%;
-}
-
 .sr-only {
   position: absolute;
   top: -30em;
 }
+
 
 thead {
   background-color: #e9faf9;

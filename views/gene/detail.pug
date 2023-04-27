@@ -69,7 +69,22 @@ block content
   if blastScores !== null
     // Add search box on the top of the table
     h3#blast-title=`BLAST`
-      div.blast-plot
+    table(border=1)
+      thead
+        tr
+          th(style='width: 1000px;')='BLAST scores'
+          th='Homologene profile'
+      tbody
+        tr
+          td
+            div.blast-plot
+          td
+            each s in species
+              if s.isHomologene
+                ='*'
+              =s.common_name
+              br
+    br
     input(type='text', id='blast-search-box', placeholder='Filter', style="width: 300px; margin-bottom: 10px;")
     br
     table(border=1, id='blast-table').sortable

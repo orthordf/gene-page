@@ -32,11 +32,26 @@ async function getRefseqInfo(geneId, seed) {
 }
 
 
+// Return list of homologene and list of species with isHomologene flag
 async function getHomologenes(groupId) {
   let records = await GeneInfo.findAll({ where: { group_id: groupId }, include: Species });
-  return records.map(r => r.dataValues);
+  let homologene = records.map(r => r.dataValues);
+  let species = await Species.findAll({order: ['sp_order']});
+  species = species.map(r => {
+    let data = r.dataValues;
+    data.isHomologene = false;
+    return data;
+  });
+  homologene.forEach(gene => {
+    for(let s of species) {
+      if(s.id == gene.tax_id) {
+        s.isHomologene = true;
+        break;
+      }
+    }
+  });
+  return [homologene, species];
 }
-
 
 async function getBlastScores(symbol) {
   let filePath = `gene_data/blast.scores/${symbol}.scores.txt`;
@@ -90,7 +105,7 @@ const geneController = {
     const [symbol, description, geneInfo] = await getGeneInfo(id);
     const seed = {};
     const refseqStatusTable = await getRefseqInfo(id, seed);
-    const homologenes = await getHomologenes(geneInfo.group_id);
+    const [homologenes, species] = await getHomologenes(geneInfo.group_id);
     const [blastScores, reverseBestsDict] = await(getBlastScores(geneInfo.symbol));
     const blastSpecies = [
       'human', 'chimp', 'monkey', 'mouse', 'rat', 'dog', 'cow', 'chicken', 'Xenopus', 'zebrafish', 'Drosophila', 'mosquito', 'nematode',
@@ -108,6 +123,7 @@ const geneController = {
       blastScores,
       reverseBestsDict,
       blastSpecies,
+      species
     });
   }
 };
