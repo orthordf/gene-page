@@ -148,19 +148,22 @@ block script
       const blastSpecies = !{JSON.stringify(blastSpecies)}
 
       const defaultPlotSize = 8;
-
-      Plotly.newPlot( blastPlot, [
-          {
-            x: blastScores.map(s => s.speciesIndex - 1),
-            y: blastScores.map(s => s.score),
-            mode: 'markers',
-            type: 'scatter',
-            marker: {
-              color: blastScores.map(s => (s.isBBH ? 'red' : 'black')),
-              size: blastScores.map(_ => defaultPlotSize),
-            }
+      let plotData =
+        {
+          x: blastScores.map(s => s.speciesIndex - 1),
+          y: blastScores.map(s => s.score),
+          text: blastScores.map(s => s.targetSymbol),
+          mode: 'markers',
+          type: 'scatter',
+          hoverInfo: 'text',
+          marker: {
+            color: blastScores.map(s => (s.isBBH ? 'red' : 'black')),
+            size: blastScores.map(_ => defaultPlotSize),
           }
-        ],
+        };
+
+
+      Plotly.newPlot( blastPlot, [plotData],
         {
           xaxis: {
             tickvals: [...Array(blastSpecies.length).keys()],
@@ -230,44 +233,21 @@ block script
       let query = blastSearchBox.value.toLowerCase();
       // Highlight plot in plotly when table row is hovered
       document.querySelector('#blast-table').querySelectorAll('tbody tr').forEach(function(row) {
+        let rowIndex = row.dataset.index;
         row.addEventListener('mouseover', function(e) {
-          let blastPlot = document.querySelector('.blast-plot');
-          let blastPlotData = blastPlot.data[0];
-          let rowIndex = row.dataset.index;
-          blastPlotData.marker.color = blastPlotData.marker.color.map(function(color, index) {
-            if(index == rowIndex) {
-              return 'blue';
-            } else if(blastScores[index].isBBH) {
-              return 'red';
-            } else {
-              return 'black';
-            }
-          });
+          let updateData = {};
+          updateData[`marker.color[${rowIndex}]`] = 'blue';
+          updateData[`marker.size[${rowIndex}]`] = defaultPlotSize * 2;
 
-          // Change size of highlighted marker in plotly
-          blastPlotData.marker.size = blastPlotData.x.map(function(x, index) {
-            if(index == rowIndex) {
-              return defaultPlotSize * 2;
-            } else {
-              return defaultPlotSize;
-            }
-          });
+          Plotly.update(blastPlot, updateData);
+
           row.style.backgroundColor = '#f2f2f2';
-
-          Plotly.redraw(blastPlot);
         });
         row.addEventListener('mouseout', function(e) {
-          let blastPlot = document.querySelector('.blast-plot');
-          let blastPlotData = blastPlot.data[0];
-          blastPlotData.marker.color = blastPlotData.marker.color.map(function(color, index) {
-            if(blastScores[index].isBBH) {
-              return 'red';
-            } else {
-              return 'black';
-            }
-          });
-          blastPlotData.marker.size = blastScores.map(_ => defaultPlotSize);
-          Plotly.redraw(blastPlot);
+          let updateData = {};
+          updateData[`marker.color[${rowIndex}]`] = blastScores[rowIndex].isBBH ? 'red' : 'black';
+          updateData[`marker.size[${rowIndex}]`] = defaultPlotSize;
+          Plotly.update(blastPlot, updateData);
           row.style.backgroundColor = '';
         });
       });
