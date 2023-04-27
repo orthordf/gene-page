@@ -26,4 +26,8 @@ $ npx sequelize db:seed:all
 $ npm start
 ```
 
-Access to localhost:8100.
+Access to localhost:8100/resource/genes/6348.
+
+### Config
+
+* Config such as port number is in `config/config.json`.
