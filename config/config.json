@@ -1,5 +1,6 @@
 {
   "baseUrl": "/resource/",
+  "port": 8100,
   "development": {
     "username": null,
     "password": null,

@@ -7,12 +7,14 @@
 let app = require('../app');
 let debug = require('debug')('orth-genes:server');
 let http = require('http');
+let config = require('../config/config.json');
+
 
 /**
  * Get port from environment and store in Express.
  */
 
-let port = normalizePort(process.env.PORT || '8100');
+let port = normalizePort(config.port || '8100');
 app.set('port', port);
 
 /**
