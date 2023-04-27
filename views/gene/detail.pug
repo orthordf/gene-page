@@ -227,8 +227,24 @@ block script
         blastTableRows.forEach(function(row) {
           row.style.backgroundColor = '';
         });
-        blastTableRows[data.points[0].pointNumber].style.backgroundColor = '#f2f2f2';
+        let index = data.points[0].pointNumber;
+        blastTableRows[index].style.backgroundColor = '#f2f2f2';
+
+        let updateData = {};
+        updateData[`marker.color[${index}]`] = 'blue';
+        updateData[`marker.size[${index}]`] = defaultPlotSize * 2;
+        Plotly.update(blastPlot, updateData);
       });
+
+      // Unhighlight plot when unhovered
+      blastPlot.on('plotly_unhover', function(data){
+        let index = data.points[0].pointNumber;
+        let updateData = {};
+        updateData[`marker.color[${index}]`] = blastScores[index].isBBH ? 'red' : 'black';
+        updateData[`marker.size[${index}]`] = defaultPlotSize;
+        Plotly.update(blastPlot, updateData);
+      });
+
 
       let query = blastSearchBox.value.toLowerCase();
       // Highlight plot in plotly when table row is hovered
@@ -238,7 +254,6 @@ block script
           let updateData = {};
           updateData[`marker.color[${rowIndex}]`] = 'blue';
           updateData[`marker.size[${rowIndex}]`] = defaultPlotSize * 2;
-
           Plotly.update(blastPlot, updateData);
 
           row.style.backgroundColor = '#f2f2f2';
