@@ -97,10 +97,10 @@ block content
             button='Homologene'
             span(aria-hidden='true')
           th.num
-            button='Score / Best_score(Target->human)'
+            button='Score / Best_score (Target → human)'
             span(aria-hidden='true')
           th
-            button='Human seq for Best_score(Target->human)'
+            button='Human seq for Best_score (Target → human)'
             span(aria-hidden='true')
       tbody
         each blastScore, index in blastScores
@@ -225,11 +225,13 @@ block script
       blastPlot.on('plotly_hover', function(data){
         let blastTable = document.querySelector('#blast-table');
         let blastTableRows = blastTable.querySelectorAll('tbody tr');
-        blastTableRows.forEach(function(row) {
-          row.style.backgroundColor = '';
-        });
         let index = data.points[0].pointNumber;
-        blastTableRows[index].style.backgroundColor = '#f2f2f2';
+        blastTableRows.forEach(function(row) {
+          if(row.dataset.index != index)
+            row.style.backgroundColor = '';
+          else
+            row.style.backgroundColor = '#f2f2f2';
+        });
 
         let updateData = {};
         updateData[`marker.color[${index}]`] = 'blue';
