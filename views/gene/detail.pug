@@ -5,7 +5,7 @@ block head
   script(src=pathFromRoot("/javascripts/sortable.js"))
 
 block content
-  h2=`${symbol}: ${description}`
+  h2.sticky-header=`${symbol}: ${description}`
   table(border=1)
     thead(align='left')
       each header in Object.keys(geneInfo)

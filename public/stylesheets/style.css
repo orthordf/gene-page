@@ -143,3 +143,10 @@ table.sortable th:not([aria-sort]) button:hover span::after {
   font-size: 100%;
   top: 0;
 }
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #e9faf9;
+}
