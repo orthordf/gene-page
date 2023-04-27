@@ -173,7 +173,8 @@ block script
             range: [-1, blastSpecies.length - 1]
           },
           yaxis: {
-            title: "BLAST score"
+            title: "BLAST score",
+            range: [0, Math.max(...blastScores.map(s => parseFloat(s.score))) * 1.1] // 1.1 is for margin
           }
         },
       );
