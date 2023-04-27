@@ -5,149 +5,151 @@ block head
   script(src=pathFromRoot("/javascripts/sortable.js"))
 
 block content
-  h2.sticky-header=`${symbol}: ${description}`
-  table(border=1)
-    thead(align='left')
-      each header in Object.keys(geneInfo)
-        th=header
-    tbody
-      each header in Object.keys(geneInfo)
-        td
-          each content in geneInfo[header] ? geneInfo[header].toString().split('|') : []
-            =content
-            br
-  span Go to <a href=https://www.ncbi.nlm.nih.gov/gene/#{id}>NCBI</a>, go to <a href=https://en.wikipedia.org/wiki/#{symbol}>Wikipedia</a>
-
-  h3 RefSeq
-  table(border=1)
-    thead(align='left')
-      tr
-        th='Status'
-        th='RefSeq protein ID'
-        th='RefSeq RNA ID'
-    tbody
-      each status in Object.keys(refseqStatusTable).sort()
-        each rnaVersion in Object.keys(refseqStatusTable[status]).sort()
-          each proteinVersion in Array.from(refseqStatusTable[status][rnaVersion])
-            tr
-              td=status
-              td=proteinVersion
-              td=rnaVersion
-
-  h3=`HomoloGene: ${geneInfo.group_id}`
-  table(border=1)
-    thead(align='left')
-      tr
-        th='Gene ID'
-        th='Gene symbol'
-        th='RefSeq'
-        th='TaxID'
-        th='Scientific name'
-        th='Common name'
-        th='Comment'
-        th='Wikidata'
-    tbody
-      each homologene in homologenes
-        tr
-          td=homologene.id
-          td=homologene.symbol
-          td=homologene.protein_id
-          td
-            a(href=`https://orth.dbcls.jp/taxid/${homologene.tax_id}`)=homologene.tax_id
-          td=homologene.Species.scientific_name
-          td=homologene.Species.common_name
-          td=homologene.Species.comment
-          td
-            a(href=homologene.Species.wikidata_url, target='_blank' rel='noopener noreferrer')
-              if homologene.Species.wikidata_thumbnail_url
-                img.species-thumbnail(src=`${homologene.Species.wikidata_thumbnail_url}?height=25`)
-              else
-                ="Wikidata"
-
-
-
-  if blastScores !== null
-    // Add search box on the top of the table
-    h3#blast-title=`BLAST`
+  div.sticky-header
+    h2.header=`${symbol}: ${description}`
+  div.container
     table(border=1)
-      thead
-        tr
-          th(style='width: 1000px;')='BLAST scores'
-          th='Homologene profile'
+      thead(align='left')
+        each header in Object.keys(geneInfo)
+          th=header
       tbody
-        tr
+        each header in Object.keys(geneInfo)
           td
-            div.blast-plot
-          td
-            each s in species
-              if s.isHomologene
-                ='*'
-              =s.common_name
+            each content in geneInfo[header] ? geneInfo[header].toString().split('|') : []
+              =content
               br
-    br
-    input(type='text', id='blast-search-box', placeholder='Filter', style="width: 300px; margin-bottom: 10px;")
-    br
-    table(border=1, id='blast-table').sortable
-      thead
+    span Go to <a href=https://www.ncbi.nlm.nih.gov/gene/#{id}>NCBI</a>, go to <a href=https://en.wikipedia.org/wiki/#{symbol}>Wikipedia</a>
+
+    h3 RefSeq
+    table(border=1)
+      thead(align='left')
         tr
-          th.num
-            button='Score'
-            span(aria-hidden='true')
-          th
-            button='Query'
-            span(aria-hidden='true')
-          th
-            button='Target'
-            span(aria-hidden='true')
-          th
-            button='Target organism'
-            span(aria-hidden='true')
-          th
-            button='Target symbol'
-            span(aria-hidden='true')
-          th
-            button='Target gene'
-            span(aria-hidden='true')
-          th
-            button='Homologene'
-            span(aria-hidden='true')
-          th.num
-            button='Score / Best_score (Target → human)'
-            span(aria-hidden='true')
-          th
-            button='Human seq for Best_score (Target → human)'
-            span(aria-hidden='true')
+          th='Status'
+          th='RefSeq protein ID'
+          th='RefSeq RNA ID'
       tbody
-        each blastScore, index in blastScores
-          tr(data-index=index)
-            td=blastScore.score
-            td=blastScore.query
-            td=blastScore.target
-            td=blastSpecies[blastScore.speciesIndex - 1]
-            if blastScore.speciesIndex == 1
-              // human
+        each status in Object.keys(refseqStatusTable).sort()
+          each rnaVersion in Object.keys(refseqStatusTable[status]).sort()
+            each proteinVersion in Array.from(refseqStatusTable[status][rnaVersion])
+              tr
+                td=status
+                td=proteinVersion
+                td=rnaVersion
+
+    h3=`HomoloGene: ${geneInfo.group_id}`
+    table(border=1)
+      thead(align='left')
+        tr
+          th='Gene ID'
+          th='Gene symbol'
+          th='RefSeq'
+          th='TaxID'
+          th='Scientific name'
+          th='Common name'
+          th='Comment'
+          th='Wikidata'
+      tbody
+        each homologene in homologenes
+          tr
+            td=homologene.id
+            td=homologene.symbol
+            td=homologene.protein_id
+            td
+              a(href=`https://orth.dbcls.jp/taxid/${homologene.tax_id}`)=homologene.tax_id
+            td=homologene.Species.scientific_name
+            td=homologene.Species.common_name
+            td=homologene.Species.comment
+            td
+              a(href=homologene.Species.wikidata_url, target='_blank' rel='noopener noreferrer')
+                if homologene.Species.wikidata_thumbnail_url
+                  img.species-thumbnail(src=`${homologene.Species.wikidata_thumbnail_url}?height=25`)
+                else
+                  ="Wikidata"
+
+
+
+    if blastScores !== null
+      // Add search box on the top of the table
+      h3#blast-title=`BLAST`
+      table(border=1)
+        thead
+          tr
+            th(style='width: 1000px;')='BLAST scores'
+            th='Homologene profile'
+        tbody
+          tr
+            td
+              div.blast-plot
+            td
+              each s in species
+                if s.isHomologene
+                  ='*'
+                =s.common_name
+                br
+      br
+      input(type='text', id='blast-search-box', placeholder='Filter', style="width: 300px; margin-bottom: 10px;")
+      br
+      table(border=1, id='blast-table').sortable
+        thead
+          tr
+            th.num
+              button='Score'
+              span(aria-hidden='true')
+            th
+              button='Query'
+              span(aria-hidden='true')
+            th
+              button='Target'
+              span(aria-hidden='true')
+            th
+              button='Target organism'
+              span(aria-hidden='true')
+            th
+              button='Target symbol'
+              span(aria-hidden='true')
+            th
+              button='Target gene'
+              span(aria-hidden='true')
+            th
+              button='Homologene'
+              span(aria-hidden='true')
+            th.num
+              button='Score / Best_score (Target → human)'
+              span(aria-hidden='true')
+            th
+              button='Human seq for Best_score (Target → human)'
+              span(aria-hidden='true')
+        tbody
+          each blastScore, index in blastScores
+            tr(data-index=index)
+              td=blastScore.score
+              td=blastScore.query
+              td=blastScore.target
+              td=blastSpecies[blastScore.speciesIndex - 1]
+              if blastScore.speciesIndex == 1
+                // human
+                td
+                  a(href=pathFromRoot(`genes/${blastScore.targetGeneID}`)).gene-link
+                    =blastScore.targetSymbol
+              else
+                td=blastScore.targetSymbol
               td
-                a(href=pathFromRoot(`genes/${blastScore.targetGeneID}`)).gene-link
-                  =blastScore.targetSymbol
-            else
-              td=blastScore.targetSymbol
-            td
-              if blastScore.targetGeneID !== null
-                a(href=`https://www.ncbi.nlm.nih.gov/gene/${blastScore.targetGeneID}`)
-                  =blastScore.targetGeneID
-            td
-              if blastScore.targetGroupID
-                a(href=`https://www.ncbi.nlm.nih.gov/gene/${blastScore.targetGroupID}`)
-                  =blastScore.targetGroupID
-            td=blastScore.ratio
-            td
-              if blastScore.reverseBests
-                each reverseBest in blastScore.reverseBests
-                  a(href=`https://www.ncbi.nlm.nih.gov/protein/${reverseBest}`)
-                    =reverseBest
-                  if reverseBestsDict[reverseBest]
-                    =`(${reverseBestsDict[reverseBest]})`
-                  =' '
+                if blastScore.targetGeneID !== null
+                  a(href=`https://www.ncbi.nlm.nih.gov/gene/${blastScore.targetGeneID}`)
+                    =blastScore.targetGeneID
+              td
+                if blastScore.targetGroupID
+                  a(href=`https://www.ncbi.nlm.nih.gov/gene/${blastScore.targetGroupID}`)
+                    =blastScore.targetGroupID
+              td=blastScore.ratio
+              td
+                if blastScore.reverseBests
+                  each reverseBest in blastScore.reverseBests
+                    a(href=`https://www.ncbi.nlm.nih.gov/protein/${reverseBest}`)
+                      =reverseBest
+                    if reverseBestsDict[reverseBest]
+                      =`(${reverseBestsDict[reverseBest]})`
+                    =' '
 
 block script
   if blastScores !== null

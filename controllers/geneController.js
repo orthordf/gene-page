@@ -113,7 +113,7 @@ const geneController = {
     ];
 
     res.render('gene/detail', {
-      title: 'Gene info',
+      title: description,
       id,
       symbol,
       description,

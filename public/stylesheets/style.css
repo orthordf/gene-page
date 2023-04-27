@@ -1,11 +1,12 @@
-hmtl {
-  font-size: 62.5%;
-}
-
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   line-height: 1.5;
+  margin: 0px;
   color: #212529;
+}
+
+.container {
+  margin: 10px;
 }
 
 table {
@@ -145,8 +146,14 @@ table.sortable th:not([aria-sort]) button:hover span::after {
 }
 
 .sticky-header {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background-color: #e9faf9;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #e9faf9;
+  padding: 8px;
+}
+
+h2.header {
+  margin-top: 0;
+  margin-bottom: 0;
 }
