@@ -1,0 +1,28 @@
+input(type='search', id='search-box', placeholder='Search', style="width: 300px; margin-bottom: 10px;" value = query)
+button(id='search-button')='Search genes'
+="  "
+// Add radio buttons to control search mode
+label(for='search-mode', style='margin-left: 20px;')='Search mode:'
+input(type='radio', id='free-search-radio' name='search-mode', value='free-text', checked = searchMode === 'free-text' )
+label(for='free-search-radio')='Free text search'
+input(type='radio', id='symbol-search-radio', name='search-mode', value='symbol', checked = searchMode === 'symbol')
+label(for='symbol-search-radio')='Symbols'
+input(type='radio', id='synonym-search-radio', name='search-mode', value='synonym', checked = searchMode === 'synonym')
+label(for='synonym-search-radio')='Synonyms'
+
+script.
+  document.getElementById('search-box').addEventListener('keydown', (e) => { if(e.keyCode === 13) search() });
+  document.getElementById('search-button').addEventListener('click', (e) => { search() });
+  function search(e) {
+    let query = document.getElementById('search-box').value
+    let searchMode = document.querySelector('input[name="search-mode"]:checked')?.value
+    if(!searchMode) {
+      searchMode = 'free-text'
+    }
+    let url = new URL(window.location.href)
+    url.pathname = "!{pathFromRoot('/genes')}";
+    url.searchParams.set('query', query);
+    url.searchParams.set('searchMode', searchMode);
+    url.searchParams.set('page', 1);
+    window.location.href = url;
+  }

@@ -5,17 +5,7 @@ block content
   //  case insensitive version of string.includesCI
   - String.prototype.includesCI = function (str) { return this.toLowerCase().indexOf(str.toLowerCase()) !== -1; }
   div.container
-    input(type='search', id='search-box', placeholder='Search', style="width: 300px; margin-bottom: 10px;" value = query)
-    ="  "
-    // Add radio buttons to control search mode
-    label(for='search-mode')='Search mode:'
-    input(type='radio', id='free-search-radio' name='search-mode', value='free-text', checked = searchMode === 'free-text' )
-    label(for='free-search-radio')='Free text search'
-    input(type='radio', id='symbol-search-radio', name='search-mode', value='symbol', checked = searchMode === 'symbol')
-    label(for='symbol-search-radio')='Symbols'
-    input(type='radio', id='synonym-search-radio', name='search-mode', value='synonym', , checked = searchMode === 'synonym')
-    label(for='synonym-search-radio')='Synonyms'
-    br
+    include includes/search-area.pug
 
     if pagination.totalPages > 1
       div.text-center
@@ -77,7 +67,7 @@ block content
           each geneInfo in geneInfoList
             tr
               td
-                a(href=pathFromRoot(`/genes/${geneInfo.id}`) target='_blank' rel='noopener noreferrer')
+                a(href=pathFromRoot(`/genes/${geneInfo.id}`))
                   if searchMode === 'free-text' && query && geneInfo.id.toString().includesCI(query)
                     span.text-bold=geneInfo.id
                   else
@@ -130,18 +120,6 @@ block content
 
 block script
   script.
-    document.getElementById('search-box').addEventListener('keydown', search);
-    function search(e) {
-      if (e.keyCode === 13) {
-        let query = document.getElementById('search-box').value
-        let searchMode = document.querySelector('input[name="search-mode"]:checked').value
-        let url = new URL(window.location.href)
-        url.searchParams.set('query', query);
-        url.searchParams.set('searchMode', searchMode);
-        url.searchParams.set('page', 1);
-        window.location.href = url;
-      }
-    }
 
 
     document.querySelectorAll('.pagination-link').forEach(link => link.addEventListener('click', onPaginationLinkClick));

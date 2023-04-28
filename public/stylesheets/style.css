@@ -149,6 +149,7 @@ table.sortable th:not([aria-sort]) button:hover span::after {
   position: sticky;
   top: 0;
   z-index: 1;
+  width: 100%;
   background-color: #e9faf9;
   padding: 8px;
 }
