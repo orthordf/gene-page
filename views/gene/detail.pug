@@ -16,14 +16,53 @@ block content
     br
     table(border=1)
       thead(align='left')
-        each header in Object.keys(geneInfo)
-          th=header
+        tr
+          th="GeneID"
+          th="Symbol"
+          th="Synonyms"
+          th="dbXrefs"
+          th="chromosome"
+          th="map location"
+          th="description"
+          th="type of gene"
+          th="Symbol from nomenclature authority"
+          th="Full name from nomenclature authority"
+          th="Nomenclature status"
+          th="Other designations"
+          th="Modification date"
+          th="Feature type"
       tbody
-        each header in Object.keys(geneInfo)
+        tr
+          td=geneInfo.id
+          td=geneInfo.symbol
           td
-            each content in geneInfo[header] ? geneInfo[header].toString().split('|') : []
-              =content
-              br
+            if geneInfo.synonyms
+              each synonym in geneInfo.synonyms.split('|')
+                =synonym
+                br
+          td
+            if geneInfo.dbXrefs
+              each xref in geneInfo.dbXrefs.split('|')
+                =xref
+                br
+          td=geneInfo.chromosome
+          td=geneInfo.map_location
+          td
+            if geneInfo.description
+              each desc in geneInfo.description.split('|')
+                =desc
+                br
+          td=geneInfo.type_of_gene
+          td=geneInfo.symbol_from_nomenclature_authority
+          td=geneInfo.full_name_from_nomenclature_authority
+          td=geneInfo.nomenclature_status
+          td
+            if geneInfo.other_designations
+              each d in geneInfo.other_designations.split('|')
+                =d
+                br
+          td=geneInfo.modification_date
+          td=geneInfo.feature_type
     span Go to <a href=https://www.ncbi.nlm.nih.gov/gene/#{id}>NCBI</a>, go to <a href=https://en.wikipedia.org/wiki/#{symbol}>Wikipedia</a>
 
     h3 RefSeq
