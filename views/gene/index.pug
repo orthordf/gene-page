@@ -5,55 +5,56 @@ block content
   //  case insensitive version of string.includesCI
   - String.prototype.includesCI = function (str) { return this.toLowerCase().indexOf(str.toLowerCase()) !== -1; }
   div.container
-    input(type='text', id='search-box', placeholder='Search', style="width: 300px; margin-bottom: 10px;" value = query)
+    input(type='search', id='search-box', placeholder='Search', style="width: 300px; margin-bottom: 10px;" value = query)
+    ="  "
     // Add radio buttons to control search mode
-    div
-      label(for='search-mode')='Search mode:'
-      input(type='radio', id='free-search-radio' name='search-mode', value='free-text', checked = searchMode === 'free-text' )
-      label(for='free-search-radio')='Free text search'
-      input(type='radio', id='symbol-search-radio', name='search-mode', value='symbol', checked = searchMode === 'symbol')
-      label(for='symbol-search-radio')='Symbols'
-      input(type='radio', id='synonym-search-radio', name='search-mode', value='synonym', , checked = searchMode === 'synonym')
-      label(for='synonym-search-radio')='Synonyms'
+    label(for='search-mode')='Search mode:'
+    input(type='radio', id='free-search-radio' name='search-mode', value='free-text', checked = searchMode === 'free-text' )
+    label(for='free-search-radio')='Free text search'
+    input(type='radio', id='symbol-search-radio', name='search-mode', value='symbol', checked = searchMode === 'symbol')
+    label(for='symbol-search-radio')='Symbols'
+    input(type='radio', id='synonym-search-radio', name='search-mode', value='synonym', , checked = searchMode === 'synonym')
+    label(for='synonym-search-radio')='Synonyms'
     br
 
-    div.text-center
-      ul.pagination
-        - let page = pagination.page
-        if page > 1
-          li
-            a.pagination-link(href='#', data-page=page - 1) <
-        else
-          li(class='disabled')
-            a(href='#') <
-        - const pageRange = 5;
-        if page > pageRange
-          li
-            a.pagination-link(href='#', data-page=1) 1
-          li.disabled
-            a(href='#') ...
-        - let i = Math.max(0, page - pageRange)
-        - let limit = Math.min(pagination.totalPages, page + pageRange - 1)
-        while i < limit
-          - let j = i + 1
-          if j === page
-            li.active
-              a=j
-          else
+    if pagination.totalPages > 1
+      div.text-center
+        ul.pagination
+          - let page = pagination.page
+          if page > 1
             li
-              a.pagination-link(href='#', data-page=j)=j
-          - ++i
-        if page < pagination.totalPages - pageRange
-          li.disabled
-            a(href='#') ...
-          li
-            a.pagination-link(href='#', data-page=pagination.totalPages)=pagination.totalPages
-        if page < pagination.totalPages
-          li
-            a.pagination-link(href='#', data-page=page + 1) >
-        else
-          li.disabled
-            a(href='#') >
+              a.pagination-link(href='#', data-page=page - 1) <
+          else
+            li(class='disabled')
+              a(href='#') <
+          - const pageRange = 5;
+          if page > pageRange
+            li
+              a.pagination-link(href='#', data-page=1) 1
+            li.disabled
+              a(href='#') ...
+          - let i = Math.max(0, page - pageRange)
+          - let limit = Math.min(pagination.totalPages, page + pageRange - 1)
+          while i < limit
+            - let j = i + 1
+            if j === page
+              li.active
+                a=j
+            else
+              li
+                a.pagination-link(href='#', data-page=j)=j
+            - ++i
+          if page < pagination.totalPages - pageRange
+            li.disabled
+              a(href='#') ...
+            li
+              a.pagination-link(href='#', data-page=pagination.totalPages)=pagination.totalPages
+          if page < pagination.totalPages
+            li
+              a.pagination-link(href='#', data-page=page + 1) >
+          else
+            li.disabled
+              a(href='#') >
 
 
     if geneInfoList.length === 0
@@ -137,6 +138,7 @@ block script
         let url = new URL(window.location.href)
         url.searchParams.set('query', query);
         url.searchParams.set('searchMode', searchMode);
+        url.searchParams.set('page', 1);
         window.location.href = url;
       }
     }
