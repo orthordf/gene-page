@@ -1,8 +1,21 @@
 extends ../layout
 
+
 block content
+  //  case insensitive version of string.includesCI
+  - String.prototype.includesCICI = function (str) { return this.toLowerCase().indexOf(str.toLowerCase()) !== -1; }
   div.container
-    input(type='text', id='search-box', placeholder='Search', style="width: 300px; margin-bottom: 10px;")
+    input(type='text', id='search-box', placeholder='Search', style="width: 300px; margin-bottom: 10px;" value = query)
+    // Add radio buttons to control search mode
+    div
+      label(for='search-mode')='Search mode:'
+      input(type='radio', id='free-search-radio' name='search-mode', value='free-text', checked = searchMode === 'free-text' )
+      label(for='free-search-radio')='Free text search'
+      input(type='radio', id='symbol-search-radio', name='search-mode', value='symbol', checked = searchMode === 'symbol')
+      label(for='symbol-search-radio')='Symbols'
+      input(type='radio', id='synonym-search-radio', name='search-mode', value='synonym', , checked = searchMode === 'synonym')
+      label(for='synonym-search-radio')='Synonyms'
+    br
     if geneInfoList.length === 0
       h3='No gene found'
     else
@@ -23,27 +36,56 @@ block content
           each geneInfo in geneInfoList
             tr
               td
-                a(href=pathFromRoot(`/genes/${geneInfo.id}`) target='_blank' rel='noopener noreferrer')=geneInfo.id
+                a(href=pathFromRoot(`/genes/${geneInfo.id}`) target='_blank' rel='noopener noreferrer')
+                  if searchMode === 'free-text' && query && geneInfo.id.toString().includesCI(query)
+                    span.text-bold=geneInfo.id
+                  else
+                    =geneInfo.id
               td=geneInfo.type_of_gene
-              td=geneInfo.symbol
               td
-                each synonym in geneInfo.synonyms.split('|')
-                  =synonym
-                  br
+                - let symbol = geneInfo.symbol
+                if searchMode !== 'synonym' && query && symbol && symbol.includesCI(query)
+                  span.text-bold=symbol
+                else
+                  =symbol
+              td
+                if geneInfo.synonyms
+                  each synonym in geneInfo.synonyms.split('|')
+                    if searchMode !== 'symbol' && query && synonym.includesCI(query)
+                      span.text-bold=synonym
+                    else
+                      =synonym
+                    br
               td=geneInfo.description
               td
-                each line in geneInfo.other_designations.split('|')
-                  =line
-                  br
-              td=geneInfo.map_location
+                if geneInfo.other_designations
+                  each line in geneInfo.other_designations.split('|')
+                    if searchMode === 'free-text' && query && line.includesCI(query)
+                      span.text-bold=line
+                    else
+                      =line
+                    br
               td
-                each line in geneInfo.feature_type.split('|')
-                  =line
-                  br
+                if searchMode === 'free-text' && query && geneInfo.map_location.includesCI(query)
+                  span.text-bold=geneInfo.map_location
+                else
+                  =geneInfo.map_location
+              td
+                if geneInfo.feature_type
+                  each line in geneInfo.feature_type.split('|')
+                    if searchMode === 'free-text' && query && line.includesCI(query)
+                      span.text-bold=line
+                    else
+                      =line
+                    =line
               td
                 a(href=`https://www.ncbi.nlm.nih.gov/gene/${geneInfo.id}` target='_blank' rel='noopener noreferrer')
                   ='NCBI'
-              td=geneInfo.modification_date
+              td
+                if searchMode === 'free-text' && query && geneInfo.modification_date.includesCI(query)
+                  span.text-bold=geneInfo.modification_date
+                else
+                  =geneInfo.modification_date
 
   div.text-center
     ul.pagination
@@ -53,9 +95,9 @@ block content
       else
         li(class='disabled')
           a(href='#') Previous
-      - var i = 0
-      while i < pageCount
-        - var j = i + 1
+      - let i = 0
+      while i < pagination.totalPages
+        - let j = i + 1
         if j === page
           li(class='active')
             a(href=`/gene/${geneId}?page=${j}`)=j
@@ -74,11 +116,12 @@ block script
   script.
     document.getElementById('search-box').addEventListener('keydown', search);
     function search(e) {
-      console.log({e});
       if (e.keyCode === 13) {
         let query = document.getElementById('search-box').value
+        let searchMode = document.querySelector('input[name="search-mode"]:checked').value
         let url = new URL(window.location.href)
         url.searchParams.set('query', query);
+        url.searchParams.set('searchMode', searchMode);
         window.location.href = url;
       }
     }
