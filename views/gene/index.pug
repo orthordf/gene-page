@@ -16,6 +16,46 @@ block content
       input(type='radio', id='synonym-search-radio', name='search-mode', value='synonym', , checked = searchMode === 'synonym')
       label(for='synonym-search-radio')='Synonyms'
     br
+
+    div.text-center
+      ul.pagination
+        - let page = pagination.page
+        if page > 1
+          li
+            a.pagination-link(href='#', data-page=page - 1) <
+        else
+          li(class='disabled')
+            a(href='#') <
+        - const pageRange = 5;
+        if page > pageRange
+          li
+            a.pagination-link(href='#', data-page=1) 1
+          li.disabled
+            a(href='#') ...
+        - let i = Math.max(0, page - 5)
+        - let limit = Math.min(pagination.totalPages, page + 4)
+        while i < limit
+          - let j = i + 1
+          if j === page
+            li.active
+              a=j
+          else
+            li
+              a.pagination-link(href='#', data-page=j)=j
+          - ++i
+        if page < pagination.totalPages - pageRange
+          li.disabled
+            a(href='#') ...
+          li
+            a.pagination-link(href='#', data-page=pagination.totalPages)=pagination.totalPages
+        if page < pagination.totalPages
+          li
+            a.pagination-link(href='#', data-page=page + 1) >
+        else
+          li.disabled
+            a(href='#') >
+
+
     if geneInfoList.length === 0
       h3='No gene found'
     else
@@ -87,31 +127,6 @@ block content
                 else
                   =geneInfo.modification_date
 
-  div.text-center
-    ul.pagination
-      if page > 1
-        li
-          a(href=`/gene/${geneId}?page=${page - 1}`) Previous
-      else
-        li(class='disabled')
-          a(href='#') Previous
-      - let i = 0
-      while i < pagination.totalPages
-        - let j = i + 1
-        if j === page
-          li(class='active')
-            a(href=`/gene/${geneId}?page=${j}`)=j
-        else
-          li
-            a(href=`/gene/${geneId}?page=${j}`)=j
-        - i++
-      if page < pageCount
-        li
-          a(href=`/gene/${geneId}?page=${page + 1}`) Next
-      else
-        li(class='disabled')
-          a(href='#') Next
-
 block script
   script.
     document.getElementById('search-box').addEventListener('keydown', search);
@@ -124,4 +139,15 @@ block script
         url.searchParams.set('searchMode', searchMode);
         window.location.href = url;
       }
+    }
+
+
+    document.querySelectorAll('.pagination-link').forEach(link => link.addEventListener('click', onPaginationLinkClick));
+
+    function onPaginationLinkClick(e) {
+      let link = e.target;
+      let pageNum = link.dataset.page;
+      let url = new URL(window.location.href)
+      url.searchParams.set('page', pageNum);
+      window.location.href = url;
     }

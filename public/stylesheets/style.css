@@ -175,15 +175,19 @@ span.text-bold {
   display: inline;
 }
 
+.pagination li.active a {
+    color: black;
+}
+
 .pagination li a, .pagination li span {
   position: relative;
-    float: left;
-    padding: 6px 12px;
-    margin-left: -1px;
-    line-height: 1.42857143;
-    color: #337ab7;
-    text-decoration: none;
-    background-color: #fff;
-    border: 1px solid #ddd;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: #339af7;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
 }
 

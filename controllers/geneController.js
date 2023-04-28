@@ -104,7 +104,7 @@ const geneController = {
   async index(req, res, next) {
     const query = req.query.query || '';
     const searchMode = req.query.searchMode || 'free-text';
-    const page = req.query.page || 1;
+    const page = parseInt(req.query.page) || 1;
     const limit = 100;
     const offset = (page - 1) * limit;
     const where = {
@@ -144,6 +144,7 @@ const geneController = {
     const geneInfoList = rows.map(r => r.dataValues);
     const totalPages = Math.ceil(count / limit);
     const pagination = { totalPages, page };
+
     res.render('gene/index', { title: 'Search Gene Info', geneInfoList, pagination, query, searchMode });
   },
 
