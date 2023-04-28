@@ -4,6 +4,8 @@ extends ../layout
 block content
   //  case insensitive version of string.includesCI
   - String.prototype.includesCI = function (str) { return this.toLowerCase().indexOf(str.toLowerCase()) !== -1; }
+  div.sticky-header
+    h2.header=`Gene list`
   div.container
     include includes/search-area.pug
 
