@@ -1,0 +1,84 @@
+extends ../layout
+
+block content
+  div.container
+    input(type='text', id='search-box', placeholder='Search', style="width: 300px; margin-bottom: 10px;")
+    if geneInfoList.length === 0
+      h3='No gene found'
+    else
+      table(border=1)
+        thead(align='left')
+          tr
+            th='GeneID'
+            th="Type of gene"
+            th="Symbol"
+            th="Synonyms"
+            th="Description"
+            th="Other designations"
+            th="Location"
+            th="Feature"
+            th="Link"
+            th="Modification date"
+        tbody
+          each geneInfo in geneInfoList
+            tr
+              td
+                a(href=pathFromRoot(`/genes/${geneInfo.id}`) target='_blank' rel='noopener noreferrer')=geneInfo.id
+              td=geneInfo.type_of_gene
+              td=geneInfo.symbol
+              td
+                each synonym in geneInfo.synonyms.split('|')
+                  =synonym
+                  br
+              td=geneInfo.description
+              td
+                each line in geneInfo.other_designations.split('|')
+                  =line
+                  br
+              td=geneInfo.map_location
+              td
+                each line in geneInfo.feature_type.split('|')
+                  =line
+                  br
+              td
+                a(href=`https://www.ncbi.nlm.nih.gov/gene/${geneInfo.id}` target='_blank' rel='noopener noreferrer')
+                  ='NCBI'
+              td=geneInfo.modification_date
+
+  div.text-center
+    ul.pagination
+      if page > 1
+        li
+          a(href=`/gene/${geneId}?page=${page - 1}`) Previous
+      else
+        li(class='disabled')
+          a(href='#') Previous
+      - var i = 0
+      while i < pageCount
+        - var j = i + 1
+        if j === page
+          li(class='active')
+            a(href=`/gene/${geneId}?page=${j}`)=j
+        else
+          li
+            a(href=`/gene/${geneId}?page=${j}`)=j
+        - i++
+      if page < pageCount
+        li
+          a(href=`/gene/${geneId}?page=${page + 1}`) Next
+      else
+        li(class='disabled')
+          a(href='#') Next
+
+block script
+  script.
+    document.getElementById('search-box').addEventListener('keydown', search);
+    function search(e) {
+      console.log({e});
+      if (e.keyCode === 13) {
+        let query = document.getElementById('search-box').value
+        let url = new URL(window.location.href)
+        url.searchParams.set('query', query);
+        window.location.href = url;
+      }
+    }

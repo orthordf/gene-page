@@ -1,5 +1,6 @@
 const fs = require('fs');
 const Papa = require('papaparse')
+const { Op } = require("sequelize");
 const { Gene2RefSeqTax9606, GeneInfo, Species, Gene2RefSeq } = require('../models')
 const createError = require("http-errors");
 
@@ -100,6 +101,26 @@ async function getBlastScores(symbol) {
 
 
 const geneController = {
+  async index(req, res, next) {
+    const query = req.query.query || '';
+    const page = req.query.page || 1;
+    const limit = 20;
+    const offset = (page - 1) * limit;
+    const where = query ? { symbol: { [Op.like]: `%${query}%` } } : {};
+
+    const { count, rows } = await GeneInfo.findAndCountAll({
+      where,
+      limit,
+      offset,
+      order: [['id', 'ASC']],
+    });
+    const geneInfoList = rows.map(r => r.dataValues);
+    const totalPages = Math.ceil(count / limit);
+    const pagination = { totalPages, page };
+    res.render('gene/index', { title: 'Search Gene Info', geneInfoList, pagination });
+  },
+
+
   async detail(req, res, next) {
     const id = req.params.id;
     const [symbol, description, geneInfo] = await getGeneInfo(id);
