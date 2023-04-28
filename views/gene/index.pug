@@ -32,8 +32,8 @@ block content
             a.pagination-link(href='#', data-page=1) 1
           li.disabled
             a(href='#') ...
-        - let i = Math.max(0, page - 5)
-        - let limit = Math.min(pagination.totalPages, page + 4)
+        - let i = Math.max(0, page - pageRange)
+        - let limit = Math.min(pagination.totalPages, page + pageRange - 1)
         while i < limit
           - let j = i + 1
           if j === page
