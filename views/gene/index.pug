@@ -3,7 +3,7 @@ extends ../layout
 
 block content
   //  case insensitive version of string.includesCI
-  - String.prototype.includesCICI = function (str) { return this.toLowerCase().indexOf(str.toLowerCase()) !== -1; }
+  - String.prototype.includesCI = function (str) { return this.toLowerCase().indexOf(str.toLowerCase()) !== -1; }
   div.container
     input(type='text', id='search-box', placeholder='Search', style="width: 300px; margin-bottom: 10px;" value = query)
     // Add radio buttons to control search mode
