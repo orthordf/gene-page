@@ -35,14 +35,18 @@ async function getRefseqInfo(geneId, seed) {
 
 // Return list of homologene and list of species with isHomologene flag
 async function getHomologenes(groupId) {
-  let records = await GeneInfo.findAll({ where: { group_id: groupId }, include: Species });
-  let homologene = records.map(r => r.dataValues);
   let species = await Species.findAll({order: ['sp_order']});
   species = species.map(r => {
     let data = r.dataValues;
     data.isHomologene = false;
     return data;
   });
+  if(!groupId) {
+    return [[], species];
+  }
+  let records = await GeneInfo.findAll({ where: { group_id: groupId }, include: Species });
+  let homologene = records.map(r => r.dataValues);
+
   homologene.forEach(gene => {
     for(let s of species) {
       if(s.id == gene.tax_id) {

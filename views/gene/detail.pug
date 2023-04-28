@@ -42,7 +42,7 @@ block content
                 td=proteinVersion
                 td=rnaVersion
 
-    h3=`HomoloGene: ${geneInfo.group_id}`
+    h3=`HomoloGene: ${geneInfo.group_id ? geneInfo.group_id : ''}`
     table(border=1)
       thead(align='left')
         tr
