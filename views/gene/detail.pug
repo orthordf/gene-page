@@ -5,9 +5,9 @@ block head
   script(src=pathFromRoot("/javascripts/sortable.js"))
 
 block content
-  div.sticky-header
-    h2.header=`${symbol}: ${description}`
   div.container
+    div.sticky-header
+      h2.header=`${symbol}: ${description}`
     a(href=pathFromRoot('/genes')) Back to top
     ='  '
     span(style='margin-left: 20px;')

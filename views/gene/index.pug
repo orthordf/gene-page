@@ -4,9 +4,9 @@ extends ../layout
 block content
   //  case insensitive version of string.includesCI
   - String.prototype.includesCI = function (str) { return this.toLowerCase().indexOf(str.toLowerCase()) !== -1; }
-  div.sticky-header
-    h2.header=`Gene list`
   div.container
+    div.sticky-header
+      h2.header=`Gene list`
     a(href=pathFromRoot('/genes')) Back to top
     ='  '
     span(style='margin-left: 20px;')
