@@ -3,31 +3,44 @@
 ### Requirements
 * Node.js v16
 
-### Installation
+## Installation
 ```
 $ git clone git@github.com:orthordf/gene-page.git
 $ cd gene-page
 $ npm ci
 ```
 
-### SQLize
+## Data preparation
+
+### SQLite file
+The SQLite file `data.sqlite3` is created by:
+```
+$ npm run recreate-db
+```
+
+The SQLite file `data.sqlite3` is updated by:
 ```
 $ npx sequelize db:migrate
 $ npx sequelize db:seed:all
 ```
-`sequelize` use the following files
+(The `sequelize` command use the following files)
 * config/config.json
 * migrations/*.js
 * seeders/*.js
 * models/*.js
 
-### Start service
+
+### Files for scores
+Prepare `gene_data/blast.scores/*.scores.txt`
+
+(These files are not included in the git repository)
+
+## Start service
+
 ```
 $ npm start
 ```
 
-Access to localhost:8100/resource/genes/6348.
+Access to localhost:8100/resource/genes/6348
 
-### Config
-
-* Config such as port number is in `config/config.json`.
+(The port number is configured in `config/config.json`)
