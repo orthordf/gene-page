@@ -95,7 +95,7 @@ table.sortable th[aria-sort="descending"] span::after {
   content: "▼";
   color: currentcolor;
   font-size: 100%;
-  top: 40%;
+  top: 32%;
   right: 5px;
   text-align: right;
   display: block;
@@ -106,7 +106,7 @@ table.sortable th[aria-sort="ascending"] span::after {
   content: "▲";
   color: currentcolor;
   font-size: 100%;
-  top: 40%;
+  top: 32%;
   right: 5px;
   text-align: right;
   display: block;
