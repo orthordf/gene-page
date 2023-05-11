@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "nodemon app.js",
     "recreate-db": "rm -f data.sqlite3 && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },
   "nodemonConfig": {
