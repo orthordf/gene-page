@@ -27,8 +27,6 @@ $ npx sequelize db:seed:all
 * config/config.json
 * migrations/*.js
 * seeders/*.js
-* models/*.js
-
 
 ### Files for scores
 Prepare `gene_data/blast.scores/*.scores.txt`
@@ -44,3 +42,6 @@ $ npm start
 Access to localhost:8100/resource/genes/6348
 
 (The port number is configured in `config/config.json`)
+
+## Implementation
+* `models/*.js` is used by the `sequelize` module
