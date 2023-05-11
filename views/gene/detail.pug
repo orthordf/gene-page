@@ -231,13 +231,23 @@ block script
             tickvals: [...Array(blastSpecies.length).keys()],
             ticktext: blastSpecies,
             tickangle: -90,
+            // show tick bar
+            ticklen: 8,
+            tickwidth: 1,
+            showticklabels: true,
             zeroline: false,
+            linecolor: 'black',
+            mirror: true,
             range: [-1, blastSpecies.length - 1]
           },
           yaxis: {
             title: "BLAST score",
-            range: [0, Math.max(...blastScores.map(s => parseFloat(s.score))) * 1.1] // 1.1 is for margin
-          }
+            range: [1, Math.max(...blastScores.map(s => parseFloat(s.score))) * 1.1], // 1.1 is for margin
+            linecolor: 'black',
+            ticklen: 8,
+            mirror: true,
+          },
+          outlineWidth: 10,
         },
         {
           // scrollZoom: true,
@@ -252,6 +262,9 @@ block script
             'autoScale2d',
             // 'resetScale2d',
           ],
+          // Show frame
+          displaylogo: false,
+
         }
 
       );
