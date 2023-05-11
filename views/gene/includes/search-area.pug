@@ -11,6 +11,7 @@ input(type='radio', id='synonym-search-radio', name='search-mode', value='synony
 label(for='synonym-search-radio')='Synonyms'
 
 script.
+  let oldQuery = "!{query}";
   document.getElementById('search-box').addEventListener('keydown', (e) => { if(e.keyCode === 13) search() });
   document.getElementById('search-button').addEventListener('click', (e) => { search() });
   function search(e) {
@@ -19,6 +20,9 @@ script.
     if(!searchMode) {
       searchMode = 'free-text'
     }
+    if(oldQuery === query && (searchMode === "!{searchMode}" || !query) ) {
+      return
+    }
     let url = new URL(window.location.href)
     url.pathname = "!{pathFromRoot('/genes')}";
     url.searchParams.set('query', query);
@@ -26,3 +30,6 @@ script.
     url.searchParams.set('page', 1);
     window.location.href = url;
   }
+
+  // Execute searching when radio buttons are clicked
+  document.querySelectorAll('input[name="search-mode"]').forEach(radio => radio.addEventListener('click', (e) => { search() }));
