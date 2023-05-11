@@ -138,7 +138,6 @@ const geneController = {
       }
     }
 
-
     const { count, rows } = await GeneInfo.findAndCountAll({
       where,
       limit,

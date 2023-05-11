@@ -202,7 +202,10 @@ span.text-bold {
     font-size: 0.8em;
 }
 
-
 input[type=radio], .radio-label {
   cursor: pointer;
+}
+
+.symbol-cell {
+  max-width: 100px;
 }
