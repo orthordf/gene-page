@@ -2,7 +2,7 @@ input(type='search', id='search-box', placeholder='Search genes', style="width: 
 button(id='search-button')='Search'
 ="  "
 // Add radio buttons to control search mode
-label(for='search-mode', style='margin-left: 20px;')='Search mode:'
+label(for='search-mode', style='margin-left: 20px;')=''
 input(type='radio', id='free-search-radio' name='search-mode', value='free-text', checked = searchMode === 'free-text' || !searchMode )
 label.radio-label(for='free-search-radio')='Free text search'
 input(type='radio', id='symbol-search-radio', name='search-mode', value='symbol', checked = searchMode === 'symbol')
