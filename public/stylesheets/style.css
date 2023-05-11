@@ -201,3 +201,8 @@ span.text-bold {
 .text-small {
     font-size: 0.8em;
 }
+
+
+input[type=radio], .radio-label {
+  cursor: pointer;
+}
