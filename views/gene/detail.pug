@@ -264,7 +264,10 @@ block script
           ],
           // Show frame
           displaylogo: false,
-
+          toImageButtonOptions: {
+            format: 'svg',
+            filename: `gene_!{geneInfo.id}`,
+          }
         }
 
       );
