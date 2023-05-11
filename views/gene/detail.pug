@@ -119,7 +119,7 @@ block content
       table(border=1)
         thead
           tr
-            th(style='width: 1000px;')='BLAST scores'
+            th='BLAST scores'
             th='Homologene profile'
         tbody
           tr
@@ -247,7 +247,14 @@ block script
             ticklen: 8,
             mirror: true,
           },
-          outlineWidth: 10,
+
+          margin: {
+            l: 100,
+            r: 100,
+            b: 100,
+            t: 50,
+            pad: 4
+          }
         },
         {
           // scrollZoom: true,

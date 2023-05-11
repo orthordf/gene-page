@@ -209,3 +209,8 @@ input[type=radio], .radio-label {
 .symbol-cell {
   max-width: 100px;
 }
+
+.blast-plot {
+  width: 1000px;
+  height: 700px;
+}
