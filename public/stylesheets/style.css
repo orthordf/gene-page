@@ -192,3 +192,6 @@ span.text-bold {
   border: 1px solid #ddd;
 }
 
+.text-small {
+    font-size: 0.8em;
+}
