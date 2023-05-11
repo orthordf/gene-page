@@ -239,6 +239,21 @@ block script
             range: [0, Math.max(...blastScores.map(s => parseFloat(s.score))) * 1.1] // 1.1 is for margin
           }
         },
+        {
+          // scrollZoom: true,
+          // hide buttons
+          modeBarButtonsToRemove: [
+            'zoom2d',
+            'pan2d',
+            'select2d',
+            'lasso2d',
+            'zoomIn2d',
+            'zoomOut2d',
+            'autoScale2d',
+            // 'resetScale2d',
+          ],
+        }
+
       );
 
       let blastSearchBox = document.querySelector('#blast-search-box');
