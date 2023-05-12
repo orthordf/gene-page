@@ -227,3 +227,7 @@ input[type=radio], .radio-label {
   width: 1000px;
   height: 700px;
 }
+
+.small-cell {
+  font-size: 0.9em;
+}

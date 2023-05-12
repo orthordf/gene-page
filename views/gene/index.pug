@@ -77,14 +77,14 @@ block content
                     span.text-bold=geneInfo.id
                   else
                     =geneInfo.id
-              td=geneInfo.type_of_gene
+              td.small-cell=geneInfo.type_of_gene
               td
                 - let symbol = geneInfo.symbol
                 if searchMode !== 'synonym' && query && symbol && symbol.includesCI(query)
                   span.text-bold=symbol
                 else
                   =symbol
-              td
+              td.small-cell
                 if geneInfo.synonyms
                   each synonym in geneInfo.synonyms.split('|')
                     if searchMode !== 'symbol' && query && synonym.includesCI(query)
@@ -93,7 +93,7 @@ block content
                       =synonym
                     br
               td=geneInfo.description
-              td
+              td.small-cell
                 if geneInfo.other_designations
                   each line in geneInfo.other_designations.split('|')
                     if searchMode === 'free-text' && query && line.includesCI(query)
@@ -113,7 +113,7 @@ block content
                       span.text-bold=line
                     else
                       =line
-              td
+              td.small-cell
                 a(href=`https://www.ncbi.nlm.nih.gov/gene/${geneInfo.id}` target='_blank' rel='noopener noreferrer')
                   ='NCBI'
               td
