@@ -146,7 +146,7 @@ const geneController = {
     });
     const geneInfoList = rows.map(r => r.dataValues);
     const totalPages = Math.ceil(count / limit);
-    const pagination = { totalPages, page };
+    const pagination = { totalPages, page, totalCount: count, };
 
     res.render('gene/index', { title: 'Search Gene Info', geneInfoList, pagination, query, searchMode });
   },

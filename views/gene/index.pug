@@ -12,6 +12,13 @@ block content
         span
           include includes/search-area.pug
 
+    if query
+      span.text-bold=`"${query}"`
+      =" hit "
+      span.text-bold=pagination.totalCount
+      =` human genes (hit strings shown in `
+      span.text-bold="bold"
+      =")"
     if pagination.totalPages > 1
       div.text-center
         ul.pagination
