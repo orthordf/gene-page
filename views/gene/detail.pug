@@ -174,7 +174,7 @@ block content
               if blastScore.speciesIndex == 1
                 // human
                 td
-                  a(href=pathFromRoot(`genes/${blastScore.targetGeneID}`)).gene-link
+                  a(href=pathFromRoot(`genes/${blastScore.targetGeneID}#blast-title`)).gene-link
                     =blastScore.targetSymbol
               else
                 td=blastScore.targetSymbol
@@ -269,25 +269,25 @@ block script
             'autoScale2d',
             // 'resetScale2d',
           ],
-          // Show frame
           displaylogo: false,
           toImageButtonOptions: {
             format: 'png',
             filename: `gene_!{geneInfo.id}`,
           }
         }
-
       );
 
       let blastSearchBox = document.querySelector('#blast-search-box');
 
       let urlParams = new URLSearchParams(window.location.search);
-      let filter = urlParams.get('filter');
+      let anchor = urlParams.get('anchor');
+      if(anchor !== 'blast-title')
+        sessionStorage.removeItem('blastFilter');
+      let filter = sessionStorage.getItem('blastFilter');
       if(filter) {
         blastSearchBox.value = filter;
         filterBlastTable();
       }
-
       function filterBlastTable() {
         let query = blastSearchBox.value.toLowerCase();
         let blastTable = document.querySelector('#blast-table');
@@ -307,19 +307,10 @@ block script
             row.style.display = 'none';
           }
         });
+        sessionStorage.setItem('blastFilter', query);
       }
 
       blastSearchBox.addEventListener('keyup', filterBlastTable);
-
-      let targetGeneLinks = document.querySelectorAll('.gene-link');
-      targetGeneLinks.forEach(function(link) {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          let targetURL = link.getAttribute('href');
-          let currentFilter = blastSearchBox.value;
-          window.location.href = targetURL + '?filter=' + currentFilter + '#blast-title';
-        });
-      });
 
       // Highlight row in table when plot in plotly is hovered
       blastPlot.on('plotly_hover', function(data){
