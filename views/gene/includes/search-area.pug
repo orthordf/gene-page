@@ -2,11 +2,11 @@ input(type='search', id='search-box', placeholder='Search human genes', style="w
 button(id='search-button')='Search'
 ="  "
 // Add radio buttons to control search mode
-input(type='radio', id='symbol-search-radio', style='margin-left: 20px;', name='search-mode', value='symbol', checked = searchMode === 'symbol')
+input(type='radio', id='symbol-search-radio', style='margin-left: 20px;', name='search-mode', value='symbol', checked = searchMode === 'symbol' || !searchMode)
 label.radio-label(for='symbol-search-radio')='Symbols'
 input(type='radio', id='synonym-search-radio', name='search-mode', value='synonym', checked = searchMode === 'synonym')
 label.radio-label(for='synonym-search-radio')='Synonyms'
-input(type='radio', id='free-search-radio', name='search-mode', value='free-text', checked = searchMode === 'free-text' || !searchMode )
+input(type='radio', id='free-search-radio', name='search-mode', value='free-text', checked = searchMode === 'free-text')
 label.radio-label(for='free-search-radio')='Free text search'
 
 script.

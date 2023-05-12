@@ -107,7 +107,7 @@ async function getBlastScores(symbol) {
 const geneController = {
   async index(req, res, next) {
     const query = req.query.query || '';
-    const searchMode = req.query.searchMode || 'free-text';
+    const searchMode = req.query.searchMode;
     const page = parseInt(req.query.page) || 1;
     const limit = 100;
     const offset = (page - 1) * limit;
