@@ -313,16 +313,17 @@ block script
       blastSearchBox.addEventListener('keyup', filterBlastTable);
 
       // Highlight row in table when plot in plotly is hovered
+
+      let prevHoveredRow = null;
       blastPlot.on('plotly_hover', function(data){
         let blastTable = document.querySelector('#blast-table');
-        let blastTableRows = blastTable.querySelectorAll('tbody tr');
         let index = data.points[0].pointNumber;
-        blastTableRows.forEach(function(row) {
-          if(row.dataset.index != index)
-            row.style.backgroundColor = '';
-          else
-            row.style.backgroundColor = '#f2f2f2';
-        });
+        let blastTableRow = blastTable.querySelector(`tbody tr[data-index="${index}"]`);
+
+        blastTableRow.style.backgroundColor = '#f2f2f2';
+        if(prevHoveredRow)
+          prevHoveredRow.style.backgroundColor = '';
+        prevHoveredRow = blastTableRow;
 
         let updateData = {};
         updateData[`marker.color[${index}]`] = 'blue';
@@ -337,6 +338,9 @@ block script
         updateData[`marker.color[${index}]`] = blastScores[index].isBBH ? 'red' : 'black';
         updateData[`marker.size[${index}]`] = defaultPlotSize;
         Plotly.update(blastPlot, updateData);
+        if(prevHoveredRow)
+          prevHoveredRow.style.backgroundColor = '';
+        prevHoveredRow = null;
       });
 
 
