@@ -3,9 +3,8 @@ extends ../layout
 block head
   script(src="https://cdn.plot.ly/plotly-2.18.2.min.js")
   script(src=pathFromRoot("/javascripts/sortable.js"))
-  script(src="https://www.cloudformatter.com/Resources/Pages/CSS2Pdf/Script/xeponline.jqplugin.js")
-  script(src="https://code.jquery.com/jquery-3.7.0.slim.min.js")
-
+  script(src=pathFromRoot("/javascripts/jspdf.umd.min.js"))
+  script(src=pathFromRoot("/javascripts/svg2pdf.umd.min.js"))
 
 block content
   div.container
@@ -318,13 +317,17 @@ block script
 
       blastSearchBox.addEventListener('keyup', filterBlastTable);
       document.querySelector('#pdf-button').addEventListener('click', function() {
-        xepOnline.Formatter.Format('blast-plot', {
-          pageWidth: '11in',
-          pageHeight: '8.5in',
-          render: 'download',
-          srctype: 'svg',
-          filename: `gene_!{geneInfo.id}`,
-        });
+        let svgElement = document.querySelector('.main-svg');
+        svgElement.getBoundingClientRect() // force layout calculation
+        const width = svgElement.width.baseVal.value
+        const height = svgElement.height.baseVal.value
+        const doc = new jspdf.jsPDF(width > height ? 'l' : 'p', 'pt', [width, height])
+
+        doc.svg(svgElement)
+          .then(() => {
+            // save the created pdf
+            doc.save('gene_!{geneInfo.id}.pdf')
+          })
       });
 
       // Highlight row in table when plot in plotly is hovered
