@@ -3,6 +3,9 @@ extends ../layout
 block head
   script(src="https://cdn.plot.ly/plotly-2.18.2.min.js")
   script(src=pathFromRoot("/javascripts/sortable.js"))
+  script(src="https://www.cloudformatter.com/Resources/Pages/CSS2Pdf/Script/xeponline.jqplugin.js")
+  script(src="https://code.jquery.com/jquery-3.7.0.slim.min.js")
+
 
 block content
   div.container
@@ -124,14 +127,16 @@ block content
         tbody
           tr
             td
-              div.blast-plot
+              div.blast-plot#blast-plot
+              button#pdf-button="Download PDF"
             td
               each s in species
                 if s.isHomologene
                   ='*'
                 =s.common_name
                 br
-      br
+
+              br
       input(type='text', id='blast-search-box', placeholder='Filter', style="width: 300px; margin-bottom: 10px;")
       br
       table(border=1, id='blast-table').sortable
@@ -205,6 +210,7 @@ block script
         new SortableTable(sortableTables[i]);
       }
       let blastPlot = document.querySelector('.blast-plot');
+
       let blastScores = !{JSON.stringify(blastScores)}
 
       const blastSpecies = !{JSON.stringify(blastSpecies)}
@@ -260,6 +266,7 @@ block script
           // scrollZoom: true,
           // hide buttons
           modeBarButtonsToRemove: [
+            'toImage',
             'zoom2d',
             'pan2d',
             'select2d',
@@ -311,6 +318,15 @@ block script
       }
 
       blastSearchBox.addEventListener('keyup', filterBlastTable);
+      document.querySelector('#pdf-button').addEventListener('click', function() {
+        xepOnline.Formatter.Format('blast-plot', {
+          pageWidth: '11in',
+          pageHeight: '8.5in',
+          render: 'download',
+          srctype: 'svg',
+          filename: `gene_!{geneInfo.id}`,
+        });
+      });
 
       // Highlight row in table when plot in plotly is hovered
 

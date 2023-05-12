@@ -245,3 +245,7 @@ input[type=radio], .radio-label {
 .small-cell {
   font-size: 0.9em;
 }
+
+#pdf-button {
+  float: right;
+}
