@@ -316,32 +316,56 @@ block script
       // Highlight row in table when plot in plotly is hovered
 
       let prevHoveredRow = null;
-      blastPlot.on('plotly_hover', function(data){
-        let blastTable = document.querySelector('#blast-table');
-        let index = data.points[0].pointNumber;
-        let blastTableRow = blastTable.querySelector(`tbody tr[data-index="${index}"]`);
+      let hoverTimerId = null;
+      let highlightedIndices = new Set();
+      blastPlot.on('plotly_hover', function(data) {
+        let index = data.points[0]?.pointNumber;
+        if(!index)
+          return
 
-        blastTableRow.style.backgroundColor = '#f2f2f2';
-        if(prevHoveredRow)
-          prevHoveredRow.style.backgroundColor = '';
-        prevHoveredRow = blastTableRow;
+        if(hoverTimerId) {
+          // clear previous timer to avoid too often rerender
+          clearTimeout(hoverTimerId);
+          hoverTimerId = null;
+        }
+        hoverTimerId = setTimeout(() => {
+          let blastTable = document.querySelector('#blast-table');
+          let blastTableRow = blastTable.querySelector(`tbody tr[data-index="${index}"]`);
 
-        let updateData = {};
-        updateData[`marker.color[${index}]`] = 'blue';
-        updateData[`marker.size[${index}]`] = defaultPlotSize * 2;
-        Plotly.update(blastPlot, updateData);
+          blastTableRow.style.backgroundColor = '#f2f2f2';
+          if(prevHoveredRow)
+            prevHoveredRow.style.backgroundColor = '';
+          prevHoveredRow = blastTableRow;
+
+          let updateData = {};
+          updateData[`marker.color[${index}]`] = 'blue';
+          updateData[`marker.size[${index}]`] = defaultPlotSize * 2;
+          highlightedIndices.add(index);
+          Plotly.update(blastPlot, updateData);
+        }, 100)
       });
 
       // Unhighlight plot when unhovered
-      blastPlot.on('plotly_unhover', function(data){
+      blastPlot.on('plotly_unhover', function(data) {
         let index = data.points[0].pointNumber;
         let updateData = {};
-        updateData[`marker.color[${index}]`] = blastScores[index].isBBH ? 'red' : 'black';
-        updateData[`marker.size[${index}]`] = defaultPlotSize;
-        Plotly.update(blastPlot, updateData);
-        if(prevHoveredRow)
+        if(!index)
+          return;
+
+        if(hoverTimerId) {
+          // clear previous timer to avoid too often rerender
+          clearTimeout(hoverTimerId);
+          hoverTimerId = null;
+        }
+        if(highlightedIndices.has(index)) {
+          updateData[`marker.color[${index}]`] = blastScores[index].isBBH ? 'red' : 'black';
+          updateData[`marker.size[${index}]`] = defaultPlotSize;
+          Plotly.update(blastPlot, updateData);
+        }
+        if(prevHoveredRow) {
           prevHoveredRow.style.backgroundColor = '';
-        prevHoveredRow = null;
+          prevHoveredRow = null;
+        }
       });
 
 
