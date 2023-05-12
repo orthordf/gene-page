@@ -367,6 +367,28 @@ block script
         }
       });
 
+      // Hide rows corresponding invisible points when plotly is zoomed
+      blastPlot.on('plotly_relayout', function(data) {
+        if(data['xaxis.range[0]'] === undefined)
+          return;
+        let xRangeMin = data['xaxis.range[0]'];
+        let xRangeMax = data['xaxis.range[1]'];
+        let yRangeMin = data['yaxis.range[0]'];
+        let yRangeMax = data['yaxis.range[1]'];
+        let blastTable = document.querySelector('#blast-table');
+        let blastTableRows = blastTable.querySelectorAll('tbody tr');
+        blastTableRows.forEach(function(row) {
+          let index = row.dataset.index;
+          let x = parseFloat(blastPlot.data[0].x[index]);
+          let y = parseFloat(blastPlot.data[0].y[index]);
+          if(x < xRangeMin || x > xRangeMax || y < yRangeMin || y > yRangeMax) {
+            row.style.display = 'none';
+          } else {
+            row.style.display = '';
+          }
+        });
+      });
+
 
       let query = blastSearchBox.value.toLowerCase();
       // Highlight plot in plotly when table row is hovered
