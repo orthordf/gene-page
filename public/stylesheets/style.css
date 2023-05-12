@@ -164,6 +164,21 @@ h2.header {
   margin-bottom: 0;
 }
 
+.header a {
+  color: navy;
+  text-decoration: none;
+}
+
+.header {
+  display: inline;
+  margin-right: 20px;
+}
+
+.search-area {
+  margin-left: 100px;
+  display: inline;
+}
+
 span.text-bold {
     font-weight: bold;
 }
@@ -174,7 +189,6 @@ span.text-bold {
     padding-left: 0;
     margin: 20px 0;
     border-radius: 4px;
-
 }
 
 .pagination li {

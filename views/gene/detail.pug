@@ -7,12 +7,13 @@ block head
 block content
   div.container
     div.sticky-header
-      h2.header=`${symbol}: ${description}`
-    a(href=pathFromRoot('/genes')) Human genes
-    ='  '
-    span(style='margin-left: 15px;')
-      include includes/search-area.pug
-    br
+      h2.header
+        a(href=pathFromRoot('/genes')) Human genes
+      div.search-area
+        span
+          include includes/search-area.pug
+    div.sticky-header
+      h3.header=`${symbol}: ${description}`
     br
     table(border=1)
       thead(align='left')

@@ -6,11 +6,11 @@ block content
   - String.prototype.includesCI = function (str) { return this.toLowerCase().indexOf(str.toLowerCase()) !== -1; }
   div.container
     div.sticky-header
-      h2.header=`Human genes`
-    a(href=pathFromRoot('/genes')) Human genes
-    ='  '
-    span(style='margin-left: 15px;')
-      include includes/search-area.pug
+      h2.header
+        a(href=pathFromRoot('/genes')) Human genes
+      div.search-area
+        span
+          include includes/search-area.pug
 
     if pagination.totalPages > 1
       div.text-center
