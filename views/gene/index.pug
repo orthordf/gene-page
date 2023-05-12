@@ -92,7 +92,11 @@ block content
                     else
                       =synonym
                     br
-              td=geneInfo.description
+              td
+                if searchMode === 'free-text' && query && geneInfo.description.includesCI(query)
+                  span.text-bold=geneInfo.description
+                else
+                  =geneInfo.description
               td.small-cell
                 if geneInfo.other_designations
                   each line in geneInfo.other_designations.split('|')
