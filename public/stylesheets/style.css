@@ -162,8 +162,8 @@ table.sortable th:not([aria-sort]) button:hover span::after {
 
 .title-header {
   /* to compensate for the margin on the container */
-  margin: -10px -10px 20px -10px;
-  top: 0;
+  margin: 10px -10px 0px -10px;
+  top: 20px;
   z-index: 1;
   width: 100%;
   height: 40px;
@@ -189,7 +189,7 @@ h2.header {
 }
 
 .search-area {
-  margin-left: 100px;
+  margin-left: 20px;
   display: inline;
 }
 
