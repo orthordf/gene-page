@@ -69,7 +69,7 @@ table.sortable th:nth-child(5) {
 }
 
 table.sortable th button {
-  padding: 15px 15px 15px 5px;
+  padding: 4px 15px 4px 4px;
   margin: 1px;
   font-size: 100%;
   font-weight: bold;
@@ -101,7 +101,7 @@ table.sortable th[aria-sort="descending"] span::after {
   content: "▼";
   color: currentcolor;
   font-size: 100%;
-  padding: 15px 0 15px 0;
+  padding: 4px 0 4px 0;
   display: block;
 }
 
@@ -109,7 +109,7 @@ table.sortable th[aria-sort="ascending"] span::after {
   content: "▲";
   color: currentcolor;
   font-size: 100%;
-  padding: 15px 0 15px 0;
+  padding: 4px 0 4px 0;
   display: block;
 }
 
