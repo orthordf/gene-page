@@ -61,6 +61,7 @@ block content
     if geneInfoList.length === 0
       h3='No gene found'
     else
+      - queryContent = query ? query.replace('^', '') : ''
       table(border=1)
         thead(align='left')
           tr
@@ -79,47 +80,47 @@ block content
             tr
               td
                 a(href=pathFromRoot(`/genes/${geneInfo.id}`))
-                  if searchMode === 'free-text' && query && geneInfo.id.toString().includesCI(query)
+                  if searchMode === 'free-text' && query && geneInfo.id.toString().includesCI(queryContent)
                     span.text-bold=geneInfo.id
                   else
                     =geneInfo.id
               td.small-cell=geneInfo.type_of_gene
               td
                 - let symbol = geneInfo.symbol
-                if searchMode !== 'synonym' && query && symbol && symbol.includesCI(query)
+                if searchMode !== 'synonym' && query && symbol && symbol.includesCI(queryContent)
                   span.text-bold=symbol
                 else
                   =symbol
               td.small-cell
                 if geneInfo.synonyms
                   each synonym in geneInfo.synonyms.split('|')
-                    if searchMode !== 'symbol' && query && synonym.includesCI(query)
+                    if searchMode !== 'symbol' && query && synonym.includesCI(queryContent)
                       span.text-bold=synonym
                     else
                       =synonym
                     br
               td
-                if searchMode === 'free-text' && query && geneInfo.description.includesCI(query)
+                if searchMode === 'free-text' && query && geneInfo.description.includesCI(queryContent)
                   span.text-bold=geneInfo.description
                 else
                   =geneInfo.description
               td.small-cell
                 if geneInfo.other_designations
                   each line in geneInfo.other_designations.split('|')
-                    if searchMode === 'free-text' && query && line.includesCI(query)
+                    if searchMode === 'free-text' && query && line.includesCI(queryContent)
                       span.text-bold=line
                     else
                       =line
                     br
               td
-                if searchMode === 'free-text' && query && geneInfo.map_location.includesCI(query)
+                if searchMode === 'free-text' && query && geneInfo.map_location.includesCI(queryContent)
                   span.text-bold=geneInfo.map_location
                 else
                   =geneInfo.map_location
               td
                 if geneInfo.feature_type
                   each line in geneInfo.feature_type.split('|')
-                    if searchMode === 'free-text' && query && line.includesCI(query)
+                    if searchMode === 'free-text' && query && line.includesCI(queryContent)
                       span.text-bold=line
                     else
                       =line
@@ -127,7 +128,7 @@ block content
                 a(href=`https://www.ncbi.nlm.nih.gov/gene/${geneInfo.id}` target='_blank' rel='noopener noreferrer')
                   ='NCBI'
               td
-                if searchMode === 'free-text' && query && geneInfo.modification_date.includesCI(query)
+                if searchMode === 'free-text' && query && geneInfo.modification_date.includesCI(queryContent)
                   span.text-bold=geneInfo.modification_date
                 else
                   =geneInfo.modification_date

@@ -106,7 +106,7 @@ async function getBlastScores(symbol) {
 
 const geneController = {
   async index(req, res, next) {
-    const query = req.query.query || '';
+    let query = req.query.query || '';
     const searchMode = req.query.searchMode;
     const page = parseInt(req.query.page) || 1;
     const limit = 100;
@@ -114,14 +114,15 @@ const geneController = {
     const where = {
       tax_id: 9606,
     };
-
     if(query) {
+      // If query starts with '^', perform forward match
+      let patternString = query.startsWith('^') ? `${query.substring(1)}%` : `%${query}%`;
       if(searchMode === 'symbol')
-        where.symbol = {[Op.like]: `%${query}%`};
+        where.symbol = {[Op.like]: patternString};
       else if(searchMode === 'synonym')
-        where.synonyms = {[Op.like]: `%${query}%`};
+        where.synonyms = {[Op.like]: patternString};
       else {
-        const likeCondition = {[Op.like]: `%${query}%`};
+        const likeCondition = {[Op.like]: patternString};
         Object.assign(where, {
           [Op.or]: [
             { id: likeCondition},
