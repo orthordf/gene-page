@@ -124,9 +124,9 @@ block content
             th='Homologene profile'
         tbody
           tr
-            td
+            td.blast-plot-cell
+              button#pdf-button.rounded-button="PDF"
               div.blast-plot#blast-plot
-              button#pdf-button="PDF"
             td
               each s in species
                 if s.isHomologene
@@ -273,6 +273,7 @@ block script
             'autoScale2d',
             // 'resetScale2d',
           ],
+          displayModeBar: true,
           displaylogo: false,
           toImageButtonOptions: {
             format: 'png',
