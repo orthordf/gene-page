@@ -44,7 +44,7 @@ async function getHomologenes(groupId) {
   if(!groupId) {
     return [[], species];
   }
-  let records = await GeneInfo.findAll({ where: { group_id: groupId }, include: Species });
+  let records = await GeneInfo.findAll({ where: { group_id: groupId }, include: Species, order: [[Species, 'sp_order', 'ASC']]});
   let homologene = records.map(r => r.dataValues);
 
   homologene.forEach(gene => {
