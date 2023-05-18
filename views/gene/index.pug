@@ -11,6 +11,7 @@ block content
         span
           include includes/search-area.pug
 
+    - let includingNotAuthorized = false
     if query
       span.text-bold=`"${query}"`
       =" hit "
@@ -87,10 +88,22 @@ block content
               td.small-cell=geneInfo.type_of_gene
               td
                 - let symbol = geneInfo.symbol
+                - let symbolAuthorized = geneInfo.symbol_from_nomenclature_authority
+                if symbol !== symbolAuthorized && symbolAuthorized && symbolAuthorized !== '-'
+                  if searchMode !== 'synonym' && query && symbolAuthorized && symbolAuthorized.includesCI(queryContent)
+                    span.text-bold=symbolAuthorized
+                  else
+                    =symbolAuthorized
+                  br
                 if searchMode !== 'synonym' && query && symbol && symbol.includesCI(queryContent)
                   span.text-bold=symbol
                 else
                   =symbol
+                if symbol !== symbolAuthorized
+                  - includingNotAuthorized = true
+                  sup
+                    span(style='font-size: 0.6em')
+                      =' (*)'
               td.small-cell
                 if geneInfo.synonyms
                   each synonym in geneInfo.synonyms.split('|')
@@ -100,10 +113,23 @@ block content
                       =synonym
                     br
               td
-                if searchMode === 'free-text' && query && geneInfo.description.includesCI(queryContent)
-                  span.text-bold=geneInfo.description
+                - let description = geneInfo.description
+                - let descriptionAuthorized = geneInfo.full_name_from_nomenclature_authority
+                if description !== descriptionAuthorized && descriptionAuthorized && descriptionAuthorized !== '-'
+                  if searchMode !== 'free-text' && query && descriptionAuthorized && descriptionAuthorized.includesCI(queryContent)
+                    span.text-bold=descriptionAuthorized
+                  else
+                    =descriptionAuthorized
+                  br
+                if searchMode !== 'synonym' && query && description && description.includesCI(queryContent)
+                  span.text-bold=description
                 else
-                  =geneInfo.description
+                  =description
+                if description !== descriptionAuthorized
+                  - includingNotAuthorized = true
+                  sup
+                    span(style='font-size: 0.6em')
+                      =' (*)'
               td.small-cell
                 if geneInfo.other_designations
                   each line in geneInfo.other_designations.split('|')
@@ -132,6 +158,10 @@ block content
                   span.text-bold=geneInfo.modification_date
                 else
                   =geneInfo.modification_date
+      if includingNotAuthorized
+        div.text-center
+          span(style='font-size: 0.6em')
+            ='(*) symbol/description in NCBI'
 
 block script
   script.
