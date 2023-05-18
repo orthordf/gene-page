@@ -231,6 +231,9 @@ span.text-bold {
 
 input[type=radio], .radio-label {
   cursor: pointer;
+  font-size: 14px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .symbol-cell {
