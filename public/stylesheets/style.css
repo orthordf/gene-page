@@ -231,7 +231,7 @@ span.text-bold {
 
 input[type=radio], .radio-label {
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
   display: inline-block;
   vertical-align: middle;
 }
