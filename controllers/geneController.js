@@ -159,10 +159,6 @@ const geneController = {
     const refseqStatusTable = await getRefseqInfo(id, seed);
     const [homologenes, species] = await getHomologenes(geneInfo.group_id);
     const [blastScores, reverseBestsDict] = await(getBlastScores(geneInfo.symbol));
-    const blastSpecies = [
-      'human', 'chimp', 'monkey', 'mouse', 'rat', 'dog', 'cow', 'chicken', 'Xenopus', 'zebrafish', 'Drosophila', 'mosquito', 'nematode',
-      'yeast', '', '', '', '', '', 'plant', ''
-    ];
 
     res.render('gene/detail', {
       title: description,
@@ -174,7 +170,6 @@ const geneController = {
       homologenes,
       blastScores,
       reverseBestsDict,
-      blastSpecies,
       species
     });
   }

@@ -172,7 +172,7 @@ block content
               td=blastScore.score
               td=blastScore.query
               td=blastScore.target
-              td=blastSpecies[blastScore.speciesIndex - 1]
+              td=species[blastScore.speciesIndex - 1].common_name
               if blastScore.speciesIndex == 1
                 // human
                 td
@@ -210,7 +210,7 @@ block script
 
       let blastScores = !{JSON.stringify(blastScores)}
 
-      const blastSpecies = !{JSON.stringify(blastSpecies)}
+      const blastSpecies = !{JSON.stringify(species.map(s => s.common_name))}
 
       const defaultPlotSize = 8;
       let plotData =
@@ -238,6 +238,8 @@ block script
             ticklen: 8,
             tickwidth: 1,
             showticklabels: true,
+            // Add margin if label is long
+            automargin: true,
             zeroline: false,
             linecolor: 'black',
             mirror: true,
