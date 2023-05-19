@@ -162,7 +162,7 @@ table.sortable th:not([aria-sort]) button:hover span::after {
 
 .title-header {
   /* to compensate for the margin on the container */
-  margin: 10px -10px 10px -10px;
+  margin: 10px -10px 0px -10px;
   top: 20px;
   z-index: 1;
   width: 100%;
@@ -201,7 +201,7 @@ span.text-bold {
 .pagination {
   display: inline-block;
     padding-left: 0;
-    margin: -10px 0 20px 0;
+    margin: 0px 0 20px 0;
     border-radius: 4px;
 }
 
