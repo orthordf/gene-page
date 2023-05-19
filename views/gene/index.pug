@@ -11,6 +11,8 @@ block content
         span
           include includes/search-area.pug
 
+    input(type='text', name='taxId', placeholder='Taxonomy id' value=taxId)
+    br
     - let includingNotAuthorized = false
     if query
       span.text-bold=`"${query}"`

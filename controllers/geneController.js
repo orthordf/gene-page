@@ -109,10 +109,11 @@ const geneController = {
     let query = req.query.query || '';
     const searchMode = req.query.searchMode;
     const page = parseInt(req.query.page) || 1;
+    const taxId = parseInt(req.query.taxId) || 9606;
     const limit = 100;
     const offset = (page - 1) * limit;
     const where = {
-      tax_id: 9606,
+      tax_id: taxId
     };
     if(query) {
       // If query starts with '^', perform forward match
@@ -149,7 +150,7 @@ const geneController = {
     const totalPages = Math.ceil(count / limit);
     const pagination = { totalPages, page, totalCount: count, };
 
-    res.render('gene/index', { title: 'Search Gene Info', geneInfoList, pagination, query, searchMode });
+    res.render('gene/index', { title: 'Search Gene Info', geneInfoList, pagination, query, searchMode, taxId });
   },
 
 

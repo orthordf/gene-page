@@ -16,6 +16,7 @@ script.
   function search(e) {
     let query = document.getElementById('search-box').value
     let searchMode = document.querySelector('input[name="search-mode"]:checked')?.value
+    let taxId = document.querySelector('input[name="taxId"]')?.value
     if(!searchMode) {
       searchMode = 'free-text'
     }
@@ -26,6 +27,7 @@ script.
     url.pathname = "!{pathFromRoot('/genes')}";
     url.searchParams.set('query', query);
     url.searchParams.set('searchMode', searchMode);
+    url.searchParams.set('taxId', taxId);
     url.searchParams.set('page', 1);
     window.location.href = url;
   }
