@@ -8,11 +8,12 @@ input(type='radio', id='synonym-search-radio', name='search-mode', value='synony
 label.radio-label(for='synonym-search-radio')='Synonyms'
 input(type='radio', id='free-search-radio', name='search-mode', value='free-text', checked = searchMode === 'free-text')
 label.radio-label(for='free-search-radio')='Free text search'
-label.small-label(for='tax-id-input', style='margin-left:25px;')='Taxonomy ID:'
-input#tax-id-input(type='text', name='taxId', list="taxonomy-candidates" placeholder='Taxonomy id' value=taxId || 9606)
-datalist#taxonomy-candidates
-  each taxonomy in taxonomyCandidates
-    option(value=taxonomy.id)=`${taxonomy.id} ${taxonomy.scientific_name} (${taxonomy.common_name})`
+.float-right
+  label.small-label(for='tax-id-input', style='margin-left:25px;')='Taxonomy ID:'
+  input#tax-id-input(type='text', name='taxId', list="taxonomy-candidates" placeholder='Taxonomy id' value=taxId || 9606)
+  datalist#taxonomy-candidates
+    each taxonomy in taxonomyCandidates
+      option(value=taxonomy.id)=`${taxonomy.id} ${taxonomy.scientific_name} (${taxonomy.common_name})`
 
 script.
   window.onload = () => {

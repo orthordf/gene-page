@@ -162,10 +162,10 @@ table.sortable th:not([aria-sort]) button:hover span::after {
 
 .title-header {
   /* to compensate for the margin on the container */
-  margin: 10px -10px 0px -10px;
+  margin: 10px 10px 0px -10px;
   top: 20px;
   z-index: 1;
-  width: 100%;
+  width: 99vw;
   height: 40px;
   background-color: transparent;
   padding: 8px;
@@ -236,6 +236,12 @@ input[type=radio], .radio-label {
   vertical-align: middle;
 }
 
+.small-label {
+  font-size: 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .symbol-cell {
   max-width: 100px;
 }
@@ -260,4 +266,8 @@ input[type=radio], .radio-label {
   z-index: 50;
   right: 5px;
   top: 5px;
+}
+
+.float-right {
+  float: right;
 }
