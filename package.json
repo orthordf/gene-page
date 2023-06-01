@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon app.js",
-    "recreate-db": "rm -f data.sqlite3 && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
+    "recreate-db": "rm -f data.sqlite3 && sequelize-cli db:migrate && NODE_OPTIONS=--max-old-space-size=16384 sequelize-cli db:seed:all"
   },
   "nodemonConfig": {
     "ignore": ["**/gene_data/**"],

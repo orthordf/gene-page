@@ -9,8 +9,13 @@ label.radio-label(for='synonym-search-radio')='Synonyms'
 input(type='radio', id='free-search-radio', name='search-mode', value='free-text', checked = searchMode === 'free-text')
 label.radio-label(for='free-search-radio')='Free text search'
 .float-right
-  label.small-label(for='tax-id-input', style='margin-left:25px;')='Taxonomy ID:'
+  label.small-label(for='tax-id-input')='Taxonomy ID:'
   input#tax-id-input(type='text', name='taxId', list="taxonomy-candidates" placeholder='Taxonomy id' value=taxId || 9606)
+  - let currentTaxonomy = taxonomyCandidates.filter(taxonomy => taxonomy.id == taxId)[0]
+  if currentTaxonomy
+    br
+    div(style="font-weight: bold;")
+      =`${currentTaxonomy.scientific_name} (${currentTaxonomy.common_name})`
   datalist#taxonomy-candidates
     each taxonomy in taxonomyCandidates
       option(value=taxonomy.id)=`${taxonomy.id} ${taxonomy.scientific_name} (${taxonomy.common_name})`

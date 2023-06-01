@@ -270,6 +270,7 @@ input[type=radio], .radio-label {
 
 .float-right {
   float: right;
+  text-align: right;
 }
 
 .align-center {
