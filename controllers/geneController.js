@@ -1,7 +1,7 @@
 const fs = require('fs');
 const Papa = require('papaparse')
 const { Op } = require("sequelize");
-const { Gene2RefSeqTax9606, GeneInfo, HomologeneSpecies, Gene2RefSeq } = require('../models')
+const { Gene2RefSeqTax9606, GeneInfo, HomologeneSpecies, Species, Gene2RefSeq } = require('../models')
 const createError = require("http-errors");
 
 
@@ -56,6 +56,11 @@ async function getHomologenes(groupId) {
     }
   });
   return [homologene, species];
+}
+
+async function getTaxonomyCandidates() {
+  let candidates = await Species.findAll();
+  return candidates.map(r => r.dataValues);
 }
 
 async function getBlastScores(symbol) {
@@ -150,14 +155,7 @@ const geneController = {
     const totalPages = Math.ceil(count / limit);
     const pagination = { totalPages, page, totalCount: count, };
 
-    let species = await HomologeneSpecies.findAll({order: ['sp_order']});
-    species = species.map(r => {
-      let data = r.dataValues;
-      data.isHomologene = false;
-      return data;
-    });
-
-    res.render('gene/index', { title: 'Search Gene Info', geneInfoList, species, pagination, query, searchMode, taxId });
+    res.render('gene/index', { title: 'Search Gene Info', geneInfoList, taxonomyCandidates: await getTaxonomyCandidates(), pagination, query, searchMode, taxId });
   },
 
 
@@ -171,6 +169,7 @@ const geneController = {
 
     res.render('gene/detail', {
       title: description,
+      taxonomyCandidates: await getTaxonomyCandidates(),
       id,
       symbol,
       description,

@@ -66,15 +66,15 @@ module.exports = {
       }
     });
 
-    await queryInterface.bulkDelete("species", null, {
+    await queryInterface.bulkDelete("homologene_species", null, {
       truncate: true,
       cascade: true,
     });
 
-    return queryInterface.bulkInsert('species', records);
+    return queryInterface.bulkInsert('homologene_species', records);
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('species');
+    await queryInterface.dropTable('homologene_species');
   }
 };

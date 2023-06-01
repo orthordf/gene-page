@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     wikidata_thumbnail_url: DataTypes.STRING
   }, {
     sequelize,
-    tableName: 'species',
+    tableName: 'homologene_species',
     modelName: 'HomologeneSpecies',
 
     name: {
