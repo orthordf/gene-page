@@ -271,3 +271,8 @@ input[type=radio], .radio-label {
 .float-right {
   float: right;
 }
+
+.align-center {
+  display: inline-block;
+  vertical-align: middle;
+}

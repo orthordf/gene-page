@@ -158,7 +158,7 @@ const geneController = {
     const totalPages = Math.ceil(count / limit);
     const pagination = { totalPages, page, totalCount: count, };
 
-    res.render('gene/index', { title: 'Search Gene Info', geneInfoList, taxonomyCandidates: await getTaxonomyCandidates(), pagination, query, searchMode, taxId });
+    res.render('gene/index', { title: 'Search Gene Info', geneInfoList, limit, taxonomyCandidates: await getTaxonomyCandidates(), pagination, query, searchMode, taxId });
   },
 
 
