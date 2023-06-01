@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Species extends Model {
+  class HomologeneSpecies extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
     }
   }
-  Species.init({
+  HomologeneSpecies.init({
     sp_order: DataTypes.INTEGER,
     scientific_name: DataTypes.STRING,
     common_name: DataTypes.STRING,
@@ -31,7 +31,12 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     tableName: 'species',
-    modelName: 'Species',
+    modelName: 'HomologeneSpecies',
+
+    name: {
+      singular: 'HomologeneSpecies',
+      plural: 'HomologeneSpecies'
+    }
   });
-  return Species;
+  return HomologeneSpecies;
 };

@@ -1,7 +1,7 @@
 const fs = require('fs');
 const Papa = require('papaparse')
 const { Op } = require("sequelize");
-const { Gene2RefSeqTax9606, GeneInfo, Species, Gene2RefSeq } = require('../models')
+const { Gene2RefSeqTax9606, GeneInfo, HomologeneSpecies, Gene2RefSeq } = require('../models')
 const createError = require("http-errors");
 
 
@@ -35,7 +35,7 @@ async function getRefseqInfo(geneId, seed) {
 
 // Return list of homologene and list of species with isHomologene flag
 async function getHomologenes(groupId) {
-  let species = await Species.findAll({order: ['sp_order']});
+  let species = await HomologeneSpecies.findAll({order: ['sp_order']});
   species = species.map(r => {
     let data = r.dataValues;
     data.isHomologene = false;
@@ -44,7 +44,7 @@ async function getHomologenes(groupId) {
   if(!groupId) {
     return [[], species];
   }
-  let records = await GeneInfo.findAll({ where: { group_id: groupId }, include: Species, order: [[Species, 'sp_order', 'ASC']]});
+  let records = await GeneInfo.findAll({ where: { group_id: groupId }, include: HomologeneSpecies, order: [[HomologeneSpecies, 'sp_order', 'ASC']]});
   let homologene = records.map(r => r.dataValues);
 
   homologene.forEach(gene => {
@@ -150,7 +150,7 @@ const geneController = {
     const totalPages = Math.ceil(count / limit);
     const pagination = { totalPages, page, totalCount: count, };
 
-    let species = await Species.findAll({order: ['sp_order']});
+    let species = await HomologeneSpecies.findAll({order: ['sp_order']});
     species = species.map(r => {
       let data = r.dataValues;
       data.isHomologene = false;
