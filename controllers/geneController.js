@@ -114,12 +114,15 @@ const geneController = {
     let query = req.query.query || '';
     const searchMode = req.query.searchMode;
     const page = parseInt(req.query.page) || 1;
-    const taxId = parseInt(req.query.taxId) || 9606;
+    const taxId = parseInt(req.query.taxId) || req.cookies.taxId || 9606;
     const limit = 100;
     const offset = (page - 1) * limit;
     const where = {
       tax_id: taxId
     };
+    res.cookie("taxId", taxId, {
+      httpOnly: false,
+    });
     if(query) {
       // If query starts with '^', perform forward match
       let patternString = query.startsWith('^') ? `${query.substring(1)}%` : `%${query}%`;
@@ -165,12 +168,14 @@ const geneController = {
     const seed = {};
     const refseqStatusTable = await getRefseqInfo(id, seed);
     const [homologenes, species] = await getHomologenes(geneInfo.group_id);
+    const taxId = req.cookies.taxId || 9606;
     const [blastScores, reverseBestsDict] = await(getBlastScores(geneInfo.symbol));
 
     res.render('gene/detail', {
       title: description,
       taxonomyCandidates: await getTaxonomyCandidates(),
       id,
+      taxId,
       symbol,
       description,
       geneInfo,

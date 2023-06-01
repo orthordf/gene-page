@@ -25,7 +25,8 @@ script.
       search()
     });
     document.getElementById('tax-id-input').addEventListener('change', (e) => {
-      search(true)
+      if(document.querySelector('input[name="taxId"]')?.value)
+        search(true)
     });
 
     function search(force=false) {
