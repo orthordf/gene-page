@@ -8,29 +8,46 @@ input(type='radio', id='synonym-search-radio', name='search-mode', value='synony
 label.radio-label(for='synonym-search-radio')='Synonyms'
 input(type='radio', id='free-search-radio', name='search-mode', value='free-text', checked = searchMode === 'free-text')
 label.radio-label(for='free-search-radio')='Free text search'
+label.radio-label(for='free-search-radio', style='margin-left:25px;')='Taxonomy ID:'
+input#tax-id-input(type='text', name='taxId', list="taxonomy-candidates" placeholder='Taxonomy id' value=taxId || 9606)
+datalist#taxonomy-candidates
+  each taxonomy in species
+    option(value=taxonomy.id)=`${taxonomy.id} ${taxonomy.scientific_name} (${taxonomy.common_name})`
 
 script.
-  let oldQuery = "!{query}";
-  document.getElementById('search-box').addEventListener('keydown', (e) => { if(e.keyCode === 13) search() });
-  document.getElementById('search-button').addEventListener('click', (e) => { search() });
-  function search(e) {
-    let query = document.getElementById('search-box').value
-    let searchMode = document.querySelector('input[name="search-mode"]:checked')?.value
-    let taxId = document.querySelector('input[name="taxId"]')?.value
-    if(!searchMode) {
-      searchMode = 'free-text'
-    }
-    if(oldQuery === query && (searchMode === "!{searchMode}" || !query) ) {
-      return
-    }
-    let url = new URL(window.location.href)
-    url.pathname = "!{pathFromRoot('/genes')}";
-    url.searchParams.set('query', query);
-    url.searchParams.set('searchMode', searchMode);
-    url.searchParams.set('taxId', taxId);
-    url.searchParams.set('page', 1);
-    window.location.href = url;
-  }
+  window.onload = () => {
+    let oldQuery = "!{query}";
+    document.getElementById('search-box').addEventListener('keydown', (e) => {
+      if(e.keyCode === 13) search()
+    });
+    document.getElementById('search-button').addEventListener('click', (e) => {
+      search()
+    });
+    document.getElementById('tax-id-input').addEventListener('change', (e) => {
+      search(true)
+    });
 
-  // Execute searching when radio buttons are clicked
-  document.querySelectorAll('input[name="search-mode"]').forEach(radio => radio.addEventListener('click', (e) => { search() }));
+    function search(force=false) {
+      let query = document.getElementById('search-box').value
+      let searchMode = document.querySelector('input[name="search-mode"]:checked')?.value
+      let taxId = document.querySelector('input[name="taxId"]')?.value
+      if(!searchMode) {
+        searchMode = 'free-text'
+      }
+      if(!force && (oldQuery === query && (searchMode === "!{searchMode}" || !query))) {
+        return
+      }
+      let url = new URL(window.location.href)
+      url.pathname = "!{pathFromRoot('/genes')}";
+      url.searchParams.set('query', query);
+      url.searchParams.set('searchMode', searchMode);
+      url.searchParams.set('taxId', taxId);
+      url.searchParams.set('page', 1);
+      window.location.href = url;
+    }
+
+    // Execute searching when radio buttons are clicked
+    document.querySelectorAll('input[name="search-mode"]').forEach(radio => radio.addEventListener('click', (e) => {
+      search()
+    }));
+  }

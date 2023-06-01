@@ -10,11 +10,6 @@ block content
       div.search-area
         span
           include includes/search-area.pug
-
-    input(type='text', name='taxId', list="taxonomy-candidates" placeholder='Taxonomy id' value=taxId)
-    datalist#taxonomy-candidates
-      each taxonomy in species
-        option(value=taxonomy.id)=`${taxonomy.id} ${taxonomy.scientific_name} (${taxonomy.common_name})`
     br
     - let includingNotAuthorized = false
     if query
