@@ -57,4 +57,14 @@ script.
     document.querySelectorAll('input[name="search-mode"]').forEach(radio => radio.addEventListener('click', (e) => {
       search()
     }));
+
+
+    document.addEventListener('keydown', e => {
+      if(e.key === '/') {
+        if(document.activeElement.id !== 'search-box') {
+          e.preventDefault();
+          document.getElementById('search-box').focus();
+        }
+      }
+    });
   }
