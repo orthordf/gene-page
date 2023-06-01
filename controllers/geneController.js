@@ -150,7 +150,14 @@ const geneController = {
     const totalPages = Math.ceil(count / limit);
     const pagination = { totalPages, page, totalCount: count, };
 
-    res.render('gene/index', { title: 'Search Gene Info', geneInfoList, pagination, query, searchMode, taxId });
+    let species = await Species.findAll({order: ['sp_order']});
+    species = species.map(r => {
+      let data = r.dataValues;
+      data.isHomologene = false;
+      return data;
+    });
+
+    res.render('gene/index', { title: 'Search Gene Info', geneInfoList, species, pagination, query, searchMode, taxId });
   },
 
 
