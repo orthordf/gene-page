@@ -19,6 +19,9 @@ block content
       =` human genes (hit strings shown in `
       span.text-bold="bold"
       =")"
+    else
+      span.text-bold=pagination.totalCount
+      =` genes exist in the database`
     if pagination.totalPages > 1
       div.text-center
         ul.pagination
