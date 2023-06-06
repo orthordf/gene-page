@@ -68,7 +68,7 @@ module.exports = {
         cascade: true,
       });
 
-      const fileStream = fs.createReadStream('gene_data/gene_info_tax9606.2022-09-30');
+      const fileStream = fs.createReadStream('gene_data/gene_info');
       const rl = readline.createInterface({
         input: fileStream,
         crlfDelay: Infinity
