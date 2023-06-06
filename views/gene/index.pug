@@ -159,7 +159,7 @@ block content
                 a(href=`https://www.ncbi.nlm.nih.gov/gene/${geneInfo.id}` target='_blank' rel='noopener noreferrer')
                   ='NCBI'
               td
-                if searchMode === 'free-text' && query && geneInfo.modification_date.includesCI(queryContent)
+                if searchMode === 'free-text' && query && geneInfo.modification_date && geneInfo.modification_date.includesCI(queryContent)
                   span.text-bold=geneInfo.modification_date
                 else
                   =geneInfo.modification_date
