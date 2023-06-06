@@ -144,7 +144,7 @@ block content
                       =line
                     br
               td
-                if searchMode === 'free-text' && query && geneInfo.map_location.includesCI(queryContent)
+                if searchMode === 'free-text' && query && geneInfo.map_location && geneInfo.map_location.includesCI(queryContent)
                   span.text-bold=geneInfo.map_location
                 else
                   =geneInfo.map_location
