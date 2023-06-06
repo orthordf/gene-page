@@ -64,6 +64,8 @@ script.
         if(document.activeElement.id !== 'search-box') {
           e.preventDefault();
           document.getElementById('search-box').focus();
+          let currentLength = document.getElementById('search-box').value.length;
+          document.getElementById('search-box').setSelectionRange(currentLength, currentLength);
         }
       }
     });
