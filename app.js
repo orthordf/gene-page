@@ -24,6 +24,8 @@ app.use(config.baseUrl, express.static(path.join(__dirname, 'public')));
 
 app.locals.pathFromRoot = (filePath) => path.join(config.baseUrl, filePath);
 
+app.locals.taxonomyDisplayName = (taxonomy) => `${taxonomy.scientific_name} (${taxonomy.common_name})`;
+
 app.use(config.baseUrl, indexRouter);
 app.use(path.join(config.baseUrl, 'genes'), genesRouter);
 

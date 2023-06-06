@@ -6,7 +6,8 @@ block content
   - String.prototype.includesCI = function (str) { return this.toLowerCase().indexOf(str.toLowerCase()) !== -1; }
   div.container
     div.title-header
-      a(href=pathFromRoot('/genes')) Human genes
+      a(href=pathFromRoot('/genes'))
+        =`${currentTaxonomy ? taxonomyDisplayName(currentTaxonomy) : 'Human'}`
       div.search-area
         span
           include includes/search-area.pug
@@ -16,7 +17,7 @@ block content
       span.text-bold=`"${query}"`
       =" hit "
       span.text-bold=pagination.totalCount
-      =` human genes (hit strings shown in `
+      =` genes (hit strings shown in `
       span.text-bold="bold"
       =")"
     else

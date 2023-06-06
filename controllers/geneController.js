@@ -58,9 +58,13 @@ async function getHomologenes(groupId) {
   return [homologene, species];
 }
 
-async function getTaxonomyCandidates() {
-  let candidates = await Species.findAll();
-  return candidates.map(r => r.dataValues);
+async function currentTaxonomyAndCandidates(taxId) {
+  let candidates = (await Species.findAll()).map(r => r.dataValues);
+  currentTaxonomy = candidates.find(r => r.id == taxId);
+  return {
+    currentTaxonomy,
+    taxonomyCandidates:  candidates
+  }
 }
 
 async function getBlastScores(symbol) {
@@ -158,7 +162,8 @@ const geneController = {
     const totalPages = Math.ceil(count / limit);
     const pagination = { totalPages, page, totalCount: count, };
 
-    res.render('gene/index', { title: 'Search Gene Info', geneInfoList, limit, taxonomyCandidates: await getTaxonomyCandidates(), pagination, query, searchMode, taxId });
+    res.render('gene/index', { title: 'Search Gene Info', geneInfoList, limit, 
+      ...(await currentTaxonomyAndCandidates(taxId)), pagination, query, searchMode, taxId });
   },
 
 
@@ -173,7 +178,7 @@ const geneController = {
 
     res.render('gene/detail', {
       title: description,
-      taxonomyCandidates: await getTaxonomyCandidates(),
+      ...(await currentTaxonomyAndCandidates(taxId)),
       id,
       taxId,
       symbol,

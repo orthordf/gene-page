@@ -9,7 +9,8 @@ block head
 block content
   div.container
     div.title-header
-      a(href=pathFromRoot('/genes')) Human genes
+      a(href=pathFromRoot('/genes'))
+        =`${currentTaxonomy ? taxonomyDisplayName(currentTaxonomy) : 'Human'}`
       div.search-area
         span
           include includes/search-area.pug

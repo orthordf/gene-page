@@ -1,4 +1,4 @@
-input(type='search', id='search-box', placeholder='Search human genes', style="width: 300px; margin-bottom: 10px;" value = query)
+input(type='search', id='search-box', placeholder='Search genes', style="width: 300px; margin-bottom: 10px;" value = query)
 button(id='search-button')='Search'
 ="  "
 // Add radio buttons to control search mode
@@ -9,16 +9,11 @@ label.radio-label(for='synonym-search-radio')='Synonyms'
 input(type='radio', id='free-search-radio', name='search-mode', value='free-text', checked = searchMode === 'free-text')
 label.radio-label(for='free-search-radio')='Free text search'
 .float-right
-  label.small-label(for='tax-id-input')='Taxonomy ID:'
-  input#tax-id-input(type='text', name='taxId', list="taxonomy-candidates" placeholder='Taxonomy id' value=taxId || 9606)
-  - let currentTaxonomy = taxonomyCandidates.filter(taxonomy => taxonomy.id == taxId)[0]
-  if currentTaxonomy
-    br
-    div(style="font-weight: bold;")
-      =`${currentTaxonomy.scientific_name} (${currentTaxonomy.common_name})`
+  label#switch-taxonomy-button(for='tax-id-input')
+  input#tax-id-input(type='text', name='taxId', list="taxonomy-candidates" placeholder='Taxonomy id')
   datalist#taxonomy-candidates
     each taxonomy in taxonomyCandidates
-      option(value=taxonomy.id)=`${taxonomy.id} ${taxonomy.scientific_name} (${taxonomy.common_name})`
+      option(value=`${taxonomy.id} ${taxonomy.scientific_name} (${taxonomy.common_name})`)
 
 script.
   window.onload = () => {
@@ -37,13 +32,17 @@ script.
     function search(force=false) {
       let query = document.getElementById('search-box').value
       let searchMode = document.querySelector('input[name="search-mode"]:checked')?.value
-      let taxId = document.querySelector('input[name="taxId"]')?.value
+      let taxId = document.querySelector('input[name="taxId"]')?.value.split(' ')[0]
       if(!searchMode) {
         searchMode = 'free-text'
       }
       if(!force && (oldQuery === query && (searchMode === "!{searchMode}" || !query))) {
         return
       }
+      if(taxId && !taxId.match(/^\d+$/)) {
+        return
+      }
+
       let url = new URL(window.location.href)
       url.pathname = "!{pathFromRoot('/genes')}";
       url.searchParams.set('query', query);
@@ -69,4 +68,28 @@ script.
         }
       }
     });
+
+    let switchButton = document.getElementById('switch-taxonomy-button');
+    let taxIdInput = document.getElementById('tax-id-input');
+
+    switchButton.addEventListener('click', (e) => {
+      taxIdInput.style.width = '250px';
+      taxIdInput.style["padding-left"] = '10px';
+      switchButton.style.right = '200px';
+      // open autocomplete of taxIdInput
+    })
+
+
+    taxIdInput.addEventListener('transitionend', (e) => {
+      if(taxIdInput.clientWidth > 0) {
+        taxIdInput.click();
+      }
+    });
+
+    taxIdInput.addEventListener('blur', (e) => {
+      taxIdInput.style.width = '0px';
+      taxIdInput.style["padding-left"] = '0px';
+      switchButton.style.right = '20px';
+    });
+
   }
