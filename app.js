@@ -5,12 +5,15 @@ let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
-let config = require('./config/config.json');
 
 let indexRouter = require('./routes/index');
 let genesRouter = require('./routes/genes');
 
 let app = express();
+
+require('dotenv').config();
+
+const baseUrl = process.env.BASE_URL || '/resource/';
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -20,22 +23,22 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(config.baseUrl, express.static(path.join(__dirname, 'public')));
+app.use(baseUrl, express.static(path.join(__dirname, 'public')));
 
-app.locals.pathFromRoot = (filePath) => path.join(config.baseUrl, filePath);
+app.locals.pathFromRoot = (filePath) => path.join(baseUrl, filePath);
 
 app.locals.taxonomyDisplayName = (taxonomy) => `${taxonomy.scientific_name} (${taxonomy.common_name})`;
 
-app.use(config.baseUrl, indexRouter);
-app.use(path.join(config.baseUrl, 'genes'), genesRouter);
+app.use(baseUrl, indexRouter);
+app.use(path.join(baseUrl, 'genes'), genesRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -45,7 +48,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-let port = config.port;
+let port = process.env.PORT || 8100;
 let server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
@@ -57,9 +60,7 @@ function onError(error) {
     throw error;
   }
 
-  let bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  let bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -79,8 +80,6 @@ function onError(error) {
 // Event listener for HTTP server "listening" event.
 function onListening() {
   let addr = server.address();
-  let bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
+  let bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }

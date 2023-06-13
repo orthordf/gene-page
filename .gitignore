@@ -1,3 +1,6 @@
 node_modules/
 data.sqlite3
 gene_data/blast.scores
+gene_data/gene_info
+gene_data/gene2refseqs
+.env
