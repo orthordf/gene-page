@@ -25,7 +25,8 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: 'Gene2RefSeq',
-      tableName: 'gene2refseqs'
+      tableName: 'gene2refseqs',
+      timestamps: false
     }
   );
   return Gene2RefSeq;
