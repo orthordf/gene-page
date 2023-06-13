@@ -18,7 +18,7 @@ async function insertGene2RefseqTSV(queryInterface, tsv) {
       status,
       'RNA_nucleotide_accession.version': rna_nucleotide_accession_version,
       RNA_nucleotide_gi: rna_nucleotide_gi,
-      'protein_accession.versione': protein_accession_version,
+      'protein_accession.version': protein_accession_version,
       protein_gi,
       'genomic_nucleotide_accession.version': genomic_nucleotide_accession_version,
       genomic_nucleotide_gi,
@@ -60,6 +60,11 @@ async function insertGene2RefseqTSV(queryInterface, tsv) {
 
 module.exports = {
   async up(queryInterface, Sequelize) {
+    await queryInterface.bulkDelete('gene2refseqs', null, {
+      truncate: true,
+      cascade: true
+    });
+
     const fileStream = fs.createReadStream('gene_data/gene2refseqs');
     const rl = readline.createInterface({
       input: fileStream,
@@ -78,12 +83,12 @@ module.exports = {
       }
 
       if (fileContent.length >= 1e6) {
-        insertGene2RefseqTSV(queryInterface, headerLine + fileContent.trimEnd());
+        await insertGene2RefseqTSV(queryInterface, headerLine + fileContent.trimEnd());
         fileContent = '';
       }
     }
 
-    insertGene2RefseqTSV(queryInterface, headerLine + fileContent.trimEnd());
+    await insertGene2RefseqTSV(queryInterface, headerLine + fileContent.trimEnd());
   },
 
   async down(queryInterface, Sequelize) {}
