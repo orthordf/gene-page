@@ -1,7 +1,5 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Gene2RefSeqTax9606 extends Model {
     /**
@@ -13,16 +11,19 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Gene2RefSeqTax9606.init({
-    gene_id: DataTypes.STRING,
-    rna_nucleotide_accession_version: DataTypes.STRING,
-    protein_accession_version: DataTypes.STRING,
-    status: DataTypes.STRING
-  }, {
-    sequelize,
-    tableName: 'gene2refseq_tax9606',
-    modelName: 'Gene2RefSeqTax9606',
-    timestamps: false,
-  });
+  Gene2RefSeqTax9606.init(
+    {
+      gene_id: DataTypes.STRING,
+      rna_nucleotide_accession_version: DataTypes.STRING,
+      protein_accession_version: DataTypes.STRING,
+      status: DataTypes.STRING
+    },
+    {
+      sequelize,
+      tableName: 'gene2refseq_tax9606',
+      modelName: 'Gene2RefSeqTax9606',
+      timestamps: false
+    }
+  );
   return Gene2RefSeqTax9606;
 };

@@ -1,7 +1,5 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class HomologeneSpecies extends Model {
     /**
@@ -9,34 +7,36 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
-    }
+    static associate(models) {}
   }
-  HomologeneSpecies.init({
-    sp_order: DataTypes.INTEGER,
-    scientific_name: DataTypes.STRING,
-    common_name: DataTypes.STRING,
-    comment: DataTypes.STRING,
-    time_tree_mya: DataTypes.STRING,
-    genome_id: DataTypes.STRING,
-    genome_release: DataTypes.STRING,
-    genome_date: DataTypes.STRING,
-    annotation_release:   DataTypes.STRING,
-    annotation_date: DataTypes.STRING,
-    input_genes: DataTypes.STRING,
-    grouped_genes: DataTypes.STRING,
-    groups: DataTypes.STRING,
-    wikidata_url: DataTypes.STRING,
-    wikidata_thumbnail_url: DataTypes.STRING
-  }, {
-    sequelize,
-    tableName: 'homologene_species',
-    modelName: 'HomologeneSpecies',
+  HomologeneSpecies.init(
+    {
+      sp_order: DataTypes.INTEGER,
+      scientific_name: DataTypes.STRING,
+      common_name: DataTypes.STRING,
+      comment: DataTypes.STRING,
+      time_tree_mya: DataTypes.STRING,
+      genome_id: DataTypes.STRING,
+      genome_release: DataTypes.STRING,
+      genome_date: DataTypes.STRING,
+      annotation_release: DataTypes.STRING,
+      annotation_date: DataTypes.STRING,
+      input_genes: DataTypes.STRING,
+      grouped_genes: DataTypes.STRING,
+      groups: DataTypes.STRING,
+      wikidata_url: DataTypes.STRING,
+      wikidata_thumbnail_url: DataTypes.STRING
+    },
+    {
+      sequelize,
+      tableName: 'homologene_species',
+      modelName: 'HomologeneSpecies',
 
-    name: {
-      singular: 'HomologeneSpecies',
-      plural: 'HomologeneSpecies'
+      name: {
+        singular: 'HomologeneSpecies',
+        plural: 'HomologeneSpecies'
+      }
     }
-  });
+  );
   return HomologeneSpecies;
 };

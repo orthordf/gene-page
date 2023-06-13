@@ -1,20 +1,18 @@
 'use strict';
-const fs = require("fs");
-const Papa = require("papaparse");
-const readline = require("readline");
+const fs = require('fs');
+const Papa = require('papaparse');
+const readline = require('readline');
 /** @type {import('sequelize-cli').Migration} */
-
-
 
 async function insertGeneTSV(queryInterface, tsv) {
   let geneInfos = Papa.parse(tsv, {
     header: true,
-    delimiter: "\t"
+    delimiter: '\t'
   });
 
-  let records = geneInfos.data.map(record => {
+  let records = geneInfos.data.map((record) => {
     let {
-      "#tax_id": tax_id,
+      '#tax_id': tax_id,
       GeneID: id,
       Symbol: symbol,
       LocusTag: locus_tag,
@@ -49,8 +47,8 @@ async function insertGeneTSV(queryInterface, tsv) {
       other_designations,
       modification_date,
       feature_type,
-      createdAt: (new Date()).toISOString(),
-      updatedAt: (new Date()).toISOString()
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
     };
   });
   queryInterface.bulkInsert('gene_infos', records, {
@@ -59,13 +57,12 @@ async function insertGeneTSV(queryInterface, tsv) {
 }
 
 module.exports = {
-
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     const t = await queryInterface.sequelize.transaction();
     try {
-      await queryInterface.bulkDelete("gene_infos", null, {
+      await queryInterface.bulkDelete('gene_infos', null, {
         truncate: true,
-        cascade: true,
+        cascade: true
       });
 
       const fileStream = fs.createReadStream('gene_data/gene_info');
@@ -78,14 +75,14 @@ module.exports = {
       let headerLine = null;
 
       for await (const line of rl) {
-        if(headerLine === null) {
-          headerLine = line + "\n";
+        if (headerLine === null) {
+          headerLine = line + '\n';
           continue;
         } else {
-          fileContent += line + "\n";
+          fileContent += line + '\n';
         }
 
-        if(fileContent.length >= 1e6) {
+        if (fileContent.length >= 1e6) {
           insertGeneTSV(queryInterface, headerLine + fileContent.trimEnd());
           fileContent = '';
         }
@@ -93,25 +90,25 @@ module.exports = {
 
       insertGeneTSV(queryInterface, headerLine + fileContent.trimEnd());
 
-      let homologeneFileContent = fs.readFileSync("gene_data/homologene.data").toString();
+      let homologeneFileContent = fs.readFileSync('gene_data/homologene.data').toString();
       let homologeneInfos = Papa.parse(homologeneFileContent);
-      let homologeneRecords =  homologeneInfos.data.map(h => {
+      let homologeneRecords = homologeneInfos.data.map((h) => {
         let groupId = h[0];
         let geneId = h[2];
         return {
-            id: geneId,
-            tax_id: h[1],
-            group_id: groupId,
-            symbol: h[3],
-            protein_id: h[5],
-            createdAt: Date.now(),
-            updatedAt: Date.now()
+          id: geneId,
+          tax_id: h[1],
+          group_id: groupId,
+          symbol: h[3],
+          protein_id: h[5],
+          createdAt: Date.now(),
+          updatedAt: Date.now()
         };
       });
 
       await queryInterface.bulkInsert('gene_infos', homologeneRecords, {
-        upsertKeys: ["id"],
-        updateOnDuplicate: ["group_id", "protein_id"]
+        upsertKeys: ['id'],
+        updateOnDuplicate: ['group_id', 'protein_id']
       });
     } catch (e) {
       await t.rollback();
@@ -119,6 +116,5 @@ module.exports = {
     }
   },
 
-  async down (queryInterface, Sequelize) {
-  }
+  async down(queryInterface, Sequelize) {}
 };

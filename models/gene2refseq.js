@@ -1,7 +1,5 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Gene2RefSeq extends Model {
     /**
@@ -16,14 +14,17 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
-  Gene2RefSeq.init({
-    gene_id: DataTypes.STRING,
-    symbol: DataTypes.STRING,
-    protein_id: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Gene2RefSeq',
-    tableName: 'gene2refseqs',
-  });
+  Gene2RefSeq.init(
+    {
+      gene_id: DataTypes.STRING,
+      symbol: DataTypes.STRING,
+      protein_id: DataTypes.STRING
+    },
+    {
+      sequelize,
+      modelName: 'Gene2RefSeq',
+      tableName: 'gene2refseqs'
+    }
+  );
   return Gene2RefSeq;
 };
