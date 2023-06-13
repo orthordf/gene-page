@@ -4,11 +4,17 @@
   "private": true,
   "scripts": {
     "start": "nodemon app.js",
-    "recreate-db": "rm -f data.sqlite3 && sequelize-cli db:migrate && NODE_OPTIONS=--max-old-space-size=16384 sequelize-cli db:seed:all"
+    "recreate-db": "rm -f data.sqlite3 && sequelize-cli db:migrate && NODE_OPTIONS=--max-old-space-size=16384 sequelize-cli db:seed:all",
+    "prettier": "prettier --write **/*.js"
   },
   "nodemonConfig": {
     "ignore": ["**/gene_data/**"],
     "delay": 2500
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "none",
+    "printWidth": 180
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -22,5 +28,8 @@
     "sequelize": "^6.29.0",
     "sequelize-cli": "^6.6.0",
     "sqlite3": "5.0.2"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8"
   }
 }
