@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": null,
+    "password": null,
+    "database": "database_development",
+    "host": "localhost",
+    "dialect": "sqlite",
+    "storage": "sequelize/data.sqlite3"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "sqlite"
+  },
+  "production": {
+    "username": null,
+    "password": null,
+    "database": "database_production",
+    "host": "localhost",
+    "dialect": "sqlite",
+    "storage": "sequelize/prod-data.sqlite3"
+  }
+}

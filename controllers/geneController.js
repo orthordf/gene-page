@@ -1,7 +1,7 @@
 const fs = require('fs');
 const Papa = require('papaparse');
 const { Op } = require('sequelize');
-const { GeneInfo, HomologeneSpecies, Species, Gene2RefSeq } = require('../models');
+const { GeneInfo, HomologeneSpecies, Species, Gene2RefSeq } = require('../sequelize/models');
 const createError = require('http-errors');
 
 async function getGeneInfo(geneId) {
