@@ -18,7 +18,9 @@ module.exports = (sequelize, DataTypes) => {
     {
       gene_id: DataTypes.STRING,
       symbol: DataTypes.STRING,
-      protein_id: DataTypes.STRING
+      rna_nucleotide_accession_version: DataTypes.STRING,
+      protein_accession_version: DataTypes.STRING,
+      status: DataTypes.STRING
     },
     {
       sequelize,

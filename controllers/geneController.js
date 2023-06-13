@@ -1,7 +1,7 @@
 const fs = require('fs');
 const Papa = require('papaparse');
 const { Op } = require('sequelize');
-const { Gene2RefSeqTax9606, GeneInfo, HomologeneSpecies, Species, Gene2RefSeq } = require('../models');
+const { GeneInfo, HomologeneSpecies, Species, Gene2RefSeq } = require('../models');
 const createError = require('http-errors');
 
 async function getGeneInfo(geneId) {
@@ -16,7 +16,7 @@ async function getGeneInfo(geneId) {
 
 async function getRefseqInfo(geneId, seed) {
   let refseqStatusTable = {};
-  let records = await Gene2RefSeqTax9606.findAll({ where: { gene_id: geneId } });
+  let records = await Gene2RefSeq.findAll({ where: { gene_id: geneId } });
   for (let row of records) {
     row = row.dataValues;
     let RNAVersion = row['rna_nucleotide_accession_version'];
@@ -91,20 +91,20 @@ async function getBlastScores(symbol) {
     return scoreDict;
   });
 
-  targetSymbols = await Gene2RefSeq.findAll({ where: { protein_id: blastScores.map((r) => r.target) }, include: GeneInfo });
+  targetSymbols = await Gene2RefSeq.findAll({ where: { protein_accession_version: blastScores.map((r) => r.target) }, include: GeneInfo });
 
   targetSymbols.forEach((r) => {
-    let scoreRecord = targetMap[r.dataValues.protein_id];
+    let scoreRecord = targetMap[r.dataValues.protein_accession_version];
     scoreRecord.targetSymbol = r.dataValues.symbol;
     scoreRecord.targetGeneID = r.dataValues.gene_id;
     scoreRecord.targetGroupID = r.GeneInfo?.group_id;
   });
 
-  let reverseBestsRecords = await Gene2RefSeq.findAll({ where: { protein_id: reverseBestsProteins }, include: GeneInfo });
+  let reverseBestsRecords = await Gene2RefSeq.findAll({ where: { protein_accession_version: reverseBestsProteins }, include: GeneInfo });
 
   let reverseBestsDict = {};
   reverseBestsRecords.forEach((r) => {
-    reverseBestsDict[r.dataValues.protein_id] = r.dataValues.symbol;
+    reverseBestsDict[r.dataValues.protein_accession_version] = r.dataValues.symbol;
   });
 
   return [blastScores, reverseBestsDict];
