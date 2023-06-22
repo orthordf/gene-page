@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "source .env && pm2 start app.js -i ${PROCESS_NUM:-max} --name gene-page",
+    "start": "source ./.env && pm2 start app.js -i ${PROCESS_NUM:-max} --name gene-page",
     "stop": "pm2 delete gene-page",
     "monit": "pm2 monit",
     "start-dev": "nodemon app.js",
