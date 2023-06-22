@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       this.belongsTo(models.HomologeneSpecies, {
-        foreignKey: 'tax_id'
+        foreignKey: 'homologene_tax_id'
       });
     }
   }

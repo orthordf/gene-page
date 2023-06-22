@@ -98,6 +98,7 @@ module.exports = {
         return {
           id: geneId,
           tax_id: h[1],
+          homologene_tax_id: h[1],
           group_id: groupId,
           symbol: h[3],
           protein_id: h[5],
@@ -108,7 +109,7 @@ module.exports = {
 
       await queryInterface.bulkInsert('gene_infos', homologeneRecords, {
         upsertKeys: ['id'],
-        updateOnDuplicate: ['group_id', 'protein_id']
+        updateOnDuplicate: ['homologene_tax_id', 'group_id', 'protein_id']
       });
     } catch (e) {
       await t.rollback();
