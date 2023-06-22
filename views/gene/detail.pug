@@ -103,16 +103,22 @@ block content
             td=homologene.protein_id
             td
               a(href=`https://orth.dbcls.jp/taxid/${homologene.tax_id}`)=homologene.tax_id
-            td=homologene.HomologeneSpecies.scientific_name
-            td=homologene.HomologeneSpecies.common_name
-            td=homologene.HomologeneSpecies.comment
-            td
-              a(href=homologene.HomologeneSpecies.wikidata_url, target='_blank' rel='noopener noreferrer')
-                if homologene.HomologeneSpecies.wikidata_thumbnail_url
-                  img.species-thumbnail(src=`${homologene.HomologeneSpecies.wikidata_thumbnail_url}?height=25`)
-                else
-                  ="Wikidata"
-
+            - let species = homologene.HomologeneSpecies
+            if species 
+              td=species.scientific_name
+              td=species.common_name
+              td=species.comment
+              td
+                a(href=species.wikidata_url, target='_blank' rel='noopener noreferrer')
+                  if species.wikidata_thumbnail_url
+                    img.species-thumbnail(src=`${species.wikidata_thumbnail_url}?height=25`)
+                  else
+                    ="Wikidata"
+            else 
+              td
+              td
+              td
+              td
 
 
     if blastScores !== null
