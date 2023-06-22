@@ -58,7 +58,7 @@ async function getHomologenes(groupId) {
 }
 
 async function currentTaxonomyAndCandidates(taxId) {
-  let candidates = (await Species.findAll()).map((r) => r.dataValues);
+  let candidates = (await Species.findAll({ order: ['sp_order'] })).map((r) => r.dataValues);
   currentTaxonomy = candidates.find((r) => r.id == taxId);
   return {
     currentTaxonomy,

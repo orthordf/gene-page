@@ -12,7 +12,7 @@ module.exports = {
 
     let records = speciesRecords.data
       .filter((s) => s['Taxonomy ID'])
-      .map((record) => {
+      .map((record, i) => {
         let { 'Taxonomy ID': id, 'Scientific name': scientific_name, 'Common name': common_name } = record;
 
         return {
@@ -20,7 +20,8 @@ module.exports = {
           scientific_name,
           common_name,
           createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString()
+          updatedAt: new Date().toISOString(),
+          sp_order: i + 1
         };
       });
 
