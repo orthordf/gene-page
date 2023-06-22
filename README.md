@@ -59,12 +59,20 @@ Prepare `gene_data/blast.scores/*.scores.txt`
 ## Start service
 
 ```
-$ npm start
+$ npm run start-dev # for development (run only one process)
+$ npm start     # for production-usage (run number of processes specified in ".env")
 ```
 
 Access to localhost:8100/resource/genes/6348
 
 (The port number is configured in `.env`)
+
+## Monitor and Stop service (only for production)
+
+```
+$ npm run monit # monitor
+$ npm stop      # stop the service
+```
 
 ## Implementation
 
