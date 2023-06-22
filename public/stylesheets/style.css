@@ -301,3 +301,17 @@ input[type=radio], .radio-label {
   transition: all 0.5s;
   position: absolute;
 }
+
+.accordion-content {
+  overflow: hidden;
+}
+
+
+
+.accordion-button {
+  background-color: transparent;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  border: none;
+}

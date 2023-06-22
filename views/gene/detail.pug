@@ -83,42 +83,52 @@ block content
                 td=proteinVersion
                 td=rnaVersion
 
-    h3=`HomoloGene: ${geneInfo.group_id ? geneInfo.group_id : ''}`
-    table(border=1)
-      thead(align='left')
-        tr
-          th='Gene ID'
-          th='Gene symbol'
-          th='RefSeq'
-          th='TaxID'
-          th='Scientific name'
-          th='Common name'
-          th='Comment'
-          th='Wikidata'
-      tbody
-        each homologene in homologenes
+
+    h3
+      button.accordion-button(type='button' data-target='homologene-div')
+        span.open-icon(style="display:none")
+          svg(xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16")
+            path(fill="currentColor" d="m4.427 7.427l3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z")
+        span.closed-icon
+          svg(xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16")
+            path(fill="currentColor" d="m6.427 4.427l3.396 3.396a.25.25 0 0 1 0 .354l-3.396 3.396A.25.25 0 0 1 6 11.396V4.604a.25.25 0 0 1 .427-.177Z")
+      span(style="vertical-align: super;")=`HomoloGene: ${geneInfo.group_id ? geneInfo.group_id : ''}`
+    div.accordion-content#homologene-div(style='height: 0px;')
+      table(border=1)
+        thead(align='left')
           tr
-            td=homologene.id
-            td=homologene.symbol
-            td=homologene.protein_id
-            td
-              a(href=`https://orth.dbcls.jp/taxid/${homologene.tax_id}`)=homologene.tax_id
-            - let species = homologene.HomologeneSpecies
-            if species 
-              td=species.scientific_name
-              td=species.common_name
-              td=species.comment
+            th='Gene ID'
+            th='Gene symbol'
+            th='RefSeq'
+            th='TaxID'
+            th='Scientific name'
+            th='Common name'
+            th='Comment'
+            th='Wikidata'
+        tbody
+          each homologene in homologenes
+            tr
+              td=homologene.id
+              td=homologene.symbol
+              td=homologene.protein_id
               td
-                a(href=species.wikidata_url, target='_blank' rel='noopener noreferrer')
-                  if species.wikidata_thumbnail_url
-                    img.species-thumbnail(src=`${species.wikidata_thumbnail_url}?height=25`)
-                  else
-                    ="Wikidata"
-            else 
-              td
-              td
-              td
-              td
+                a(href=`https://orth.dbcls.jp/taxid/${homologene.tax_id}`)=homologene.tax_id
+              - let species = homologene.HomologeneSpecies
+              if species 
+                td=species.scientific_name
+                td=species.common_name
+                td=species.comment
+                td
+                  a(href=species.wikidata_url, target='_blank' rel='noopener noreferrer')
+                    if species.wikidata_thumbnail_url
+                      img.species-thumbnail(src=`${species.wikidata_thumbnail_url}?height=25`)
+                    else
+                      ="Wikidata"
+              else 
+                td
+                td
+                td
+                td
 
 
     if blastScores !== null
@@ -206,6 +216,26 @@ block content
                     =' '
 
 block script
+  // Toggle visibility by accordion button
+  script.
+    document.querySelectorAll('.accordion-button').forEach(function(button) {
+      button.addEventListener('click', function(e) {
+        let targetId = button.dataset.target;
+        let targetElement = document.getElementById(targetId);
+        let openIcon = button.querySelector('.open-icon');
+        let closedIcon = button.querySelector('.closed-icon');
+        if(targetElement.style['height'] === '0px') {
+          targetElement.style['height'] = 'auto';
+          openIcon.style['display'] = '';
+          closedIcon.style['display'] = 'none';
+        } else {
+          targetElement.style['height'] = '0px';
+          openIcon.style['display'] = 'none';
+          closedIcon.style['display'] = '';
+        }
+      });
+    });
+
   if blastScores !== null
     script.
       // Initialize sortable table buttons
@@ -437,4 +467,5 @@ block script
           row.style.backgroundColor = '';
         });
       });
+
 
